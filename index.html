@@ -705,6 +705,71 @@
       width: 100%;
     }
 
+    /* ハンバーガーメニュー */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 6px;
+      z-index: 1000;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(8px, 8px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    /* モバイル用ナビゲーション */
+    .mobile-nav {
+      display: none;
+      position: absolute;
+      top: 70px;
+      left: 0;
+      right: 0;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.98) 0%, rgba(30, 41, 59, 0.98) 100%);
+      backdrop-filter: blur(10px);
+      flex-direction: column;
+      padding: 20px 0;
+      border-bottom: 2px solid rgba(96, 165, 244, 0.3);
+      z-index: 999;
+    }
+
+    .mobile-nav.active {
+      display: flex;
+    }
+
+    .mobile-nav a {
+      color: #cbd5e1;
+      text-decoration: none;
+      padding: 15px 40px;
+      font-weight: 600;
+      font-family: 'Baloo 2', 'Fredoka', sans-serif;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      letter-spacing: 0.5px;
+    }
+
+    .mobile-nav a:hover {
+      color: #60a5fa;
+      background: rgba(96, 165, 244, 0.1);
+      padding-left: 50px;
+    }
+
     /* Hero セクション上部に margin を追加 */
     .hero {
       margin-top: 70px;
@@ -719,14 +784,63 @@
 
       .header-logo {
         font-size: 1rem;
+        flex: 1;
       }
 
       .header-nav {
-        gap: 15px;
+        display: none;
       }
 
-      .header-nav a {
-        font-size: 0.8rem;
+      .hamburger {
+        display: flex;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero .subtitle {
+        font-size: 1rem;
+      }
+
+      .section-title {
+        font-size: 1.75rem;
+      }
+
+      .schedule-section,
+      .committee-section,
+      .vendor-section,
+      .stage-section {
+        padding: 40px 20px;
+      }
+
+      .schedule-quick {
+        gap: 12px;
+      }
+
+      .schedule-item {
+        padding: 10px 16px;
+        font-size: 0.85rem;
+      }
+
+      .schedule-table th,
+      .schedule-table td {
+        padding: 12px;
+        font-size: 0.9rem;
+      }
+
+      .time {
+        font-size: 0.95rem;
+      }
+
+      .event {
+        font-size: 0.95rem;
+      }
+
+      .committee-grid,
+      .vendor-grid,
+      .stage-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -743,7 +857,20 @@
         <li><a data-target="committee">実行委員</a></li>
       </ul>
     </nav>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </header>
+
+  <!-- モバイルナビゲーション -->
+  <nav class="mobile-nav" id="mobile-nav">
+    <a data-target="schedule">タイムテーブル</a>
+    <a data-target="vendor">出店一覧</a>
+    <a data-target="stage">ステージ企画</a>
+    <a data-target="committee">実行委員</a>
+  </nav>
 
   <!-- Hero Section -->
   <section class="hero">
@@ -976,7 +1103,33 @@
   </footer>
 
   <script>
-    // ナビゲーションリンク処理
+    // ハンバーガーメニュー機能
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobile-nav');
+    
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      mobileNav.classList.toggle('active');
+    });
+
+    // モバイルナビリンククリック時にメニューを閉じる
+    document.querySelectorAll('.mobile-nav a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('data-target');
+        const targetSection = document.getElementById(targetId);
+        
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        
+        // メニューを閉じる
+        hamburger.classList.remove('active');
+        mobileNav.classList.remove('active');
+      });
+    });
+
+    // デスクトップナビリンク機能
     document.querySelectorAll('.header-nav a').forEach(link => {
       link.addEventListener('click', (e) => {
         e.preventDefault();
