@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>N高キャンパスフェスティバル 2024</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif;
+      background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0d1b2a 100%);
+      color: #e4e4e7;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* === Hero Section === */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 25%, #0f172a 50%, #1e293b 75%, #0f172a 100%);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .particles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .particle {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: rgba(96, 165, 244, 0.5);
+      border-radius: 50%;
+      animation: float linear infinite;
+    }
+
+    @keyframes float {
+      0% {
+        opacity: 0;
+        transform: translateY(100vh) translateX(0);
+      }
+      10% {
+        opacity: 1;
+      }
+      90% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-100vh) translateX(100px);
+      }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      font-weight: 700;
+      background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 20px;
+      letter-spacing: -2px;
+      animation: glitch 3s ease-in-out infinite;
+    }
+
+    @keyframes glitch {
+      0%, 100% {
+        text-shadow: 0 0 30px rgba(96, 165, 244, 0.3);
+      }
+      50% {
+        text-shadow: 0 0 50px rgba(167, 139, 246, 0.5);
+      }
+    }
+
+    .hero .subtitle {
+      font-size: clamp(1rem, 3vw, 1.5rem);
+      color: #cbd5e1;
+      font-weight: 300;
+      margin-bottom: 40px;
+      max-width: 600px;
+      animation: slideIn 1s ease-out 0.2s both;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .hero .date-info {
+      font-size: 0.875rem;
+      color: #60a5fa;
+      letter-spacing: 1px;
+      margin-bottom: 30px;
+      animation: slideIn 1s ease-out 0.4s both;
+    }
+
+    .hero .cta-button {
+      display: inline-block;
+      padding: 16px 48px;
+      background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      box-shadow: 0 8px 24px rgba(59, 130, 246, 0.4);
+      animation: slideIn 1s ease-out 0.6s both;
+    }
+
+    .hero .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(59, 130, 246, 0.6);
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #94a3b8;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(10px); }
+    }
+
+    /* === Section Common === */
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin-bottom: 50px;
+      text-align: center;
+      background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* === Schedule Section === */
+    .schedule-section {
+      padding: 80px 40px;
+      background: linear-gradient(to bottom, #1a1f3a, #0f172a);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .schedule-quick {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 60px;
+      flex-wrap: wrap;
+    }
+
+    .schedule-item {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      font-size: 0.95rem;
+      color: #cbd5e1;
+      background: rgba(59, 130, 246, 0.1);
+      padding: 12px 20px;
+      border-radius: 50px;
+      border: 1px solid rgba(96, 165, 244, 0.3);
+    }
+
+    .schedule-item span:first-child {
+      color: #60a5fa;
+      font-weight: 600;
+    }
+
+    .schedule-container {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.8) 100%);
+      border-radius: 20px;
+      border: 1px solid rgba(96, 165, 244, 0.2);
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+    }
+
+    .schedule-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+    }
+
+    .schedule-table thead {
+      background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    }
+
+    .schedule-table th {
+      padding: 16px;
+      text-align: left;
+      font-weight: 600;
+      color: white;
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+    }
+
+    .schedule-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(96, 165, 244, 0.1);
+      color: #cbd5e1;
+      font-size: 0.95rem;
+    }
+
+    .schedule-table tbody tr:hover {
+      background: rgba(96, 165, 244, 0.05);
+    }
+
+    .time {
+      color: #60a5fa;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .event {
+      color: #e4e4e7;
+      font-weight: 500;
+    }
+
+    .event.buffer {
+      color: #94a3b8;
+      font-style: italic;
+    }
+
+    /* === Map Section === */
+    .map-section {
+      padding: 80px 40px;
+      background: linear-gradient(to bottom, #0f172a, #1a1f3a);
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .map-container {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.9) 100%);
+      border-radius: 24px;
+      border: 1px solid rgba(96, 165, 244, 0.2);
+      padding: 40px;
+      backdrop-filter: blur(10px);
+    }
+
+    .map-image {
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      border: 2px solid rgba(96, 165, 244, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .map-image:hover {
+      border-color: rgba(96, 165, 244, 0.5);
+      box-shadow: 0 0 20px rgba(96, 165, 244, 0.2);
+    }
+
+    .map-legend {
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.95rem;
+      color: #cbd5e1;
+      padding: 12px;
+      background: rgba(96, 165, 244, 0.05);
+      border-radius: 8px;
+      border-left: 4px solid;
+    }
+
+    .legend-color {
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+    }
+
+    /* === Footer === */
+    footer {
+      padding: 40px;
+      text-align: center;
+      background: linear-gradient(to bottom, #0f172a, #000);
+      border-top: 1px solid rgba(96, 165, 244, 0.1);
+      color: #94a3b8;
+    }
+
+    footer p {
+      margin: 8px 0;
+    }
+
+    /* === Responsive === */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .section-title {
+        font-size: 1.75rem;
+      }
+
+      .schedule-section,
+      .map-section {
+        padding: 40px 20px;
+      }
+
+      .schedule-quick {
+        gap: 12px;
+      }
+
+      .schedule-item {
+        padding: 10px 16px;
+        font-size: 0.85rem;
+      }
+
+      .schedule-table th,
+      .schedule-table td {
+        padding: 10px;
+        font-size: 0.85rem;
+      }
+
+      .map-container {
+        padding: 20px;
+      }
+
+      .map-legend {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="particles" id="particles"></div>
+    <div class="hero-content">
+      <h1>青春、更新中</h1>
+      <p class="subtitle">N高等学校 キャンパスフェスティバル</p>
+      <p class="date-info">9月19日（金）| 10:30～15:30</p>
+      <button class="cta-button" onclick="document.querySelector('.schedule-section').scrollIntoView({ behavior: 'smooth' });">
+        詳細を見る
+      </button>
+    </div>
+    <div class="scroll-indicator">
+      <div>↓</div>
+    </div>
+  </section>
+
+  <!-- Schedule Section -->
+  <section class="schedule-section">
+    <h2 class="section-title">タイムテーブル</h2>
+    
+    <div class="schedule-quick">
+      <div class="schedule-item">
+        <span>📍 受付開始</span>
+        <span>10:30</span>
+      </div>
+      <div class="schedule-item">
+        <span>🎬 開始</span>
+        <span>11:00</span>
+      </div>
+      <div class="schedule-item">
+        <span>🎉 閉場</span>
+        <span>15:30</span>
+      </div>
+    </div>
+
+    <div class="schedule-container">
+      <table class="schedule-table">
+        <thead>
+          <tr>
+            <th style="width: 15%;">時間</th>
+            <th style="width: 15%;">終了</th>
+            <th style="width: 70%;">イベント</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="time">10:30</td>
+            <td>—</td>
+            <td class="event">受付開始</td>
+          </tr>
+          <tr>
+            <td class="time">11:00</td>
+            <td>11:10</td>
+            <td class="event">スタート</td>
+          </tr>
+          <tr>
+            <td class="time">11:10</td>
+            <td>11:15</td>
+            <td class="event">バンド準備</td>
+          </tr>
+          <tr>
+            <td class="time">11:15</td>
+            <td>11:30</td>
+            <td class="event">🎸 バンド</td>
+          </tr>
+          <tr>
+            <td class="time">11:30</td>
+            <td>11:40</td>
+            <td class="event">バンド片付け</td>
+          </tr>
+          <tr>
+            <td class="time">11:40</td>
+            <td>12:10</td>
+            <td class="event">🎮 ゲーム（w3w5）</td>
+          </tr>
+          <tr>
+            <td class="time">12:10</td>
+            <td>12:15</td>
+            <td class="event buffer">⏸ バッファ</td>
+          </tr>
+          <tr>
+            <td class="time">12:15</td>
+            <td>12:30</td>
+            <td class="event">🎤 イントロ</td>
+          </tr>
+          <tr>
+            <td class="time">12:30</td>
+            <td>12:35</td>
+            <td class="event buffer">⏸ バッファ</td>
+          </tr>
+          <tr>
+            <td class="time">12:35</td>
+            <td>13:00</td>
+            <td class="event">🎵 歌詞あて</td>
+          </tr>
+          <tr>
+            <td class="time">13:00</td>
+            <td>13:30</td>
+            <td class="event buffer">☕ 一部と二部の休憩</td>
+          </tr>
+          <tr>
+            <td class="time">13:30</td>
+            <td>13:35</td>
+            <td class="event">スタート</td>
+          </tr>
+          <tr>
+            <td class="time">13:35</td>
+            <td>14:05</td>
+            <td class="event">👨‍💼 メンター/TA企画</td>
+          </tr>
+          <tr>
+            <td class="time">14:05</td>
+            <td>14:10</td>
+            <td class="event buffer">⏸ バッファ</td>
+          </tr>
+          <tr>
+            <td class="time">14:10</td>
+            <td>14:30</td>
+            <td class="event">🎶 W3音楽</td>
+          </tr>
+          <tr>
+            <td class="time">14:30</td>
+            <td>14:35</td>
+            <td class="event buffer">⏸ バッファ</td>
+          </tr>
+          <tr>
+            <td class="time">14:35</td>
+            <td>14:50</td>
+            <td class="event">✨ 実行委員企画</td>
+          </tr>
+          <tr>
+            <td class="time">14:50</td>
+            <td>15:00</td>
+            <td class="event">🎰 ステージ：ビンゴ</td>
+          </tr>
+          <tr>
+            <td class="time">15:00</td>
+            <td>15:30</td>
+            <td class="event">🎊 エンディング</td>
+          </tr>
+          <tr>
+            <td class="time">15:30</td>
+            <td>—</td>
+            <td class="event">閉場</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Map Section -->
+  <section class="map-section">
+    <h2 class="section-title">会場図</h2>
+    <div class="map-container">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==" alt="会場図" class="map-image" style="background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%); min-height: 400px;">
+      <p style="color: #94a3b8; text-align: center; margin-top: 20px; font-size: 0.95rem;">📋 会場図は現在準備中です</p>
+      
+      <div class="map-legend">
+        <div class="legend-item">
+          <div class="legend-color" style="background: #4ade80;"></div>
+          <span>展示ゾーン</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color" style="background: #ff6b6b;"></div>
+          <span>女子トイレ</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color" style="background: #3b82f6;"></div>
+          <span>男子トイレ / 食べ物</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color" style="background: #fb923c;"></div>
+          <span>観覧席 / 受付 / 入口</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color" style="background: #60a5fa;"></div>
+          <span>ステージ / 占い</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color" style="background: #9ca3af;"></div>
+          <span>職員室 / 物置</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>N高等学校 キャンパスフェスティバル 2024</p>
+    <p style="font-size: 0.875rem; margin-top: 16px;">楽しい時間をお過ごしください</p>
+    <p style="font-size: 0.75rem; margin-top: 20px; color: #64748b;">© 2024 N High School</p>
+  </footer>
+
+  <script>
+    function createParticles() {
+      const container = document.getElementById('particles');
+      for (let i = 0; i < 50; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.top = '100vh';
+        particle.style.animation = `float ${5 + Math.random() * 10}s linear infinite`;
+        particle.style.animationDelay = Math.random() * 5 + 's';
+        container.appendChild(particle);
+      }
+    }
+    createParticles();
+  </script>
+</body>
+</html>
