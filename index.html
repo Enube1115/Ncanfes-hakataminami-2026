@@ -6,7 +6,7 @@
   <title>N高キャンパスフェスティバル 2026</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Noto+Sans+JP:wght@400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Comfortaa:wght@400;700&family=Nunito:wght@400;600;700&family=Noto+Sans+JP:wght@400;600;700&family=Poppins:wght@600;700&family=Baloo+2:wght@600;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -112,14 +112,16 @@
     .hero h1 {
       font-size: clamp(2.5rem, 8vw, 5rem);
       font-weight: 700;
-      font-family: 'Fredoka', 'Poppins', sans-serif;
+      font-family: 'Fredoka', 'Comfortaa', 'Baloo 2', sans-serif;
       background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       margin-bottom: 20px;
-      letter-spacing: -2px;
+      letter-spacing: 2px;
       animation: glitch 3s ease-in-out infinite;
+      text-transform: uppercase;
+      font-style: italic;
     }
 
     @keyframes glitch {
@@ -132,12 +134,14 @@
     }
 
     .hero .subtitle {
-      font-size: clamp(1rem, 3vw, 1.5rem);
+      font-size: clamp(1rem, 3vw, 1.3rem);
       color: #cbd5e1;
-      font-weight: 300;
+      font-weight: 600;
+      font-family: 'Comfortaa', 'Fredoka', sans-serif;
       margin-bottom: 40px;
       max-width: 600px;
       animation: slideIn 1s ease-out 0.2s both;
+      line-height: 1.8;
     }
 
     @keyframes slideIn {
@@ -152,11 +156,12 @@
     }
 
     .hero .date-info {
-      font-size: 0.875rem;
+      font-size: 1rem;
       color: #60a5fa;
       letter-spacing: 1px;
       margin-bottom: 30px;
-      font-family: 'Fredoka', sans-serif;
+      font-family: 'Baloo 2', 'Fredoka', sans-serif;
+      font-weight: 700;
       animation: slideIn 1s ease-out 0.4s both;
     }
 
@@ -168,8 +173,8 @@
       border: none;
       border-radius: 50px;
       font-size: 1rem;
-      font-weight: 600;
-      font-family: 'Fredoka', sans-serif;
+      font-weight: 700;
+      font-family: 'Baloo 2', 'Fredoka', sans-serif;
       cursor: pointer;
       transition: all 0.3s ease;
       text-decoration: none;
@@ -178,7 +183,7 @@
     }
 
     .hero .cta-button:hover {
-      transform: translateY(-2px) scale(1.05);
+      transform: translateY(-2px) scale(1.08);
       box-shadow: 0 12px 32px rgba(59, 130, 246, 0.6);
     }
 
@@ -200,7 +205,7 @@
     .section-title {
       font-size: 2.5rem;
       font-weight: 700;
-      font-family: 'Fredoka', 'Poppins', sans-serif;
+      font-family: 'Baloo 2', 'Fredoka', sans-serif;
       color: #f1f5f9;
       margin-bottom: 50px;
       text-align: center;
@@ -235,13 +240,31 @@
       background: rgba(59, 130, 246, 0.1);
       padding: 12px 20px;
       border-radius: 50px;
-      border: 1px solid rgba(96, 165, 244, 0.3);
-      font-family: 'Fredoka', sans-serif;
-      font-weight: 600;
+      border: 2px solid rgba(96, 165, 244, 0.3);
+      font-family: 'Baloo 2', 'Fredoka', sans-serif;
+      font-weight: 700;
     }
 
     .schedule-item span:first-child {
       color: #60a5fa;
+      font-weight: 700;
+    }
+
+    .part-description {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(139, 92, 246, 0.1) 100%);
+      border-radius: 16px;
+      border: 2px solid rgba(96, 165, 244, 0.3);
+      padding: 24px;
+      margin-bottom: 40px;
+      text-align: center;
+      font-family: 'Baloo 2', 'Fredoka', sans-serif;
+      font-weight: 600;
+      font-size: 1.05rem;
+    }
+
+    .part-description span {
+      color: #60a5fa;
+      font-size: 1.2rem;
       font-weight: 700;
     }
 
@@ -268,9 +291,9 @@
       text-align: left;
       font-weight: 700;
       color: white;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       letter-spacing: 1px;
-      font-family: 'Fredoka', sans-serif;
+      font-family: 'Baloo 2', 'Fredoka', sans-serif;
     }
 
     .schedule-table td {
@@ -294,12 +317,22 @@
       transform: scale(1.01);
     }
 
+    .schedule-table tbody tr.part-label {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.25) 0%, rgba(139, 92, 246, 0.15) 100%);
+      font-weight: 700;
+      color: #60a5fa;
+    }
+
+    .schedule-table tbody tr.break-row {
+      background: rgba(139, 92, 246, 0.1);
+    }
+
     .time {
       color: #60a5fa;
       font-weight: 700;
       white-space: nowrap;
       font-size: 1.1rem;
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Baloo 2', 'Poppins', sans-serif;
     }
 
     .event {
@@ -340,19 +373,89 @@
     }
 
     .committee-name {
-      font-size: 1.3rem;
+      font-size: 1.35rem;
       font-weight: 700;
-      font-family: 'Fredoka', 'Noto Sans JP', sans-serif;
+      font-family: 'Comfortaa', 'Baloo 2', 'Noto Sans JP', sans-serif;
       color: #e4e4e7;
       margin-bottom: 8px;
     }
 
     .committee-role {
+
+    .committee-message {
+      font-size: 0.9rem;
+      color: #a78bfa;
+      font-family: 'Comfortaa', 'Fredoka', sans-serif;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(167, 139, 246, 0.3);
+      font-weight: 600;
+    }
       font-size: 0.95rem;
+
+    .committee-message {
+      font-size: 0.9rem;
+      color: #a78bfa;
+      font-family: 'Comfortaa', 'Fredoka', sans-serif;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(167, 139, 246, 0.3);
+      font-weight: 600;
+    }
       color: #60a5fa;
+
+    .committee-message {
+      font-size: 0.9rem;
+      color: #a78bfa;
+      font-family: 'Comfortaa', 'Fredoka', sans-serif;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(167, 139, 246, 0.3);
+      font-weight: 600;
+    }
       font-weight: 700;
-      font-family: 'Fredoka', sans-serif;
+
+    .committee-message {
+      font-size: 0.9rem;
+      color: #a78bfa;
+      font-family: 'Comfortaa', 'Fredoka', sans-serif;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(167, 139, 246, 0.3);
+      font-weight: 600;
+    }
+      font-family: 'Baloo 2', 'Fredoka', sans-serif;
+
+    .committee-message {
+      font-size: 0.9rem;
+      color: #a78bfa;
+      font-family: 'Comfortaa', 'Fredoka', sans-serif;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(167, 139, 246, 0.3);
+      font-weight: 600;
+    }
       letter-spacing: 0.5px;
+
+    .committee-message {
+      font-size: 0.9rem;
+      color: #a78bfa;
+      font-family: 'Comfortaa', 'Fredoka', sans-serif;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(167, 139, 246, 0.3);
+      font-weight: 600;
+    }
+    }
+
+    .committee-message {
+      font-size: 0.9rem;
+      color: #a78bfa;
+      font-family: 'Comfortaa', 'Fredoka', sans-serif;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(167, 139, 246, 0.3);
+      font-weight: 600;
     }
 
     /* === Map Section === */
@@ -402,6 +505,7 @@
       border-radius: 8px;
       border-left: 4px solid;
       font-family: 'Fredoka', sans-serif;
+      font-weight: 600;
     }
 
     .legend-color {
@@ -417,12 +521,111 @@
       background: linear-gradient(to bottom, #0f172a, #000);
       border-top: 1px solid rgba(96, 165, 244, 0.1);
       color: #94a3b8;
-      font-family: 'Fredoka', sans-serif;
+      font-family: 'Baloo 2', 'Fredoka', sans-serif;
     }
 
     footer p {
       margin: 8px 0;
       font-weight: 600;
+    }
+
+    /* === Vendor Section === */
+    .vendor-section {
+      padding: 80px 40px;
+      background: linear-gradient(to bottom, #1a1f3a, #0f172a);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .vendor-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .vendor-card {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.6) 100%);
+      padding: 32px;
+      border-radius: 16px;
+      border: 2px solid rgba(96, 165, 244, 0.2);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    .vendor-card:hover {
+      border-color: rgba(96, 165, 244, 0.5);
+      transform: translateY(-8px) scale(1.05);
+      box-shadow: 0 15px 40px rgba(96, 165, 244, 0.3);
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(139, 92, 246, 0.1) 100%);
+    }
+
+    .vendor-name {
+      font-size: 1.4rem;
+      font-weight: 700;
+      font-family: 'Baloo 2', 'Fredoka', sans-serif;
+      color: #e4e4e7;
+      margin-bottom: 12px;
+    }
+
+    .vendor-description {
+      font-size: 0.95rem;
+      color: #cbd5e1;
+      font-family: 'Noto Sans JP', sans-serif;
+      line-height: 1.6;
+    }
+
+    /* === Stage Section === */
+    .stage-section {
+      padding: 80px 40px;
+      background: linear-gradient(to bottom, #0f172a, #1a1f3a);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .stage-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .stage-card {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.6) 100%);
+      padding: 32px;
+      border-radius: 16px;
+      border: 2px solid rgba(167, 139, 246, 0.3);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    .stage-card:hover {
+      border-color: rgba(167, 139, 246, 0.6);
+      transform: translateY(-8px) scale(1.05);
+      box-shadow: 0 15px 40px rgba(167, 139, 246, 0.3);
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, rgba(59, 130, 246, 0.1) 100%);
+    }
+
+    .stage-time {
+      font-size: 0.95rem;
+      color: #a78bfa;
+      font-weight: 700;
+      font-family: 'Baloo 2', 'Fredoka', sans-serif;
+      margin-bottom: 8px;
+    }
+
+    .stage-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      font-family: 'Baloo 2', 'Fredoka', sans-serif;
+      color: #e4e4e7;
+      margin-bottom: 12px;
+    }
+
+    .stage-description {
+      font-size: 0.9rem;
+      color: #cbd5e1;
+      font-family: 'Noto Sans JP', sans-serif;
+      line-height: 1.6;
     }
 
     /* === Responsive === */
@@ -431,13 +634,17 @@
         font-size: 2rem;
       }
 
+      .hero .subtitle {
+        font-size: 1rem;
+      }
+
       .section-title {
         font-size: 1.75rem;
       }
 
       .schedule-section,
       .committee-section,
-      .map-section {
+      .vendor-section {
         padding: 40px 20px;
       }
 
@@ -464,15 +671,8 @@
         font-size: 0.95rem;
       }
 
-      .map-container {
-        padding: 20px;
-      }
-
-      .map-legend {
-        grid-template-columns: 1fr;
-      }
-
-      .committee-grid {
+      .committee-grid,
+      .vendor-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -484,7 +684,7 @@
     <div class="particles" id="particles"></div>
     <div class="hero-content">
       <h1>青春、更新中</h1>
-      <p class="subtitle">N高等学校 博多南キャンパス キャンパスフェスティバル</p>
+      <p class="subtitle">N高等学校 博多南キャンパス<br>キャンパスフェスティバル</p>
       <p class="date-info">9月19日（金）| 10:30～15:30</p>
       <button class="cta-button" onclick="document.querySelector('.schedule-section').scrollIntoView({ behavior: 'smooth' });">
         詳細を見る
@@ -514,6 +714,11 @@
       </div>
     </div>
 
+    <div class="part-description">
+      🎭 <span>第一部</span> と <span>第二部</span> に分かれています！<br>
+      両方楽しんでね！
+    </div>
+
     <div class="schedule-container">
       <table class="schedule-table">
         <thead>
@@ -526,6 +731,9 @@
           <tr>
             <td class="time">10:30</td>
             <td class="event">受付開始</td>
+          </tr>
+          <tr class="part-label">
+            <td colspan="2">🎭 第一部 スタート</td>
           </tr>
           <tr>
             <td class="time">11:00～11:10</td>
@@ -547,9 +755,12 @@
             <td class="time">12:35～13:00</td>
             <td class="event">🎵 歌詞あて</td>
           </tr>
-          <tr>
+          <tr class="break-row">
             <td class="time">13:00～13:30</td>
-            <td class="event">☕ 休憩タイム</td>
+            <td class="event">☕ 一部と二部の休憩タイム</td>
+          </tr>
+          <tr class="part-label">
+            <td colspan="2">🎭 第二部 スタート</td>
           </tr>
           <tr>
             <td class="time">13:30～13:35</td>
@@ -584,6 +795,85 @@
     </div>
   </section>
 
+  <!-- Vendor Section -->
+  <section class="vendor-section">
+    <h2 class="section-title">🍔 出店一覧</h2>
+    <div class="vendor-grid">
+      <div class="vendor-card">
+        <div class="vendor-name">🌮 ラッフォルト</div>
+        <div class="vendor-description">楽しい雰囲気で盛り上げる！</div>
+      </div>
+      <div class="vendor-card">
+        <div class="vendor-name">🍨 クレープ</div>
+        <div class="vendor-description">甘くておいしい、夏らしい一品</div>
+      </div>
+      <div class="vendor-card">
+        <div class="vendor-name">🍜 焼きそば</div>
+        <div class="vendor-description">学園祭の定番、みんなの心をつかむ</div>
+      </div>
+      <div class="vendor-card">
+        <div class="vendor-name">🔮 占い</div>
+        <div class="vendor-description">あなたの運勢を占ってみませんか？</div>
+      </div>
+      <div class="vendor-card">
+        <div class="vendor-name">🎪 綿菓子輪投げ</div>
+        <div class="vendor-description">綿菓子がもらえるゲーム。挑戦してみよう！</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stage Section -->
+  <section class="stage-section">
+    <h2 class="section-title">🎭 ステージ企画詳細</h2>
+    <div class="stage-grid">
+      <div class="stage-card">
+        <div class="stage-time">11:15 ～ 11:30</div>
+        <div class="stage-title">🎸 バンド</div>
+        <div class="stage-description">アツいバンド演奏でオープニングを飾る！</div>
+      </div>
+      <div class="stage-card">
+        <div class="stage-time">11:40 ～ 12:10</div>
+        <div class="stage-title">🎮 ゲーム（w3w5）</div>
+        <div class="stage-description">みんなで参加できるゲーム企画</div>
+      </div>
+      <div class="stage-card">
+        <div class="stage-time">12:15 ～ 12:30</div>
+        <div class="stage-title">🎤 イントロ</div>
+        <div class="stage-description">次のコーナーへの盛り上げ</div>
+      </div>
+      <div class="stage-card">
+        <div class="stage-time">12:35 ～ 13:00</div>
+        <div class="stage-title">🎵 歌詞あて</div>
+        <div class="stage-description">懐かしい曲から最新曲まで。歌詞でわかる？</div>
+      </div>
+      <div class="stage-card">
+        <div class="stage-time">13:35 ～ 14:05</div>
+        <div class="stage-title">👨‍💼 メンター/TA企画</div>
+        <div class="stage-description">メンターとTAによる楽しい企画</div>
+      </div>
+      <div class="stage-card">
+        <div class="stage-time">14:10 ～ 14:30</div>
+        <div class="stage-title">🎶 W3音楽</div>
+        <div class="stage-description">W3による音楽パフォーマンス</div>
+      </div>
+      <div class="stage-card">
+        <div class="stage-time">14:35 ～ 14:50</div>
+        <div class="stage-title">✨ 実行委員企画</div>
+        <div class="stage-description">実行委員会による特別企画をお楽しみに</div>
+      </div>
+      <div class="stage-card">
+        <div class="stage-time">14:50 ～ 15:00</div>
+        <div class="stage-title">🎰 ステージ：ビンゴ</div>
+        <div class="stage-description">賞品が当たるビンゴゲーム！</div>
+      </div>
+      <div class="stage-card">
+        <div class="stage-time">15:00 ～ 15:30</div>
+        <div class="stage-title">🎊 エンディング</div>
+        <div class="stage-description">楽しかったイベントをしめくくる</div>
+      </div>
+    </div>
+  </section>
+
   <!-- Committee Section -->
   <section class="committee-section">
     <h2 class="section-title">⭐ 実行委員から一言</h2>
@@ -594,6 +884,7 @@
       </div>
       <div class="committee-card">
         <div class="committee-name">小林祐太朗</div>
+        <div class="committee-message">楽しんでいってください！</div>
         <div class="committee-role">副実行委員長</div>
       </div>
       <div class="committee-card">
@@ -615,47 +906,12 @@
     </div>
   </section>
 
-  <!-- Map Section -->
-  <section class="map-section">
-    <h2 class="section-title">🗺️ 会場図</h2>
-    <div class="map-container">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==" alt="会場図" class="map-image" style="background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%); min-height: 400px;">
-      <p style="color: #94a3b8; text-align: center; margin-top: 20px; font-size: 0.95rem; font-family: 'Fredoka', sans-serif; font-weight: 600;">📋 会場図は現在準備中です</p>
-      
-      <div class="map-legend">
-        <div class="legend-item">
-          <div class="legend-color" style="background: #4ade80;"></div>
-          <span>展示ゾーン</span>
-        </div>
-        <div class="legend-item">
-          <div class="legend-color" style="background: #ff6b6b;"></div>
-          <span>女子トイレ</span>
-        </div>
-        <div class="legend-item">
-          <div class="legend-color" style="background: #3b82f6;"></div>
-          <span>男子トイレ / 食べ物</span>
-        </div>
-        <div class="legend-item">
-          <div class="legend-color" style="background: #fb923c;"></div>
-          <span>観覧席 / 受付 / 入口</span>
-        </div>
-        <div class="legend-item">
-          <div class="legend-color" style="background: #60a5fa;"></div>
-          <span>ステージ / 占い</span>
-        </div>
-        <div class="legend-item">
-          <div class="legend-color" style="background: #9ca3af;"></div>
-          <span>職員室 / 物置</span>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- Footer -->
   <footer>
     <p>N高等学校 博多南キャンパス キャンパスフェスティバル 2026</p>
     <p style="font-size: 0.875rem; margin-top: 16px;">楽しい時間をお過ごしください</p>
-    <p style="font-size: 0.75rem; margin-top: 20px; color: #64748b;">© 2026 N High School</p>
+    <p style="font-size: 0.75rem; margin-top: 20px; color: #64748b;">© 2026 N High School Hakataminami Campus</p>
   </footer>
 
   <script>
