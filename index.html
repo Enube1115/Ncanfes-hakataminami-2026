@@ -6,7 +6,7 @@
   <title>N高キャンパスフェスティバル 2026</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Comfortaa:wght@400;700&family=Nunito:wght@400;600;700&family=Noto+Sans+JP:wght@400;600;700&family=Poppins:wght@600;700&family=Baloo+2:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Comfortaa:wght@400;700&family=Nunito:wght@400;600;700&family=Noto+Sans+JP:wght@400;600;700;900&family=Poppins:wght@600;700&family=Baloo+2:wght@600;700&family=Yomogi&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -39,6 +39,7 @@
       position: relative;
       overflow: hidden;
       text-align: center;
+      margin-top: 0;
     }
 
     @keyframes gradientShift {
@@ -121,8 +122,8 @@
 
     .hero h1 {
       font-size: clamp(2.5rem, 8vw, 5rem);
-      font-weight: 700;
-      font-family: 'Fredoka', 'Comfortaa', 'Baloo 2', sans-serif;
+      font-weight: 900;
+      font-family: 'Yomogi', sans-serif;
       background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -638,57 +639,112 @@
       line-height: 1.6;
     }
 
+    /* === Header === */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 70px;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.95) 100%);
+      backdrop-filter: blur(10px);
+      border-bottom: 2px solid rgba(96, 165, 244, 0.3);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 40px;
+      z-index: 999;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .header-logo {
+      font-size: 1.3rem;
+      font-weight: 700;
+      font-family: 'Baloo 2', 'Fredoka', sans-serif;
+      background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: 1px;
+    }
+
+    .header-nav {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .header-nav a {
+      text-decoration: none;
+      color: #cbd5e1;
+      font-weight: 600;
+      font-family: 'Baloo 2', 'Fredoka', sans-serif;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      position: relative;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+    }
+
+    .header-nav a:hover {
+      color: #60a5fa;
+    }
+
+    .header-nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+      transition: width 0.3s ease;
+    }
+
+    .header-nav a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero セクション上部に margin を追加 */
+    .hero {
+      margin-top: 70px;
+    }
+
     /* === Responsive === */
     @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2rem;
+      header {
+        padding: 0 20px;
+        height: 60px;
       }
 
-      .hero .subtitle {
+      .header-logo {
         font-size: 1rem;
       }
 
-      .section-title {
-        font-size: 1.75rem;
+      .header-nav {
+        gap: 15px;
       }
 
-      .schedule-section,
-      .committee-section,
-      .vendor-section {
-        padding: 40px 20px;
-      }
-
-      .schedule-quick {
-        gap: 12px;
-      }
-
-      .schedule-item {
-        padding: 10px 16px;
-        font-size: 0.85rem;
-      }
-
-      .schedule-table th,
-      .schedule-table td {
-        padding: 12px;
-        font-size: 0.9rem;
-      }
-
-      .time {
-        font-size: 0.95rem;
-      }
-
-      .event {
-        font-size: 0.95rem;
-      }
-
-      .committee-grid,
-      .vendor-grid {
-        grid-template-columns: 1fr;
+      .header-nav a {
+        font-size: 0.8rem;
       }
     }
   </style>
 </head>
 <body>
+  <!-- Header -->
+  <header>
+    <div class="header-logo">駅南キャンフェス</div>
+    <nav>
+      <ul class="header-nav">
+        <li><a data-target="schedule">タイムテーブル</a></li>
+        <li><a data-target="vendor">出店一覧</a></li>
+        <li><a data-target="stage">ステージ企画</a></li>
+        <li><a data-target="committee">実行委員</a></li>
+      </ul>
+    </nav>
+  </header>
+
   <!-- Hero Section -->
   <section class="hero">
     <div class="particles" id="particles"></div>
@@ -706,7 +762,7 @@
   </section>
 
   <!-- Schedule Section -->
-  <section class="schedule-section">
+  <section class="schedule-section" id="schedule">
     <h2 class="section-title">🎉 タイムテーブル</h2>
     
     <div class="schedule-quick">
@@ -803,7 +859,7 @@
   </section>
 
   <!-- Vendor Section -->
-  <section class="vendor-section">
+  <section class="vendor-section" id="vendor">
     <h2 class="section-title">🍔 出店一覧</h2>
     <div class="vendor-grid">
       <div class="vendor-card">
@@ -826,7 +882,7 @@
   </section>
 
   <!-- Stage Section -->
-  <section class="stage-section">
+  <section class="stage-section" id="stage">
     <h2 class="section-title">🎭 ステージ企画詳細</h2>
     <div class="stage-grid">
       <div class="stage-card">
@@ -878,7 +934,7 @@
   </section>
 
   <!-- Committee Section -->
-  <section class="committee-section">
+  <section class="committee-section" id="committee">
     <h2 class="section-title">⭐ 実行委員から一言</h2>
     <div class="committee-grid">
       <div class="committee-card">
@@ -920,6 +976,20 @@
   </footer>
 
   <script>
+    // ナビゲーションリンク処理
+    document.querySelectorAll('.header-nav a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('data-target');
+        const targetSection = document.getElementById(targetId);
+        
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // パーティクル生成
     function createParticles() {
       const container = document.getElementById('particles');
       for (let i = 0; i < 100; i++) {
