@@ -586,7 +586,161 @@
       line-height: 1.6;
     }
 
-    /* === Stage Section === */
+    /* === Countdown === */
+    .countdown {
+      font-size: 1.2rem;
+      color: #60a5fa;
+      font-family: 'Baloo 2', 'Fredoka', sans-serif;
+      font-weight: 700;
+      margin-top: 20px;
+      letter-spacing: 2px;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .countdown-item {
+      display: inline-block;
+      margin: 0 10px;
+      text-align: center;
+    }
+
+    .countdown-number {
+      font-size: 2rem;
+      background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 900;
+      display: block;
+    }
+
+    .countdown-label {
+      font-size: 0.8rem;
+      color: #cbd5e1;
+      margin-top: 5px;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+
+    /* === スクロール演出 === */
+    .fade-in {
+      opacity: 0;
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    .fade-in-left {
+      opacity: 0;
+      animation: fadeInLeft 0.8s ease-out forwards;
+    }
+
+    .fade-in-right {
+      opacity: 0;
+      animation: fadeInRight 0.8s ease-out forwards;
+    }
+
+    .slide-in-up {
+      opacity: 0;
+      animation: slideInUp 0.8s ease-out forwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* === マイクロインタラクション === */
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      font-family: 'Baloo 2', 'Fredoka', sans-serif;
+      color: #f1f5f9;
+      margin-bottom: 50px;
+      text-align: center;
+      background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      transition: transform 0.3s ease;
+    }
+
+    .section-title:hover {
+      transform: scale(1.05);
+    }
+
+    .schedule-item {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      font-size: 0.95rem;
+      color: #cbd5e1;
+      background: rgba(59, 130, 246, 0.1);
+      padding: 12px 20px;
+      border-radius: 50px;
+      border: 2px solid rgba(96, 165, 244, 0.3);
+      font-family: 'Baloo 2', 'Fredoka', sans-serif;
+      font-weight: 700;
+      transition: all 0.3s ease;
+    }
+
+    .schedule-item:hover {
+      background: rgba(59, 130, 246, 0.2);
+      border-color: rgba(96, 165, 244, 0.6);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(96, 165, 244, 0.2);
+    }
+
+    .vendor-card,
+    .stage-card,
+    .committee-card {
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .vendor-card:hover,
+    .stage-card:hover,
+    .committee-card:hover {
+      box-shadow: 0 20px 50px rgba(96, 165, 244, 0.4);
+    }
     .stage-section {
       padding: 80px 40px;
       background: linear-gradient(to bottom, #0f172a, #1a1f3a);
@@ -877,8 +1031,9 @@
     <div class="particles" id="particles"></div>
     <div class="hero-content">
       <h1>青春、更新中</h1>
-      <p class="subtitle">N高等学校 博多南キャンパス<br>キャンパスフェスティバル</p>
+      <p class="subtitle">N高等学校 博多駅南キャンパス<br>キャンパスフェスティバル</p>
       <p class="date-info">9月19日（金）| 10:30～15:30</p>
+      <div class="countdown" id="countdown"></div>
       <button class="cta-button" onclick="document.querySelector('.schedule-section').scrollIntoView({ behavior: 'smooth' });">
         詳細を見る
       </button>
@@ -1097,13 +1252,87 @@
 
   <!-- Footer -->
   <footer>
-    <p>N高等学校 博多南キャンパス キャンパスフェスティバル 2026</p>
+    <p>N高等学校 博多駅南キャンパス キャンパスフェスティバル 2026</p>
     <p style="font-size: 0.875rem; margin-top: 16px;">楽しい時間をお過ごしください</p>
     <p style="font-size: 0.75rem; margin-top: 20px; color: #64748b;">© 2026 N High School Hakataminami Campus</p>
   </footer>
 
   <script>
-    // ハンバーガーメニュー機能
+    // === カウントダウンタイマー ===
+    function initCountdown() {
+      const countdownEl = document.getElementById('countdown');
+      
+      function updateCountdown() {
+        const today = new Date();
+        const eventDate = new Date(2026, 8, 19, 0, 0, 0); // 9月19日
+        
+        // イベント前後の判定
+        if (today.getTime() >= eventDate.getTime()) {
+          countdownEl.style.display = 'none';
+          return;
+        }
+        
+        const diff = eventDate.getTime() - today.getTime();
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+        
+        countdownEl.innerHTML = `
+          <div class="countdown-item">
+            <span class="countdown-number">${days}</span>
+            <span class="countdown-label">日</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-number">${String(hours).padStart(2, '0')}</span>
+            <span class="countdown-label">時間</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-number">${String(minutes).padStart(2, '0')}</span>
+            <span class="countdown-label">分</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-number">${String(seconds).padStart(2, '0')}</span>
+            <span class="countdown-label">秒</span>
+          </div>
+        `;
+      }
+      
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    }
+
+    // === スクロール時のアニメーション ===
+    function initScrollAnimations() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            entry.target.style.animationDelay = `${index * 0.1}s`;
+            entry.target.classList.remove('fade-in', 'fade-in-left', 'fade-in-right', 'slide-in-up');
+            
+            // セクションタイプでアニメーション変更
+            const section = entry.target.closest('section');
+            if (section?.classList.contains('vendor-section')) {
+              entry.target.classList.add('fade-in-left');
+            } else if (section?.classList.contains('stage-section')) {
+              entry.target.classList.add('fade-in-right');
+            } else {
+              entry.target.classList.add('fade-in');
+            }
+            
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      // アニメーション対象要素
+      document.querySelectorAll('.vendor-card, .stage-card, .committee-card, .schedule-item').forEach(el => {
+        el.classList.add('fade-in');
+        observer.observe(el);
+      });
+    }
+
+    // === ハンバーガーメニュー機能 ===
     const hamburger = document.getElementById('hamburger');
     const mobileNav = document.getElementById('mobile-nav');
     
@@ -1142,7 +1371,7 @@
       });
     });
 
-    // パーティクル生成
+    // === パーティクル生成 ===
     function createParticles() {
       const container = document.getElementById('particles');
       for (let i = 0; i < 100; i++) {
@@ -1158,7 +1387,10 @@
       }
     }
 
+    // 初期化
     createParticles();
+    initCountdown();
+    setTimeout(initScrollAnimations, 100);
   </script>
 </body>
 </html>
