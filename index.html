@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FRESH Smoothie Shop - N高キャンパスフェス 9/19</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>N高キャンパスフェスティバル 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Comfortaa:wght@400;700&family=Nunito:wght@400;600;700&family=Noto+Sans+JP:wght@400;600;700;900&family=Poppins:wght@600;700&family=Baloo+2:wght@600;700&family=Yomogi&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -11,358 +14,1499 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      background: linear-gradient(135deg, #e8f5e9 0%, #b2ebf2 50%, #c8e6c9 100%);
-      color: #1b5e20;
+      font-family: 'Noto Sans JP', 'Fredoka', sans-serif;
+      background: #e0f7ff;
+      color: #1a1a1a;
       line-height: 1.6;
-      min-height: 100vh;
+      overflow-x: hidden;
     }
 
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 2rem 1.5rem;
-    }
-
-    /* ヘッダー */
-    header {
-      text-align: center;
-      margin-bottom: 3rem;
-      padding: 2.5rem 1rem;
-      background: white;
-      border-bottom: 2px solid #00796b;
-      color: #005f57;
-    }
-
-    .header-event {
-      font-size: 0.75rem;
-      color: #008080;
-      margin-bottom: 1.5rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      color: #005f57;
-      margin-bottom: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-    }
-
-    .tagline {
-      font-size: 1rem;
-      color: #00796b;
-      font-weight: 400;
-      letter-spacing: 0.05em;
-      margin-bottom: 1.5rem;
-    }
-
-    .event-info {
-      margin-top: 0;
-      font-size: 0.85rem;
-      color: #00796b;
+    /* === Hero Section === */
+    .hero {
+      height: 100vh;
       display: flex;
-      gap: 0.75rem;
+      flex-direction: column;
       justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #b0e0e6 0%, #c0f0fc 25%, #b0e0e6 50%, #a8e6e0 75%, #b0e0e6 100%);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+      position: relative;
+      overflow: visible;
+      text-align: center;
+      margin-top: 0;
+    }
+
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 40% 20%, rgba(96, 165, 244, 0.1) 0%, transparent 50%);
+      pointer-events: none;
+      animation: glowPulse 4s ease-in-out infinite;
+    }
+
+    @keyframes glowPulse {
+      0%, 100% { opacity: 0.8; }
+      50% { opacity: 1.2; }
+    }
+
+    .particles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .particle {
+      position: fixed;
+      width: 4px;
+      height: 4px;
+      background: rgba(96, 165, 244, 0.7);
+      border-radius: 50%;
+      pointer-events: none;
+      box-shadow: 0 0 12px rgba(96, 165, 244, 0.5);
+    }
+
+
+
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      animation: fadeInUp 1s ease-out;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      font-weight: 900;
+      font-family: 'Yomogi', sans-serif;
+      background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+      animation: glitch 3s ease-in-out infinite;
+      text-transform: uppercase;
+      font-style: italic;
+    }
+
+    @keyframes glitch {
+      0%, 100% {
+        text-shadow: 0 0 30px rgba(96, 165, 244, 0.3);
+      }
+      50% {
+        text-shadow: 0 0 50px rgba(167, 139, 246, 0.5);
+      }
+    }
+
+    .hero .subtitle {
+      font-size: clamp(1rem, 3vw, 1.3rem);
+      color: #333333;
+      font-weight: 600;
+      font-family: 'Comfortaa', 'Fredoka', sans-serif;
+      margin-bottom: 40px;
+      max-width: 600px;
+      animation: slideIn 1s ease-out 0.2s both;
+      line-height: 1.8;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .hero .date-info {
+
+      font-size: 1rem;
+      color: #60a5fa;
+      letter-spacing: 1px;
+      margin-bottom: 30px;
+      font-family: 'Noto Sans JP', 'Baloo 2', 'Fredoka', sans-serif;
+      font-weight: 700;
+      animation: slideIn 1s ease-out 0.4s both;
+    }
+
+    .hero .cta-button {
+      display: block;
+      margin: 30px auto 0;
+      padding: 16px 48px;
+      background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 700;
+      font-family: 'Baloo 2', 'Fredoka', sans-serif;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      box-shadow: 0 8px 24px rgba(59, 130, 246, 0.4);
+      animation: slideIn 1s ease-out 0.6s both;
+    }
+
+    .hero .cta-button:hover {
+      transform: translateY(-2px) scale(1.08);
+      box-shadow: 0 12px 32px rgba(59, 130, 246, 0.6);
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #4a5f7f;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(10px); }
+    }
+
+    /* === Section Common === */
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      font-family: 'Baloo 2', 'Fredoka', sans-serif;
+      color: #f1f5f9;
+      margin-bottom: 50px;
+      text-align: center;
+      background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* === Schedule Section === */
+    .schedule-section {
+      padding: 80px 40px;
+      background: linear-gradient(to bottom, #f0fafb, #e0f7ff);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .schedule-quick {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 60px;
       flex-wrap: wrap;
     }
 
-    .event-info span {
-      background: white;
-      border: 1px solid #00897b;
-      padding: 0.4rem 0.8rem;
-      border-radius: 20px;
-      font-weight: 500;
-    }
-
-    /* セクション */
-    section {
-      margin-bottom: 2.5rem;
-    }
-
-    h2 {
-      font-size: 1.5rem;
-      color: #00695c;
-      margin-bottom: 1.5rem;
-      padding-bottom: 0.75rem;
-      border-bottom: 3px solid #00bfa5;
-      font-weight: 600;
-    }
-
-    /* メニューカード */
-    .menu-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.25rem;
-    }
-
-    .menu-card {
-      background: white;
-      border-radius: 12px;
-      padding: 1.5rem;
-      box-shadow: 0 4px 12px rgba(27, 94, 32, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border: 2px solid rgba(0, 191, 165, 0.3);
+    .schedule-item {
       display: flex;
-      flex-direction: column;
+      gap: 8px;
+      align-items: center;
+      font-size: 0.95rem;
+      color: #333333;
+      background: rgba(59, 130, 246, 0.1);
+      padding: 12px 20px;
+      border-radius: 50px;
+      border: 2px solid rgba(96, 165, 244, 0.3);
+      font-family: 'Baloo 2', 'Fredoka', sans-serif;
+      font-weight: 700;
     }
 
-    .menu-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 6px 20px rgba(27, 94, 32, 0.2);
+    .schedule-item span:first-child {
+      color: #60a5fa;
+      font-weight: 700;
     }
 
-    .menu-card h3 {
+    .part-description {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(139, 92, 246, 0.1) 100%);
+      border-radius: 16px;
+      border: 2px solid rgba(96, 165, 244, 0.3);
+      padding: 24px;
+      margin-bottom: 40px;
+      text-align: center;
+      font-family: 'Baloo 2', 'Fredoka', sans-serif;
+      font-weight: 600;
+      font-size: 1.05rem;
+    }
+
+    .part-description span {
+      color: #60a5fa;
       font-size: 1.2rem;
-      color: #00796b;
-      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .schedule-container {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(245, 252, 253, 0.98) 100%);
+      border-radius: 20px;
+      border: 2px solid rgba(96, 165, 244, 0.4);
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px rgba(96, 165, 244, 0.15);
+    }
+
+    .schedule-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+    }
+
+    .schedule-table thead {
+      background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    }
+
+    .schedule-table th {
+      padding: 18px;
+      text-align: left;
+      font-weight: 700;
+      color: white;
+      font-size: 0.95rem;
+      letter-spacing: 1px;
+      font-family: 'Baloo 2', 'Fredoka', sans-serif;
+    }
+
+    .schedule-table td {
+      padding: 16px 18px;
+      border-bottom: 1px solid rgba(96, 165, 244, 0.15);
+      color: #1a1a1a;
+      font-size: 1rem;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+
+    .schedule-table tbody tr {
+      transition: all 0.2s ease;
+    }
+
+    .schedule-table tbody tr:nth-child(odd) {
+      background: rgba(96, 165, 244, 0.08);
+    }
+
+    .schedule-table tbody tr:nth-child(even) {
+      background: rgba(240, 250, 251, 0.8);
+    }
+
+    .schedule-table tbody tr:hover {
+      background: rgba(96, 165, 244, 0.2);
+    }
+
+    .schedule-table tbody tr.part-label {
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.4) 0%, rgba(124, 58, 237, 0.3) 100%);
+      font-weight: 800;
+      color: #1a1a1a;
+      font-size: 1.1rem;
+      padding: 20px 18px;
+    }
+
+    .schedule-table tbody tr.part-label td {
+      color: #1a1a1a;
+      border: none;
+    }
+
+    .time {
+      color: #2563eb;
+      font-weight: 800;
+      white-space: nowrap;
+      font-size: 1.05rem;
+      font-family: 'Baloo 2', 'Poppins', sans-serif;
+      min-width: 120px;
+      display: inline-block;
+    }
+
+    .event {
+      color: #1a1a1a;
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
+
+    /* === Committee Section === */
+    .committee-section {
+      padding: 80px 40px;
+      background: linear-gradient(to bottom, #f0fafb, #e0f7ff);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .committee-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .committee-card {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(240, 250, 251, 0.9) 100%);
+      padding: 32px;
+      border-radius: 16px;
+      border: 2px solid rgba(96, 165, 244, 0.2);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    .committee-card:hover {
+      border-color: rgba(96, 165, 244, 0.5);
+      transform: translateY(-8px) scale(1.05);
+      box-shadow: 0 15px 40px rgba(96, 165, 244, 0.3);
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(139, 92, 246, 0.1) 100%);
+    }
+
+    .committee-name {
+      font-size: 1.35rem;
+      font-weight: 700;
+      font-family: 'Comfortaa', 'Baloo 2', 'Noto Sans JP', sans-serif;
+      color: #1a1a1a;
+      margin-bottom: 8px;
+    }
+
+    .committee-role {
+
+    .committee-message {
+      font-size: 0.9rem;
+      color: #a78bfa;
+      font-family: 'Comfortaa', 'Fredoka', sans-serif;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(167, 139, 246, 0.3);
       font-weight: 600;
-      border-bottom: 2px solid rgba(0, 191, 165, 0.4);
-      padding-bottom: 0.75rem;
     }
+      font-size: 0.95rem;
 
-    .menu-details {
-      flex: 1;
-      margin-bottom: 1.25rem;
-    }
-
-    .detail-item {
-      margin-bottom: 0.75rem;
-    }
-
-    .detail-item strong {
-      display: block;
-      font-size: 0.85rem;
-      color: #00897b;
+    .committee-message {
+      font-size: 0.9rem;
+      color: #a78bfa;
+      font-family: 'Comfortaa', 'Fredoka', sans-serif;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(167, 139, 246, 0.3);
       font-weight: 600;
-      margin-bottom: 0.25rem;
-      text-transform: uppercase;
+    }
+      color: #60a5fa;
+
+    .committee-message {
+      font-size: 0.9rem;
+      color: #a78bfa;
+      font-family: 'Comfortaa', 'Fredoka', sans-serif;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(167, 139, 246, 0.3);
+      font-weight: 600;
+    }
+      font-weight: 700;
+
+    .committee-message {
+      font-size: 0.9rem;
+      color: #a78bfa;
+      font-family: 'Comfortaa', 'Fredoka', sans-serif;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(167, 139, 246, 0.3);
+      font-weight: 600;
+    }
+      font-family: 'Baloo 2', 'Fredoka', sans-serif;
+
+    .committee-message {
+      font-size: 0.9rem;
+      color: #a78bfa;
+      font-family: 'Comfortaa', 'Fredoka', sans-serif;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(167, 139, 246, 0.3);
+      font-weight: 600;
+    }
+      letter-spacing: 0.5px;
+
+    .committee-message {
+      font-size: 0.9rem;
+      color: #a78bfa;
+      font-family: 'Comfortaa', 'Fredoka', sans-serif;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(167, 139, 246, 0.3);
+      font-weight: 600;
+    }
+    }
+
+    .committee-message {
+      font-size: 0.9rem;
+      color: #a78bfa;
+      font-family: 'Comfortaa', 'Fredoka', sans-serif;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(167, 139, 246, 0.3);
+      font-weight: 600;
+    }
+
+    /* === Map Section === */
+    .map-section {
+      padding: 80px 40px;
+      background: linear-gradient(to bottom, #0f172a, #1a1f3a);
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .map-container {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.9) 100%);
+      border-radius: 24px;
+      border: 1px solid rgba(96, 165, 244, 0.2);
+      padding: 40px;
+      backdrop-filter: blur(10px);
+    }
+
+    .map-image {
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      border: 2px solid rgba(96, 165, 244, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .map-image:hover {
+      border-color: rgba(96, 165, 244, 0.5);
+      box-shadow: 0 0 20px rgba(96, 165, 244, 0.2);
+    }
+
+    .map-legend {
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.95rem;
+      color: #333333;
+      padding: 12px;
+      background: rgba(96, 165, 244, 0.05);
+      border-radius: 8px;
+      border-left: 4px solid;
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 600;
+    }
+
+    .legend-color {
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+    }
+
+    /* === Footer === */
+    footer {
+
+    /* === Final Message Section === */
+    .final-message-section {
+      padding: 120px 40px;
+      background: linear-gradient(135deg, #b0e0e6 0%, #c0f0fc 50%, #a8e6e0 100%);
+      max-width: 100%;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .final-message-content {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .final-message-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      font-family: 'Yomogi', 'Baloo 2', 'Fredoka', sans-serif;
+      background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 20px;
       letter-spacing: 0.05em;
     }
 
-    .detail-item p {
-      font-size: 0.9rem;
-      color: #555;
-      margin: 0;
-    }
-
-    .ticket-badge {
-      display: inline-block;
-      background: linear-gradient(135deg, #00bfa5, #00897b);
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
+    .final-message-subtitle {
+      font-size: 1.3rem;
       font-weight: 600;
-      font-size: 0.9rem;
+      font-family: 'Baloo 2', 'Fredoka', sans-serif;
+      color: #1a1a1a;
+      letter-spacing: 0.03em;
     }
 
-    /* リーダーメッセージ */
-    .leader-section {
-      background: linear-gradient(135deg, rgba(0, 191, 165, 0.15), rgba(200, 230, 201, 0.2));
-      border-radius: 12px;
-      padding: 2rem;
-      border: 2px dashed rgba(0, 150, 136, 0.4);
+      padding: 40px;
       text-align: center;
+      background: linear-gradient(to bottom, #f0fafb, #e0f7ff);
+      border-top: 1px solid rgba(96, 165, 244, 0.2);
+      color: #4a5f7f;
+      font-family: 'Baloo 2', 'Fredoka', sans-serif;
     }
 
-    .leader-placeholder {
-      font-size: 1rem;
-      color: #00695c;
+    footer p {
+      margin: 8px 0;
+      font-weight: 600;
+    }
+
+    /* === Vendor Section === */
+    .vendor-section {
+      padding: 80px 40px;
+      background: linear-gradient(to bottom, #e0f7ff, #f0fafb);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .vendor-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .vendor-card {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 250, 251, 0.95) 100%);
+      padding: 40px 32px;
+      border-radius: 20px;
+      border: 3px solid rgba(96, 165, 244, 0.3);
+      backdrop-filter: blur(10px);
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(96, 165, 244, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .vendor-card:hover {
+      border-color: rgba(96, 165, 244, 0.8);
+      transform: translateY(-12px) scale(1.08);
+      box-shadow: 0 20px 50px rgba(96, 165, 244, 0.4);
+      background: linear-gradient(135deg, rgba(96, 165, 244, 0.1) 0%, rgba(165, 96, 244, 0.08) 100%);
+    }
+
+    .vendor-emoji {
+      font-size: 4.5rem;
+      display: block;
+      margin-bottom: 16px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .vendor-card:hover .vendor-emoji {
+      animation: bounce 0.6s ease-out;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+
+    .vendor-name {
+      font-size: 1.5rem;
+      font-weight: 800;
+      font-family: 'Baloo 2', 'Fredoka', sans-serif;
+      color: #1a1a1a;
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    .vendor-description {
+      font-size: 0.95rem;
+      color: #333333;
+      font-family: 'Noto Sans JP', sans-serif;
+      line-height: 1.8;
       font-weight: 500;
     }
 
-    .leader-message {
-      margin-top: 1.5rem;
-      padding: 1rem;
-      background: white;
-      border-radius: 8px;
-      border-left: 4px solid #00bfa5;
-      font-style: italic;
-      color: #00796b;
-      min-height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    /* === Countdown === */
+    .countdown {
+      font-size: 1.2rem;
+      color: #60a5fa;
+      font-family: 'Baloo 2', 'Fredoka', sans-serif;
+      font-weight: 700;
+      margin: 30px auto 0;
+      letter-spacing: 2px;
+      animation: pulse 2s ease-in-out infinite;
+      background: linear-gradient(135deg, rgba(96, 165, 244, 0.15) 0%, rgba(165, 96, 244, 0.1) 100%);
+      border: 2px solid rgba(96, 165, 244, 0.3);
+      border-radius: 20px;
+      padding: 25px 40px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px rgba(96, 165, 244, 0.2);
+      display: inline-block;
     }
 
-    /* フッター */
-    footer {
-      background: rgba(0, 121, 107, 0.9);
-      color: white;
+    .countdown-item {
+      display: inline-block;
+      margin: 0 15px;
       text-align: center;
-      padding: 2rem;
-      border-radius: 12px 12px 0 0;
-      margin-top: 3rem;
-      font-size: 0.9rem;
     }
 
-    footer a {
-      color: #00bfa5;
-      text-decoration: none;
+    .countdown-number {
+      font-size: 3.5rem;
+      background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 900;
+      display: block;
+      line-height: 1;
+      text-shadow: 0 0 20px rgba(96, 165, 244, 0.3);
+    }
+
+    .countdown-label {
+      font-size: 0.95rem;
+      color: #333333;
+      margin-top: 8px;
       font-weight: 600;
-      transition: color 0.3s ease;
     }
 
-    footer a:hover {
-      color: #e8f5e9;
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
     }
 
-    @media (max-width: 900px) {
-      .menu-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
+    /* === スクロール演出 === */
+    .fade-in {
+      opacity: 0;
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
 
-      h1 {
-        font-size: 1.8rem;
-      }
+    .fade-in-left {
+      opacity: 0;
+      animation: fadeInLeft 0.8s ease-out forwards;
+    }
 
-      .header-event {
-        font-size: 0.7rem;
-        margin-bottom: 1rem;
-      }
+    .fade-in-right {
+      opacity: 0;
+      animation: fadeInRight 0.8s ease-out forwards;
+    }
 
-      .tagline {
-        font-size: 0.9rem;
-        margin-bottom: 1rem;
-      }
+    .slide-in-up {
+      opacity: 0;
+      animation: slideInUp 0.8s ease-out forwards;
+    }
 
-      .event-info {
-        gap: 0.5rem;
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
       }
-
-      .event-info span {
-        font-size: 0.75rem;
-        padding: 0.35rem 0.6rem;
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
     }
 
-    @media (max-width: 600px) {
+    @keyframes fadeInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* === マイクロインタラクション === */
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      font-family: 'Baloo 2', 'Fredoka', sans-serif;
+      color: #f1f5f9;
+      margin-bottom: 50px;
+      text-align: center;
+      background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      transition: transform 0.3s ease;
+    }
+
+    .section-title:hover {
+      transform: scale(1.05);
+    }
+
+    .schedule-item {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      font-size: 0.95rem;
+      color: #333333;
+      background: rgba(59, 130, 246, 0.1);
+      padding: 12px 20px;
+      border-radius: 50px;
+      border: 2px solid rgba(96, 165, 244, 0.3);
+      font-family: 'Baloo 2', 'Fredoka', sans-serif;
+      font-weight: 700;
+      transition: all 0.3s ease;
+    }
+
+    .schedule-item:hover {
+      background: rgba(59, 130, 246, 0.2);
+      border-color: rgba(96, 165, 244, 0.6);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(96, 165, 244, 0.2);
+    }
+
+    .vendor-card,
+    .stage-card,
+    .committee-card {
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .vendor-card:hover,
+    .stage-card:hover,
+    .committee-card:hover {
+      box-shadow: 0 20px 50px rgba(96, 165, 244, 0.4);
+    }
+    .stage-section {
+
+      padding: 80px 40px;
+      background: linear-gradient(to bottom, #e0f7ff, #f0fafb);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .stage-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .stage-card {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(240, 250, 251, 0.9) 100%);
+      padding: 32px;
+      border-radius: 16px;
+      border: 2px solid rgba(167, 139, 246, 0.3);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    .stage-card:hover {
+      border-color: rgba(167, 139, 246, 0.6);
+      transform: translateY(-8px) scale(1.05);
+      box-shadow: 0 15px 40px rgba(167, 139, 246, 0.3);
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, rgba(59, 130, 246, 0.1) 100%);
+    }
+
+    .stage-time {
+      font-size: 0.95rem;
+      color: #a78bfa;
+      font-weight: 700;
+      font-family: 'Baloo 2', 'Fredoka', sans-serif;
+      margin-bottom: 8px;
+    }
+
+    .stage-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      font-family: 'Baloo 2', 'Fredoka', sans-serif;
+      color: #1a1a1a;
+      margin-bottom: 12px;
+    }
+
+    .stage-description {
+      font-size: 0.9rem;
+      color: #333333;
+      font-family: 'Noto Sans JP', sans-serif;
+      line-height: 1.6;
+    }
+
+    /* === Header === */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 70px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 250, 251, 0.95) 100%);
+      backdrop-filter: blur(10px);
+      border-bottom: 2px solid rgba(96, 165, 244, 0.3);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 40px;
+      z-index: 999;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .header-logo {
+      font-size: 1.3rem;
+      font-weight: 700;
+      font-family: 'Baloo 2', 'Fredoka', sans-serif;
+      background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      user-select: none;
+    }
+
+    .header-logo:hover {
+      opacity: 0.8;
+      transform: scale(1.05);
+    }
+
+    .header-nav {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .header-nav a {
+      text-decoration: none;
+      color: #333333;
+      font-weight: 600;
+      font-family: 'Baloo 2', 'Fredoka', sans-serif;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      position: relative;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+    }
+
+    .header-nav a:hover {
+      color: #60a5fa;
+    }
+
+    .header-nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+      transition: width 0.3s ease;
+    }
+
+    .header-nav a:hover::after {
+      width: 100%;
+    }
+
+    /* ハンバーガーメニュー */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 6px;
+      z-index: 1000;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: #2563eb;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 6px rgba(37, 99, 235, 0.6);
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(8px, 8px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    /* モバイル用ナビゲーション */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 70px;
+      left: 0;
+      right: 0;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.98) 0%, rgba(30, 41, 59, 0.98) 100%);
+      backdrop-filter: blur(10px);
+      flex-direction: column;
+      padding: 20px 0;
+      border-bottom: 2px solid rgba(96, 165, 244, 0.3);
+      z-index: 999;
+    }
+
+    .mobile-nav.active {
+      display: flex;
+    }
+
+    .mobile-nav a {
+      color: #ffffff;
+      text-decoration: none;
+      padding: 15px 40px;
+      font-weight: 600;
+      font-family: 'Baloo 2', 'Fredoka', sans-serif;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      letter-spacing: 0.5px;
+    }
+
+    .mobile-nav a:hover {
+      color: #60a5fa;
+      background: rgba(96, 165, 244, 0.2);
+      padding-left: 50px;
+    }
+
+    /* Hero セクション上部に margin を追加 */
+    .hero {
+      margin-top: 70px;
+    }
+
+    /* === Responsive === */
+    @media (max-width: 768px) {
       header {
-        padding: 1.5rem 1rem;
-        margin-bottom: 2rem;
+        padding: 0 20px;
+        height: 60px;
       }
 
-      h1 {
-        font-size: 1.5rem;
-        margin-bottom: 0.5rem;
+      .header-logo {
+        font-size: 1rem;
+        flex: 1;
       }
 
-      .header-event {
-        font-size: 0.65rem;
-        margin-bottom: 0.75rem;
+      .header-nav {
+        display: none;
       }
 
-      .tagline {
+      .hamburger {
+        display: flex;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero .subtitle {
+        font-size: 1rem;
+      }
+
+      .section-title {
+        font-size: 1.75rem;
+      }
+
+      .schedule-section,
+      .committee-section,
+      .vendor-section,
+      .stage-section {
+        padding: 40px 20px;
+      }
+
+      .schedule-quick {
+        gap: 12px;
+      }
+
+      .schedule-item {
+        padding: 10px 16px;
         font-size: 0.85rem;
-        margin-bottom: 1rem;
       }
 
-      .event-info {
-        flex-direction: row;
-        gap: 0.4rem;
+      .schedule-table th,
+      .schedule-table td {
+        padding: 12px;
+        font-size: 0.9rem;
       }
 
-      .event-info span {
-        font-size: 0.7rem;
-        padding: 0.3rem 0.5rem;
+      .time {
+        font-size: 0.95rem;
       }
 
-      h2 {
-        font-size: 1.2rem;
+      .event {
+        font-size: 0.95rem;
       }
 
-      .menu-grid {
+      .committee-grid,
+      .vendor-grid,
+      .stage-grid {
         grid-template-columns: 1fr;
-      }
-
-      .leader-section {
-        padding: 1.5rem;
       }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <!-- ヘッダー -->
-    <header>
-      <div class="header-event">N高等学校 博多駅南キャンパス キャンパスフェスティバル 2026</div>
-      <h1>🥤 Smoothie</h1>
-      <p class="tagline">楽しい時間をお過ごしください</p>
-      <div class="event-info">
-        <span>📅 9月19日（金）</span>
-        <span>⏰ 10:30 - 15:30</span>
+  <!-- Header -->
+  <header>
+    <div class="header-logo" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">駅南キャンフェス</div>
+    <nav>
+      <ul class="header-nav">
+        <li><a data-target="schedule">タイムテーブル</a></li>
+        <li><a data-target="vendor">出店一覧</a></li>
+        <li><a data-target="stage">ステージ企画</a></li>
+        <li><a data-target="committee">実行委員</a></li>
+      </ul>
+    </nav>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </header>
+
+  <!-- モバイルナビゲーション -->
+  <nav class="mobile-nav" id="mobile-nav">
+    <a data-target="schedule">タイムテーブル</a>
+    <a data-target="vendor">出店一覧</a>
+    <a data-target="stage">ステージ企画</a>
+    <a data-target="committee">実行委員</a>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="particles" id="particles"></div>
+    <div class="hero-content">
+      <h1>青春、更新中</h1>
+      <p class="subtitle">N高等学校 博多駅南キャンパス<br>キャンパスフェスティバル</p>
+      <p class="date-info">9月19日（金）| 10:30～15:30</p>
+      <div class="countdown" id="countdown"></div>
+      <button class="cta-button" onclick="document.querySelector('.schedule-section').scrollIntoView({ behavior: 'smooth' });">
+        🌟 イベントの1日を見る
+      </button>
+    </div>
+    <div class="scroll-indicator">
+      <div>↓</div>
+    </div>
+  </section>
+
+  <!-- Schedule Section -->
+  <section class="schedule-section" id="schedule">
+    <h2 class="section-title">🎉 タイムテーブル</h2>
+    
+    <div class="schedule-quick">
+      <div class="schedule-item">
+        <span>📍 受付開始</span>
+        <span>10:30</span>
       </div>
-    </header>
-
-    <!-- メニュー -->
-    <section>
-      <h2>🌟 メニュー</h2>
-      <div class="menu-grid">
-        <div class="menu-card">
-          <h3>メニュー 1</h3>
-          <div class="menu-details">
-            <div class="detail-item">
-              <strong>材料</strong>
-              <p>後ほど追加予定</p>
-            </div>
-            <div class="detail-item">
-              <strong>アレルギー</strong>
-              <p>後ほど追加予定</p>
-            </div>
-          </div>
-          <span class="ticket-badge">チケット：〇枚</span>
-        </div>
-
-        <div class="menu-card">
-          <h3>メニュー 2</h3>
-          <div class="menu-details">
-            <div class="detail-item">
-              <strong>材料</strong>
-              <p>後ほど追加予定</p>
-            </div>
-            <div class="detail-item">
-              <strong>アレルギー</strong>
-              <p>後ほど追加予定</p>
-            </div>
-          </div>
-          <span class="ticket-badge">チケット：〇枚</span>
-        </div>
-
-        <div class="menu-card">
-          <h3>メニュー 3</h3>
-          <div class="menu-details">
-            <div class="detail-item">
-              <strong>材料</strong>
-              <p>後ほど追加予定</p>
-            </div>
-            <div class="detail-item">
-              <strong>アレルギー</strong>
-              <p>後ほど追加予定</p>
-            </div>
-          </div>
-          <span class="ticket-badge">チケット：〇枚</span>
-        </div>
+      <div class="schedule-item">
+        <span>🎬 開始</span>
+        <span>11:00</span>
       </div>
-    </section>
-
-    <!-- リーダーメッセージ -->
-    <section>
-      <h2>💬 リーダーからのメッセージ</h2>
-      <div class="leader-section">
-        <p class="leader-placeholder">リーダーからのひとことをお待ちしています</p>
-        <div class="leader-message">
-          <!-- ここにリーダーメッセージが入ります -->
-        </div>
+      <div class="schedule-item">
+        <span>🎉 閉場</span>
+        <span>15:30</span>
       </div>
-    </section>
+    </div>
 
-    <!-- フッター -->
-    <footer>
-      <p>🎉 N高キャンパスフェスティバル 9/19（金）</p>
-      <p style="margin-top: 1rem; font-size: 0.85rem; color: rgba(255, 255, 255, 0.8);">© 2026 N High School Hakataeki minami Campus</p>
-    </footer>
-  </div>
+    </div>
+
+    <div class="schedule-container">
+      <table class="schedule-table">
+        <thead>
+          <tr>
+            <th style="width: 20%;">⏰ 時間</th>
+            <th style="width: 80%;">🎪 イベント</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="time">10:30</td>
+            <td class="event">受付開始</td>
+          </tr>
+          <tr class="part-label">
+            <td colspan="2">☀️ FIRST PART 11:00 – 13:00</td>
+          </tr>
+          <tr>
+            <td class="time">11:00～11:10</td>
+            <td class="event">スタート 🔔</td>
+          </tr>
+          <tr>
+            <td class="time">11:15～11:30</td>
+            <td class="event">🎸 バンド</td>
+          </tr>
+          <tr>
+            <td class="time">11:40～12:10</td>
+            <td class="event">🎮 ゲーム（w3w5）</td>
+          </tr>
+          <tr>
+            <td class="time">12:15～12:30</td>
+            <td class="event">🎤 イントロクイズ</td>
+          </tr>
+          <tr>
+            <td class="time">12:35～13:00</td>
+            <td class="event">🎵 歌詞当てクイズ</td>
+          </tr>
+
+          <tr class="part-label">
+            <td colspan="2">🌙 SECOND PART 13:30 – 15:30</td>
+          </tr>
+          <tr>
+            <td class="time">13:30～13:35</td>
+            <td class="event">スタート 🔔</td>
+          </tr>
+          <tr>
+            <td class="time">13:35～14:05</td>
+            <td class="event">👨‍💼 メンター/TA企画</td>
+          </tr>
+          <tr>
+            <td class="time">14:10～14:30</td>
+            <td class="event">🎶 W3音楽</td>
+          </tr>
+          <tr>
+            <td class="time">14:35～14:50</td>
+            <td class="event">✨ 実行委員企画</td>
+          </tr>
+          <tr>
+            <td class="time">14:50～15:00</td>
+            <td class="event">🎰 ステージ：ビンゴ</td>
+          </tr>
+          <tr>
+            <td class="time">15:00～15:30</td>
+            <td class="event">🎊 エンディング</td>
+          </tr>
+          <tr>
+            <td class="time">15:30</td>
+            <td class="event">閉場 👋</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    </div>
+  </section>
+
+  <!-- Vendor Section -->
+  <section class="vendor-section" id="vendor">
+    <h2 class="section-title">🍔 出店一覧</h2>
+    <div class="vendor-grid">
+      <div class="vendor-card">
+        <div class="vendor-emoji">🍰</div>
+        <div class="vendor-name">ロシアンシュークリーム</div>
+        <div class="vendor-description">濃厚でクリーミー。至福のスイーツ</div>
+      </div>
+      <div class="vendor-card">
+        <div class="vendor-emoji">💪</div>
+        <div class="vendor-name">プロテインボール</div>
+        <div class="vendor-description">栄養満点。健康的でおいしい</div>
+      </div>
+      <div class="vendor-card" onclick="window.open('https://enube1115.github.io/Ncanfes-hakataminami-2026-smoothie/', '_blank');" style="cursor: pointer;">
+        <div class="vendor-emoji">🥤</div>
+        <div class="vendor-name">スムージー</div>
+        <div class="vendor-description">フレッシュで爽やか。夏にぴったり</div>
+      </div>
+      <div class="vendor-card">
+        <div class="vendor-emoji">🍧</div>
+        <div class="vendor-name">かき氷</div>
+        <div class="vendor-description">冷たくて甘い。涼しくなっちゃう</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stage Section -->
+  <section class="stage-section" id="stage">
+    <h2 class="section-title">🎭 ステージ企画詳細</h2>
+    <div class="stage-grid">
+      <div class="stage-card">
+        <div class="stage-time">11:15 ～ 11:30</div>
+        <div class="stage-title">🎸 バンド</div>
+        <div class="stage-description">アツいバンド演奏でオープニングを飾る！</div>
+      </div>
+      <div class="stage-card">
+        <div class="stage-time">11:40 ～ 12:10</div>
+        <div class="stage-title">🎮 ゲーム（w3w5）</div>
+        <div class="stage-description">みんなで参加できるゲーム企画</div>
+      </div>
+      <div class="stage-card">
+        <div class="stage-time">12:15 ～ 12:30</div>
+        <div class="stage-title">🎤 イントロクイズ</div>
+        <div class="stage-description">曲のイントロだけで何の曲か当てられる？</div>
+      </div>
+      <div class="stage-card">
+        <div class="stage-time">12:35 ～ 13:00</div>
+        <div class="stage-title">🎵 歌詞当てクイズ</div>
+        <div class="stage-description">懐かしい曲から最新曲まで。歌詞でわかる？</div>
+      </div>
+      <div class="stage-card">
+        <div class="stage-time">13:35 ～ 14:05</div>
+        <div class="stage-title">👨‍💼 メンター/TA企画</div>
+        <div class="stage-description">メンターとTAによる楽しい企画</div>
+      </div>
+      <div class="stage-card">
+        <div class="stage-time">14:10 ～ 14:30</div>
+        <div class="stage-title">🎶 W3音楽</div>
+        <div class="stage-description">W3による音楽パフォーマンス</div>
+      </div>
+      <div class="stage-card">
+        <div class="stage-time">14:35 ～ 14:50</div>
+        <div class="stage-title">✨ 実行委員企画</div>
+        <div class="stage-description">実行委員会による特別企画をお楽しみに</div>
+      </div>
+      <div class="stage-card">
+        <div class="stage-time">14:50 ～ 15:00</div>
+        <div class="stage-title">🎰 ステージ：ビンゴ</div>
+        <div class="stage-description">賞品が当たるビンゴゲーム！</div>
+      </div>
+      <div class="stage-card">
+        <div class="stage-time">15:00 ～ 15:30</div>
+        <div class="stage-title">🎊 エンディング</div>
+        <div class="stage-description">楽しかったイベントをしめくくる</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Committee Section -->
+  <section class="committee-section" id="committee">
+    <h2 class="section-title">⭐ 実行委員から一言</h2>
+    <div class="committee-grid">
+      <div class="committee-card">
+        <div class="committee-name">坂本真彩</div>
+        <div class="committee-role">実行委員長</div>
+      </div>
+      <div class="committee-card">
+        <div class="committee-name">小林祐太朗</div>
+        <div class="committee-role">副実行委員長</div>
+        <div class="committee-message">楽しんでいってください！</div>
+      </div>
+      <div class="committee-card">
+        <div class="committee-name">島原大宙</div>
+        <div class="committee-role">司会進行</div>
+        <div class="committee-message">私の作品があります、短い時間ですけど楽しんでください。</div>
+      </div>
+      <div class="committee-card">
+        <div class="committee-name">王野奏太</div>
+        <div class="committee-role">司会進行</div>
+        <div class="committee-message">塩分チャージ</div>
+      </div>
+      <div class="committee-card">
+        <div class="committee-name">西孝仁</div>
+        <div class="committee-role">書記</div>
+        <div class="committee-message">先輩に脅迫されました</div>
+      </div>
+      <div class="committee-card">
+        <div class="committee-name">小山奏</div>
+        <div class="committee-role">書記</div>
+        <div class="committee-message">楽しもう！</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+  <!-- Final Message Section -->
+  <section class="final-message-section">
+    <div class="final-message-content">
+      <h2 class="final-message-title"><!-- ここに最後のメッセージが入ります --></h2>
+      <p class="final-message-subtitle"><!-- ここに副題が入ります --></p>
+    </div>
+  </section>
+
+  <footer>
+    <p>N高等学校 博多駅南キャンパス キャンパスフェスティバル 2026</p>
+    <p style="font-size: 0.875rem; margin-top: 16px;">楽しい時間をお過ごしください</p>
+    <p style="font-size: 0.75rem; margin-top: 20px; color: #64748b;">© 2026 N High School Hakataeki minami Campus</p>
+  </footer>
+
+  <script>
+    // === カウントダウンタイマー ===
+    function initCountdown() {
+      const countdownEl = document.getElementById('countdown');
+      
+      function updateCountdown() {
+        const today = new Date();
+        const eventDate = new Date(2026, 8, 19, 0, 0, 0); // 9月19日
+        
+        // イベント前後の判定
+        if (today.getTime() >= eventDate.getTime()) {
+          countdownEl.style.display = 'none';
+          return;
+        }
+        
+        const diff = eventDate.getTime() - today.getTime();
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+        
+        countdownEl.innerHTML = `
+          <div class="countdown-item">
+            <span class="countdown-number">${days}</span>
+            <span class="countdown-label">日</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-number">${String(hours).padStart(2, '0')}</span>
+            <span class="countdown-label">時間</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-number">${String(minutes).padStart(2, '0')}</span>
+            <span class="countdown-label">分</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-number">${String(seconds).padStart(2, '0')}</span>
+            <span class="countdown-label">秒</span>
+          </div>
+        `;
+      }
+      
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    }
+
+    // === スクロール時のアニメーション ===
+    function initScrollAnimations() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            entry.target.style.animationDelay = `${index * 0.1}s`;
+            entry.target.classList.remove('fade-in', 'fade-in-left', 'fade-in-right', 'slide-in-up');
+            
+            // セクションタイプでアニメーション変更
+            const section = entry.target.closest('section');
+            if (section?.classList.contains('vendor-section')) {
+              entry.target.classList.add('fade-in-left');
+            } else if (section?.classList.contains('stage-section')) {
+              entry.target.classList.add('fade-in-right');
+            } else {
+              entry.target.classList.add('fade-in');
+            }
+            
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      // アニメーション対象要素
+      document.querySelectorAll('.vendor-card, .stage-card, .committee-card, .schedule-item').forEach(el => {
+        el.classList.add('fade-in');
+        observer.observe(el);
+      });
+    }
+
+    // === ハンバーガーメニュー機能 ===
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobile-nav');
+    
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      mobileNav.classList.toggle('active');
+    });
+
+    // モバイルナビリンククリック時にメニューを閉じる
+    document.querySelectorAll('.mobile-nav a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('data-target');
+        const targetSection = document.getElementById(targetId);
+        
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        
+        // メニューを閉じる
+        hamburger.classList.remove('active');
+        mobileNav.classList.remove('active');
+      });
+    });
+
+    // デスクトップナビリンク機能
+    document.querySelectorAll('.header-nav a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('data-target');
+        const targetSection = document.getElementById(targetId);
+        
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // === パーティクル生成 ===
+    function createParticles() {
+      const container = document.getElementById('particles');
+      
+      function spawnParticles() {
+        for (let i = 0; i < 10; i++) {
+          const particle = document.createElement('div');
+          particle.className = 'particle';
+          
+          const startX = Math.random() * window.innerWidth;
+          const duration = 6 + Math.random() * 8; // 6～14秒
+          const delay = Math.random() * 2;
+          
+          particle.style.left = startX + 'px';
+          particle.style.top = window.innerHeight + 'px';
+          particle.style.opacity = Math.random() * 0.5 + 0.5;
+          
+          container.appendChild(particle);
+          
+          // トランジションを開始
+          setTimeout(() => {
+            particle.style.transition = `top ${duration}s linear, opacity ${duration}s linear`;
+            particle.style.top = (window.innerHeight - window.innerHeight * 1.2) + 'px';
+            particle.style.opacity = '0';
+          }, delay * 100);
+          
+          // 終了後に削除
+          setTimeout(() => {
+            particle.remove();
+          }, (duration + delay * 0.1) * 1000 + 200);
+        }
+      }
+      
+      // 最初のスポーン
+      spawnParticles();
+      
+      // 継続的にスポーン
+      setInterval(spawnParticles, 1500);
+    }
+
+    // 初期化
+    createParticles();
+    initCountdown();
+    setTimeout(initScrollAnimations, 100);
+  </script>
 </body>
 </html>
