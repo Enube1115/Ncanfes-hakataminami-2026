@@ -351,6 +351,56 @@
       font-size: 1.05rem;
     }
 
+    /* === Ticket Section === */
+    .ticket-section {
+      padding: 60px 40px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 250, 251, 0.95) 100%);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .ticket-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .ticket-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .ticket-item {
+      background: linear-gradient(135deg, rgba(96, 165, 244, 0.1) 0%, rgba(124, 58, 237, 0.08) 100%);
+      border: 2px solid rgba(96, 165, 244, 0.3);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .ticket-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(96, 165, 244, 0.2);
+      border-color: rgba(96, 165, 244, 0.5);
+    }
+
+    .ticket-label {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 12px;
+      font-family: 'Baloo 2', 'Fredoka', sans-serif;
+    }
+
+    .ticket-detail {
+      font-size: 1.15rem;
+      color: #2563eb;
+      font-weight: 700;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+
     /* === Committee Section === */
     .committee-section {
       padding: 80px 40px;
@@ -522,6 +572,38 @@
       width: 24px;
       height: 24px;
       border-radius: 4px;
+    }
+
+    /* === Campus Detail Section === */
+    .campus-detail-section {
+      padding: 40px 20px;
+      background: linear-gradient(135deg, rgba(96, 165, 244, 0.15) 0%, rgba(124, 58, 237, 0.1) 100%);
+      text-align: center;
+    }
+
+    .campus-detail-button {
+      display: inline-block;
+      padding: 16px 48px;
+      background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+      color: white;
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3);
+      font-family: 'Baloo 2', 'Fredoka', sans-serif;
+      cursor: pointer;
+    }
+
+    .campus-detail-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.4);
+      background: linear-gradient(135deg, #1d4ed8 0%, #6d28d9 100%);
+    }
+
+    .campus-detail-button:active {
+      transform: translateY(0);
     }
 
     /* === Footer === */
@@ -1087,7 +1169,9 @@
         <li><a data-target="schedule">タイムテーブル</a></li>
         <li><a data-target="vendor">出店一覧</a></li>
         <li><a data-target="stage">ステージ企画</a></li>
+        <li><a data-target="ticket">食券の買い方</a></li>
         <li><a data-target="committee">実行委員</a></li>
+        <li><a href="https://nnn.ed.jp/campus/hakataekiminami/" target="_blank">キャンパス詳細</a></li>
       </ul>
     </nav>
     <div class="hamburger" id="hamburger">
@@ -1102,7 +1186,9 @@
     <a data-target="schedule">タイムテーブル</a>
     <a data-target="vendor">出店一覧</a>
     <a data-target="stage">ステージ企画</a>
+    <a data-target="ticket">食券の買い方</a>
     <a data-target="committee">実行委員</a>
+    <a href="https://nnn.ed.jp/campus/hakataekiminami/" target="_blank">キャンパス詳細</a>
   </nav>
 
   <!-- Hero Section -->
@@ -1294,6 +1380,27 @@
     </div>
   </section>
 
+  <!-- Ticket Section -->
+  <section class="ticket-section" id="ticket">
+    <div class="ticket-container">
+      <h2 class="section-title">🎫 食券の買い方</h2>
+      <div class="ticket-info">
+        <div class="ticket-item">
+          <div class="ticket-label">💰 価格</div>
+          <div class="ticket-detail">一枚 50円</div>
+        </div>
+        <div class="ticket-item">
+          <div class="ticket-label">📍 買う場所</div>
+          <div class="ticket-detail">受付</div>
+        </div>
+        <div class="ticket-item">
+          <div class="ticket-label">⚠️ ご注意</div>
+          <div class="ticket-detail">お釣りが出ないようにしてください</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Committee Section -->
   <section class="committee-section" id="committee">
     <h2 class="section-title">⭐ 実行委員から一言</h2>
@@ -1331,6 +1438,13 @@
     </div>
   </section>
 
+
+  <!-- Campus Detail Button -->
+  <section class="campus-detail-section">
+    <a href="https://nnn.ed.jp/campus/hakataekiminami/" target="_blank" class="campus-detail-button">
+      キャンパス詳細
+    </a>
+  </section>
 
   <!-- Footer -->
   <!-- Final Message Section -->
