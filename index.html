@@ -1213,6 +1213,116 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* === スマートフォン最適化（480px以下） === */
+    @media (max-width: 480px) {
+      body {
+        font-size: 16px;
+      }
+
+      .section-title {
+        font-size: 1.6rem;
+        margin-bottom: 24px;
+      }
+
+      .schedule-section,
+      .vendor-section,
+      .stage-section,
+      .ticket-section,
+      .committee-section,
+      .map-section {
+        padding: 40px 20px;
+      }
+
+      .schedule-table td,
+      .schedule-table th {
+        padding: 12px 10px;
+        font-size: 0.9rem;
+      }
+
+      .time {
+        font-size: 0.9rem;
+      }
+
+      .event {
+        font-size: 0.95rem;
+      }
+
+      .vendor-card {
+        padding: 16px;
+      }
+
+      .vendor-emoji {
+        font-size: 3rem;
+      }
+
+      .vendor-name {
+        font-size: 1rem;
+      }
+
+      .stage-card {
+        padding: 20px;
+      }
+
+      .stage-period {
+        font-size: 1.1rem;
+        padding: 16px;
+      }
+
+      .committee-card {
+        padding: 16px;
+      }
+
+      .committee-message {
+        font-size: 0.9rem;
+      }
+
+      .campus-detail-button,
+      .survey-button {
+        padding: 14px 32px;
+        font-size: 1rem;
+      }
+
+      .campus-detail-container {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .campus-detail-button,
+      .survey-button {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .map-wrapper {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .map-info {
+        gap: 16px;
+      }
+
+      .address-text,
+      .name-text {
+        font-size: 0.95rem;
+      }
+
+      .map-container {
+        border-radius: 12px;
+      }
+
+      .countdown {
+        font-size: 0.9rem;
+        padding: 16px 24px;
+        margin: 20px auto 0;
+        border-radius: 16px;
+      }
+
+      .countdown-item {
+        margin: 0 8px;
+      }
+    }
   </style>
 </head>
 <body>
