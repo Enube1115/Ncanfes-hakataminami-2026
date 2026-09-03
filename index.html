@@ -851,13 +851,13 @@
       display: none;
       text-align: center;
       margin-top: 12px;
-      padding: 10px 16px;
-      background: linear-gradient(135deg, rgba(251, 191, 36, 0.25) 0%, rgba(245, 158, 11, 0.2) 100%);
-      border-left: 4px solid #f59e0b;
+      padding: 12px 16px;
+      background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+      border-left: 4px solid #1e40af;
       border-radius: 8px;
-      font-size: 0.9rem;
-      color: #000000;
-      font-weight: 600;
+      font-size: 1rem;
+      color: #ffffff;
+      font-weight: 700;
       font-family: 'Kosugi Maru', sans-serif;
       line-height: 1.6;
     }
@@ -882,6 +882,39 @@
 
     .venue-map-action-btn:hover {
       box-shadow: 0 6px 16px rgba(16, 185, 129, 0.4);
+    }
+
+    .venue-map-save-notification {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: white;
+      padding: 16px 32px;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      font-family: 'Kosugi Maru', sans-serif;
+      box-shadow: 0 8px 32px rgba(16, 185, 129, 0.4);
+      z-index: 3000;
+      animation: saveNotificationFadeIn 0.3s ease-out;
+    }
+
+    .venue-map-save-notification.show {
+      display: block;
+    }
+
+    @keyframes saveNotificationFadeIn {
+      from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+      }
+      to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
     }
 
     /* スマートフォン向け */
@@ -1670,8 +1703,8 @@
         <div class="venue-map-mobile-recommendation">スマートフォンは保存して写真アプリで見ることをお勧めします</div>
         <div class="venue-map-mobile-actions" id="venue-map-mobile-actions">
           <button class="venue-map-action-btn" id="venue-map-save-btn" title="保存">💾 保存</button>
-          <button class="venue-map-action-btn" id="venue-map-share-btn" title="共有">📤 共有</button>
         </div>
+        <div class="venue-map-save-notification" id="venue-map-save-notification">✅ 保存できました</div>
       </div>
       <button class="venue-map-modal-close" id="venue-map-modal-close">← 戻る</button>
     </div>
@@ -2012,7 +2045,6 @@
       const modal = document.getElementById('venue-map-modal');
       const closeBtn = document.getElementById('venue-map-modal-close');
       const saveBtn = document.getElementById('venue-map-save-btn');
-      const shareBtn = document.getElementById('venue-map-share-btn');
       const modalImage = document.getElementById('venue-map-modal-image');
 
       // 画像をクリックしてモーダルを開く
@@ -2063,23 +2095,18 @@
             link.click();
             document.body.removeChild(link);
             URL.revokeObjectURL(url);
+            
+            // 保存完了通知を表示
+            const notification = document.getElementById('venue-map-save-notification');
+            notification.classList.add('show');
+            
+            // 1.5秒後に非表示
+            setTimeout(() => {
+              notification.classList.remove('show');
+            }, 1500);
           }, 'image/png');
         };
         img.src = 'kaizyou.png';
-      });
-
-      // 共有ボタン
-      shareBtn.addEventListener('click', () => {
-        if (navigator.share) {
-          navigator.share({
-            title: '博多駅南キャンパスフェスティバル',
-            text: 'N高キャンパスフェスティバルの会場図です',
-            url: window.location.href
-          }).catch(err => console.log('エラー: ', err));
-        } else {
-          // Web Share API未対応の場合
-          alert('このブラウザは共有機能に対応していません');
-        }
       });
     }
 
