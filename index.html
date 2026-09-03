@@ -820,7 +820,79 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 20px;
+      gap: 16px;
+    }
+
+    .venue-map-modal-image-wrapper {
+      position: relative;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .venue-map-modal-image {
+      max-width: 100%;
+      max-height: 75vh;
+      width: auto;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    }
+
+    .venue-map-mobile-actions {
+      display: none;
+      gap: 12px;
+      margin-top: 12px;
+      justify-content: center;
+    }
+
+    .venue-map-mobile-recommendation {
+      display: none;
+      text-align: center;
+      margin-top: 12px;
+      padding: 10px 16px;
+      background: linear-gradient(135deg, rgba(251, 191, 36, 0.25) 0%, rgba(245, 158, 11, 0.2) 100%);
+      border-left: 4px solid #f59e0b;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      color: #000000;
+      font-weight: 600;
+      font-family: 'Kosugi Maru', sans-serif;
+      line-height: 1.6;
+    }
+
+    .venue-map-action-btn {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: 'Kosugi Maru', sans-serif;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    }
+
+    .venue-map-action-btn:active {
+      transform: scale(0.95);
+    }
+
+    .venue-map-action-btn:hover {
+      box-shadow: 0 6px 16px rgba(16, 185, 129, 0.4);
+    }
+
+    /* スマートフォン向け */
+    @media (max-width: 768px) {
+      .venue-map-mobile-actions {
+        display: flex;
+      }
+
+      .venue-map-mobile-recommendation {
+        display: block;
+      }
     }
 
     .venue-map-modal-close {
@@ -840,15 +912,6 @@
     .venue-map-modal-close:hover {
       transform: translateY(-2px);
       box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
-    }
-
-    .venue-map-modal-image {
-      max-width: 100%;
-      max-height: 80vh;
-      width: auto;
-      height: auto;
-      border-radius: 16px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
     }
 
     /* === Countdown === */
@@ -1602,8 +1665,15 @@
   <!-- Venue Map Modal -->
   <div class="venue-map-modal" id="venue-map-modal">
     <div class="venue-map-modal-content">
+      <div class="venue-map-modal-image-wrapper">
+        <img src="Kaizyouzu.png" alt="会場図" class="venue-map-modal-image" id="venue-map-modal-image">
+        <div class="venue-map-mobile-recommendation">スマートフォンは保存して写真アプリで見ることをお勧めします</div>
+        <div class="venue-map-mobile-actions" id="venue-map-mobile-actions">
+          <button class="venue-map-action-btn" id="venue-map-save-btn" title="保存">💾 保存</button>
+          <button class="venue-map-action-btn" id="venue-map-share-btn" title="共有">📤 共有</button>
+        </div>
+      </div>
       <button class="venue-map-modal-close" id="venue-map-modal-close">← 戻る</button>
-      <img src="Kaizyouzu.png" alt="会場図" class="venue-map-modal-image">
     </div>
   </div>
 
@@ -1941,6 +2011,9 @@
       const venueMapImage = document.getElementById('venue-map-image');
       const modal = document.getElementById('venue-map-modal');
       const closeBtn = document.getElementById('venue-map-modal-close');
+      const saveBtn = document.getElementById('venue-map-save-btn');
+      const shareBtn = document.getElementById('venue-map-share-btn');
+      const modalImage = document.getElementById('venue-map-modal-image');
 
       // 画像をクリックしてモーダルを開く
       venueMapImage.addEventListener('click', () => {
@@ -1967,6 +2040,45 @@
         if (e.key === 'Escape' && modal.classList.contains('active')) {
           modal.classList.remove('active');
           document.body.style.overflow = 'auto';
+        }
+      });
+
+      // 保存ボタン
+      saveBtn.addEventListener('click', () => {
+        const img = new Image();
+        img.crossOrigin = 'anonymous';
+        img.onload = () => {
+          const canvas = document.createElement('canvas');
+          canvas.width = img.width;
+          canvas.height = img.height;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0);
+          
+          canvas.toBlob((blob) => {
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'N高博多駅南キャンパスフェスティバル_会場図.png';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+          }, 'image/png');
+        };
+        img.src = 'Kaizyouzu.png';
+      });
+
+      // 共有ボタン
+      shareBtn.addEventListener('click', () => {
+        if (navigator.share) {
+          navigator.share({
+            title: '博多駅南キャンパスフェスティバル',
+            text: 'N高キャンパスフェスティバルの会場図です',
+            url: window.location.href
+          }).catch(err => console.log('エラー: ', err));
+        } else {
+          // Web Share API未対応の場合
+          alert('このブラウザは共有機能に対応していません');
         }
       });
     }
