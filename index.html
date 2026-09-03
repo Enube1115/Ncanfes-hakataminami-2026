@@ -109,7 +109,7 @@
     }
 
     .hero h1 {
-      font-size: clamp(4rem, 12vw, 8rem);
+      font-size: clamp(3rem, 9vw, 6.5rem);
       font-weight: 900;
       font-family: 'Yomogi', sans-serif;
       background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
@@ -1216,6 +1216,10 @@
 
     /* === スマートフォン最適化（480px以下） === */
     @media (max-width: 480px) {
+      h1 {
+        font-size: 4.5rem !important;
+      }
+
       body {
         font-size: 16px;
       }
