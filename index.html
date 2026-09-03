@@ -764,6 +764,93 @@
       font-weight: 500;
     }
 
+    /* === Venue Map Section === */
+    .venue-map-section {
+      padding: 80px 40px;
+      background: linear-gradient(to bottom, #f0fafb, #e0f7ff);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .venue-map-container {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(96, 165, 244, 0.2);
+      border: 2px solid rgba(96, 165, 244, 0.3);
+      padding: 24px;
+    }
+
+    .venue-map-image {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+      transition: opacity 0.3s ease;
+    }
+
+    .venue-map-image:hover {
+      opacity: 0.8;
+    }
+
+    /* === Venue Map Modal === */
+    .venue-map-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      backdrop-filter: blur(5px);
+    }
+
+    .venue-map-modal.active {
+      display: flex;
+    }
+
+    .venue-map-modal-content {
+      position: relative;
+      max-width: 90vw;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .venue-map-modal-close {
+      background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+      color: white;
+      border: none;
+      padding: 12px 32px;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: 'Kosugi Maru', sans-serif;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+    }
+
+    .venue-map-modal-close:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+    }
+
+    .venue-map-modal-image {
+      max-width: 100%;
+      max-height: 80vh;
+      width: auto;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    }
+
     /* === Countdown === */
     .countdown {
       font-size: 1.2rem;
@@ -1180,6 +1267,7 @@
       .schedule-section,
       .committee-section,
       .vendor-section,
+      .venue-map-section,
       .stage-section {
         padding: 40px 20px;
       }
@@ -1337,6 +1425,7 @@
       <ul class="header-nav">
         <li><a data-target="schedule">タイムテーブル</a></li>
         <li><a data-target="vendor">出店一覧</a></li>
+        <li><a data-target="venue-map">会場図</a></li>
         <li><a data-target="stage">ステージ企画</a></li>
         <li><a data-target="ticket">食券の買い方</a></li>
         <li><a data-target="committee">実行委員</a></li>
@@ -1354,6 +1443,7 @@
   <nav class="mobile-nav" id="mobile-nav">
     <a data-target="schedule">タイムテーブル</a>
     <a data-target="vendor">出店一覧</a>
+    <a data-target="venue-map">会場図</a>
     <a data-target="stage">ステージ企画</a>
     <a data-target="ticket">食券の買い方</a>
     <a data-target="committee">実行委員</a>
@@ -1500,6 +1590,22 @@
       </div>
     </div>
   </section>
+
+  <!-- Venue Map Section -->
+  <section class="venue-map-section" id="venue-map">
+    <h2 class="section-title">🗺️ 会場図</h2>
+    <div class="venue-map-container">
+      <img src="venue-map.png" alt="会場図" class="venue-map-image" id="venue-map-image" style="cursor: pointer;">
+    </div>
+  </section>
+
+  <!-- Venue Map Modal -->
+  <div class="venue-map-modal" id="venue-map-modal">
+    <div class="venue-map-modal-content">
+      <button class="venue-map-modal-close" id="venue-map-modal-close">← 戻る</button>
+      <img src="venue-map.png" alt="会場図" class="venue-map-modal-image">
+    </div>
+  </div>
 
   <!-- Stage Section -->
   <section class="stage-section" id="stage">
@@ -1830,9 +1936,45 @@
       setInterval(spawnParticles, 1500);
     }
 
+    // === 会場図モーダル機能 ===
+    function initVenueMapModal() {
+      const venueMapImage = document.getElementById('venue-map-image');
+      const modal = document.getElementById('venue-map-modal');
+      const closeBtn = document.getElementById('venue-map-modal-close');
+
+      // 画像をクリックしてモーダルを開く
+      venueMapImage.addEventListener('click', () => {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+
+      // 閉じるボタン
+      closeBtn.addEventListener('click', () => {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      });
+
+      // モーダル背景をクリックしても閉じる
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.classList.remove('active');
+          document.body.style.overflow = 'auto';
+        }
+      });
+
+      // ESCキーで閉じる
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+          modal.classList.remove('active');
+          document.body.style.overflow = 'auto';
+        }
+      });
+    }
+
     // 初期化
     createParticles();
     initCountdown();
+    initVenueMapModal();
     setTimeout(initScrollAnimations, 100);
   </script>
 </body>
