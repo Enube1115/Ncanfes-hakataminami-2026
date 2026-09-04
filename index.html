@@ -238,6 +238,274 @@
       background-clip: text;
     }
 
+    /* === Announcement Section === */
+    .announcement-section {
+      padding: 20px 40px;
+      background: linear-gradient(135deg, #fef3c7 0%, #fef08a 100%);
+      max-width: 1200px;
+      margin: 0 auto;
+      border-bottom: 4px solid #f59e0b;
+    }
+
+    .announcement-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .announcement-item {
+      background: white;
+      padding: 20px 24px;
+      border-radius: 12px;
+      border-left: 5px solid #dc2626;
+      box-shadow: 0 4px 12px rgba(220, 38, 38, 0.15);
+    }
+
+    .announcement-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 12px;
+      font-family: 'Kosugi Maru', sans-serif;
+    }
+
+    .announcement-item p {
+      color: #333;
+      font-size: 1rem;
+      margin: 0;
+      font-family: 'Kosugi Maru', sans-serif;
+      line-height: 1.6;
+    }
+
+    /* === Event Day Mode Section === */
+    .event-day-mode {
+      padding: 40px;
+      background: linear-gradient(135deg, #1a3a52 0%, #2a5a7f 100%);
+      max-width: 1200px;
+      margin: 0 auto;
+      border-bottom: 4px solid #3b82f6;
+    }
+
+    .mode-container {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .mode-container h2 {
+      color: white;
+      font-size: 2.5rem;
+      font-weight: 900;
+      letter-spacing: 3px;
+      margin-bottom: 30px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      font-family: 'Kosugi Maru', sans-serif;
+    }
+
+    .current-time {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
+    .time-label {
+      color: #fbbf24;
+      font-size: 1.1rem;
+      font-weight: 700;
+      font-family: 'Kosugi Maru', sans-serif;
+    }
+
+    .time-display {
+      color: white;
+      font-size: 2rem;
+      font-weight: 900;
+      font-family: 'Monaco', 'Courier New', monospace;
+      letter-spacing: 2px;
+    }
+
+    .now-next-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .now-card, .next-card {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 24px 20px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .now-card {
+      border-top: 5px solid #10b981;
+    }
+
+    .now-card:hover, .next-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+    }
+
+    .next-card {
+      border-top: 5px solid #3b82f6;
+    }
+
+    .card-label {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      display: inline-block;
+      margin-bottom: 12px;
+      font-family: 'Kosugi Maru', sans-serif;
+    }
+
+    .next-card .card-label {
+      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    }
+
+    .event-name {
+      color: #1a3a52;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      font-family: 'Kosugi Maru', sans-serif;
+    }
+
+    .event-time {
+      color: #666;
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      font-family: 'Kosugi Maru', sans-serif;
+    }
+
+    .time-until {
+      color: #f59e0b;
+      font-size: 1.2rem;
+      font-weight: 700;
+      font-family: 'Kosugi Maru', sans-serif;
+    }
+
+    @media (max-width: 768px) {
+      .event-day-mode {
+        padding: 24px;
+      }
+
+      .mode-container h2 {
+        font-size: 1.8rem;
+        letter-spacing: 2px;
+      }
+
+      .time-display {
+        font-size: 1.5rem;
+      }
+
+      .now-next-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .announcement-section {
+        padding: 16px 24px;
+      }
+    }
+
+    /* === Ticket Info Day Mode Section === */
+    .ticket-info-day-mode {
+      padding: 30px 40px;
+      background: linear-gradient(135deg, #1e2d4a 0%, #2a3f5f 100%);
+      max-width: 1200px;
+      margin: 0 auto;
+      border-top: 2px solid #3b82f6;
+    }
+
+    .ticket-info-container {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .ticket-info-day-mode h3 {
+      color: white;
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      font-family: 'Kosugi Maru', sans-serif;
+      letter-spacing: 1px;
+    }
+
+    .ticket-sale-status {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      border-left: 5px solid #10b981;
+    }
+
+    #ticket-sale-status-text {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #10b981;
+      margin-bottom: 8px;
+      font-family: 'Kosugi Maru', sans-serif;
+    }
+
+    .ticket-time {
+      color: #666;
+      font-size: 0.95rem;
+      font-family: 'Kosugi Maru', sans-serif;
+      font-weight: 600;
+    }
+
+    .ticket-details {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 16px;
+      border-radius: 8px;
+      color: white;
+    }
+
+    .ticket-details p {
+      margin: 8px 0;
+      font-size: 1rem;
+      font-family: 'Kosugi Maru', sans-serif;
+      line-height: 1.6;
+    }
+
+    .ticket-details strong {
+      font-weight: 700;
+      color: #fbbf24;
+    }
+
+    @media (max-width: 768px) {
+      .ticket-info-day-mode {
+        padding: 20px 24px;
+      }
+
+      .ticket-info-day-mode h3 {
+        font-size: 1.3rem;
+      }
+
+      .ticket-sale-status {
+        padding: 16px;
+      }
+
+      #ticket-sale-status-text {
+        font-size: 1.1rem;
+      }
+
+      .ticket-details p {
+        font-size: 0.95rem;
+      }
+    }
+
     /* === Event Highlights Section === */
     .event-highlights-section {
       padding: 80px 40px;
@@ -1726,7 +1994,7 @@
       <h1>青春、更新中</h1>
       <p class="hero-subtitle">N高等学校 博多駅南キャンパス キャンパスフェスティバル</p>
       <p class="hero-description">食べて、遊んで、見て、参加する。<br>生徒が全力で作った最高のイベント</p>
-      <p class="date-info">9月19日（金）<br>11:00～15:30（開場 10:30）</p>
+      <p class="date-info">9月19日（土）<br>11:00～15:30（開場 10:30）</p>
       <div class="countdown" id="countdown"></div>
       <button class="cta-button" onclick="document.querySelector('.event-highlights-section').scrollIntoView({ behavior: 'smooth' });">
         🌟 イベントを探索する
@@ -1734,6 +2002,61 @@
     </div>
     <div class="scroll-indicator">
       <div>↓</div>
+    </div>
+  </section>
+
+  <!-- Announcement Section (New) -->
+  <section class="announcement-section" id="announcements">
+    <div class="announcement-content">
+      <div class="announcement-item" id="announcement-main" style="display: none;">
+        <span class="announcement-badge">🔴 重要なお知らせ</span>
+        <p id="announcement-text"></p>
+      </div>
+      <div id="announcement-empty" style="text-align: center; color: #999;">
+        <p>現在、特別なお知らせはありません</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Event Day Mode Section (New) -->
+  <section class="event-day-mode" id="event-day-mode" style="display: none;">
+    <div class="mode-container">
+      <h2>CAMPUS FESTIVAL 2026</h2>
+      <div class="current-time">
+        <span class="time-label">🕐 現在</span>
+        <span class="time-display" id="current-time">--:--</span>
+      </div>
+      
+      <div class="now-next-grid">
+        <div class="now-card">
+          <div class="card-label">NOW</div>
+          <div class="event-name" id="now-event">ロード中...</div>
+          <div class="event-time" id="now-time">--:--～--:--</div>
+        </div>
+        
+        <div class="next-card">
+          <div class="card-label">NEXT</div>
+          <div class="event-name" id="next-event">ロード中...</div>
+          <div class="event-time" id="next-time">--:--～--:--</div>
+          <div class="time-until" id="time-until">あと -- 分</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ticket Sales Info Section (Day Mode) -->
+  <section class="ticket-info-day-mode" id="ticket-info-day-mode" style="display: none;">
+    <div class="ticket-info-container">
+      <h3>🎫 食券販売情報</h3>
+      <div class="ticket-sale-status">
+        <div id="ticket-sale-status-text">現在販売中</div>
+        <div class="ticket-time" id="ticket-sale-time">受付終了時間: 準備中</div>
+      </div>
+      <div class="ticket-details">
+        <p>💰 <strong>1枚 50円</strong></p>
+        <p>📍 <strong>買う場所：受付</strong></p>
+        <p>⚠️ <strong>お釣りが出ないようにしてください</strong></p>
+      </div>
     </div>
   </section>
 
@@ -2322,7 +2645,233 @@
     createParticles();
     initCountdown();
     initVenueMapModal();
+    
+    // === タイムテーブルデータ ===
+    const scheduleData = [
+      { time: '10:30', endTime: '11:00', name: '受付開始', display: '受付開始', type: 'reception' },
+      { time: '11:00', endTime: '11:10', name: 'スタート', display: 'スタート', type: 'stage' },
+      { time: '11:15', endTime: '11:30', name: 'バンド', display: '🎸 バンド', type: 'stage' },
+      { time: '11:40', endTime: '12:10', name: 'ゲーム（w3w5）', display: '🎮 ゲーム', type: 'stage' },
+      { time: '12:15', endTime: '12:30', name: 'イントロクイズ', display: '🎤 イントロクイズ', type: 'stage' },
+      { time: '12:35', endTime: '13:00', name: '歌詞当てクイズ', display: '🎵 歌詞当てクイズ', type: 'stage' },
+      { time: '13:30', endTime: '13:35', name: 'スタート', display: 'スタート', type: 'stage' },
+      { time: '13:35', endTime: '14:05', name: 'メンター/TA企画', display: '👥 メンター/TA企画', type: 'stage' },
+      { time: '14:10', endTime: '14:30', name: '音楽年代あてクイズ', display: '🎶 音楽年代あてクイズ', type: 'stage' },
+      { time: '14:35', endTime: '15:00', name: 'ビンゴ', display: '🎰 ビンゴ', type: 'stage' },
+      { time: '15:00', endTime: '15:30', name: 'エンディング', display: '🎊 エンディング', type: 'stage' },
+      { time: '15:30', endTime: '15:30', name: '閉場', display: '閉場', type: 'end' }
+    ];
+
+    // 時刻文字列をMinutesに変換（"11:30" → 690）
+    function timeToMinutes(timeStr) {
+      const [hours, minutes] = timeStr.split(':').map(Number);
+      return hours * 60 + minutes;
+    }
+
+    // 当日モード初期化
+    function initEventDayMode() {
+      // 9月19日かどうか確認
+      const today = new Date();
+      const isEventDay = today.getMonth() === 8 && today.getDate() === 19;
+
+      if (isEventDay || new Date().getHours() >= 10) { // テスト用：10時以降
+        const eventDayMode = document.getElementById('event-day-mode');
+        eventDayMode.style.display = 'block';
+
+        // 時刻表示を更新
+        setInterval(updateEventDayMode, 1000);
+        updateEventDayMode(); // 初回表示
+      }
+    }
+
+    function updateEventDayMode() {
+      const now = new Date();
+      const currentMinutes = now.getHours() * 60 + now.getMinutes();
+      const timeDisplay = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+
+      document.getElementById('current-time').textContent = timeDisplay;
+
+      // 現在と次の企画を探す
+      let currentEvent = null;
+      let nextEvent = null;
+
+      for (let i = 0; i < scheduleData.length; i++) {
+        const event = scheduleData[i];
+        const startMin = timeToMinutes(event.time);
+        const endMin = timeToMinutes(event.endTime);
+
+        if (currentMinutes >= startMin && currentMinutes < endMin) {
+          currentEvent = event;
+          nextEvent = scheduleData[i + 1] || null;
+          break;
+        }
+      }
+
+      // NOWイベント表示
+      if (currentEvent) {
+        document.getElementById('now-event').textContent = currentEvent.display;
+        document.getElementById('now-time').textContent = `${currentEvent.time}～${currentEvent.endTime}`;
+      }
+
+      // NEXTイベント表示
+      if (nextEvent) {
+        document.getElementById('next-event').textContent = nextEvent.display;
+        document.getElementById('next-time').textContent = `${nextEvent.time}～${nextEvent.endTime}`;
+
+        // 残り時間計算
+        const nextStartMin = timeToMinutes(nextEvent.time);
+        const minutesUntil = nextStartMin - currentMinutes;
+
+        if (minutesUntil > 0) {
+          document.getElementById('time-until').textContent = `あと ${minutesUntil} 分`;
+        } else {
+          document.getElementById('time-until').textContent = 'もうすぐ開始';
+        }
+      }
+
+      // 食券販売時間帯の判定
+      updateTicketSalesInfo(currentMinutes);
+    }
+
+    // 食券販売情報の表示制御
+    function updateTicketSalesInfo(currentMinutes) {
+      const ticketInfoSection = document.getElementById('ticket-info-day-mode');
+      const ticketSaleStatusText = document.getElementById('ticket-sale-status-text');
+      const ticketSaleTime = document.getElementById('ticket-sale-time');
+
+      // 時間帯定義
+      const firstSaleStart = timeToMinutes('10:30'); // 開場
+      const firstSaleEnd = timeToMinutes('11:05');   // 最初の販売終了
+      const secondSaleStart = timeToMinutes('13:00'); // 二部目販売開始
+      const secondSaleEnd = timeToMinutes('13:35');   // 二部目販売終了
+
+      // 現在販売中かどうかを判定
+      let isSelling = false;
+      let saleEndTime = '';
+
+      if (currentMinutes >= firstSaleStart && currentMinutes < firstSaleEnd) {
+        isSelling = true;
+        saleEndTime = '11:05';
+      } else if (currentMinutes >= secondSaleStart && currentMinutes < secondSaleEnd) {
+        isSelling = true;
+        saleEndTime = '13:35';
+      }
+
+      // 販売時間帯にのみ表示
+      if (isSelling) {
+        ticketInfoSection.style.display = 'block';
+        ticketSaleStatusText.textContent = '現在販売中';
+        ticketSaleStatusText.style.color = '#10b981';
+        ticketSaleTime.textContent = `受付終了時間: ${saleEndTime}`;
+      } else {
+        ticketInfoSection.style.display = 'none';
+      }
+    }
+
+    // タイムテーブルハイライト初期化
+    function initTimeTableHighlight() {
+      setInterval(updateTimeTableHighlight, 30000); // 30秒ごと更新
+      updateTimeTableHighlight(); // 初回表示
+    }
+
+    function updateTimeTableHighlight() {
+      const now = new Date();
+      const currentMinutes = now.getHours() * 60 + now.getMinutes();
+
+      // タイムテーブル行を取得
+      const rows = document.querySelectorAll('.schedule-table tbody tr');
+
+      rows.forEach((row) => {
+        const timeCell = row.querySelector('.time');
+        if (!timeCell) return;
+
+        const timeText = timeCell.textContent.trim();
+        const timeMin = timeToMinutes(timeText);
+
+        // 次の行の時刻を取得（企画の終了時刻）
+        const nextRow = row.nextElementSibling;
+        let endTimeMin = timeMin + 30; // デフォルト30分
+
+        if (nextRow) {
+          const nextTimeCell = nextRow.querySelector('.time');
+          if (nextTimeCell) {
+            const nextTime = nextTimeCell.textContent.trim();
+            endTimeMin = timeToMinutes(nextTime);
+          }
+        }
+
+        // 現在進行中の企画
+        if (currentMinutes >= timeMin && currentMinutes < endTimeMin) {
+          row.classList.add('now-event');
+          row.classList.remove('past-event');
+        }
+        // 終了した企画
+        else if (currentMinutes >= endTimeMin) {
+          row.classList.remove('now-event');
+          row.classList.add('past-event');
+        }
+        // まだ始まっていない企画
+        else {
+          row.classList.remove('now-event', 'past-event');
+        }
+      });
+    }
+
+    // タイムテーブル行のスタイル
+    const style = document.createElement('style');
+    style.textContent = `
+      .schedule-table tbody tr.now-event {
+        background: linear-gradient(90deg, rgba(16, 185, 129, 0.15) 0%, transparent 100%);
+        border-left: 5px solid #10b981;
+        font-weight: 700;
+      }
+
+      .schedule-table tbody tr.now-event::after {
+        content: ' ← NOW';
+        color: #10b981;
+        font-weight: 700;
+        font-size: 0.85rem;
+      }
+
+      .schedule-table tbody tr.past-event {
+        opacity: 0.5;
+        color: #999;
+      }
+
+      .schedule-table tbody tr.past-event .time,
+      .schedule-table tbody tr.past-event .event {
+        color: #aaa;
+      }
+    `;
+    document.head.appendChild(style);
+
+    // === アナウンスメント管理 ===
+    // 実行委員が編集可能：以下の announcements 配列にお知らせを追加・編集してください
+    const announcements = [
+      // 例：{ title: '重要なお知らせ', message: 'ステージ企画の開始時間が変更されました。13:00 → 13:15' },
+      // 現在のお知らせをここに追加してください
+    ];
+
+    function initAnnouncements() {
+      const announcementMain = document.getElementById('announcement-main');
+      const announcementEmpty = document.getElementById('announcement-empty');
+      const announcementText = document.getElementById('announcement-text');
+
+      if (announcements.length > 0) {
+        // 最新のお知らせを表示
+        const latest = announcements[announcements.length - 1];
+        announcementText.textContent = latest.message;
+        announcementMain.style.display = 'block';
+        announcementEmpty.style.display = 'none';
+      } else {
+        announcementMain.style.display = 'none';
+        announcementEmpty.style.display = 'block';
+      }
+    }
+
+    // 関数初期化
+    initEventDayMode();
+    initTimeTableHighlight();
+    initAnnouncements();
     setTimeout(initScrollAnimations, 100);
   </script>
-</body>
-</html>
