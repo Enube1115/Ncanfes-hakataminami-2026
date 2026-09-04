@@ -2781,12 +2781,20 @@
       // タイムテーブル行を取得
       const rows = document.querySelectorAll('.schedule-table tbody tr');
 
+      // 常に濃く表示する企画（重要な情報）
+      const importantEvents = ['受付開始', 'エンディング', '閉場'];
+
       rows.forEach((row) => {
         const timeCell = row.querySelector('.time');
-        if (!timeCell) return;
+        const eventCell = row.querySelector('.event');
+        if (!timeCell || !eventCell) return;
 
         const timeText = timeCell.textContent.trim();
+        const eventText = eventCell.textContent.trim();
         const timeMin = timeToMinutes(timeText);
+
+        // 重要な企画かどうかを判定
+        const isImportant = importantEvents.some(event => eventText.includes(event));
 
         // 次の行の時刻を取得（企画の終了時刻）
         const nextRow = row.nextElementSibling;
@@ -2805,8 +2813,8 @@
           row.classList.add('now-event');
           row.classList.remove('past-event');
         }
-        // 終了した企画
-        else if (currentMinutes >= endTimeMin) {
+        // 終了した企画（重要な企画は除く）
+        else if (currentMinutes >= endTimeMin && !isImportant) {
           row.classList.remove('now-event');
           row.classList.add('past-event');
         }
@@ -2875,3 +2883,5 @@
     initAnnouncements();
     setTimeout(initScrollAnimations, 100);
   </script>
+</body>
+</html>
