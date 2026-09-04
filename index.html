@@ -143,6 +143,27 @@
       line-height: 1.8;
     }
 
+    .hero .hero-subtitle {
+      font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+      color: #444444;
+      font-weight: 600;
+      font-family: 'Kosugi Maru', sans-serif;
+      margin-bottom: 20px;
+      animation: slideIn 1s ease-out 0.2s both;
+      letter-spacing: 0.5px;
+    }
+
+    .hero .hero-description {
+      font-size: clamp(1rem, 3vw, 1.3rem);
+      color: #2563eb;
+      font-weight: 700;
+      font-family: 'Kosugi Maru', sans-serif;
+      margin-bottom: 40px;
+      max-width: 600px;
+      animation: slideIn 1s ease-out 0.3s both;
+      line-height: 1.8;
+    }
+
     @keyframes slideIn {
       from {
         opacity: 0;
@@ -214,6 +235,119 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+    }
+
+    /* === Event Highlights Section === */
+    .event-highlights-section {
+      padding: 80px 40px;
+      background: linear-gradient(to bottom, #e0f7ff, #f0fafb);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .event-highlights-section .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+      font-size: clamp(1.8rem, 5vw, 2.5rem);
+      font-weight: 900;
+      background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: slideIn 0.8s ease-out;
+    }
+
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .highlight-card {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 250, 251, 0.95) 100%);
+      padding: 32px 24px;
+      border-radius: 16px;
+      border: 2px solid rgba(96, 165, 244, 0.3);
+      box-shadow: 0 4px 16px rgba(96, 165, 244, 0.1);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      text-align: center;
+      animation: slideInUp 0.8s ease-out forwards;
+      opacity: 0;
+    }
+
+    .highlight-card:nth-child(1) { animation-delay: 0.1s; }
+    .highlight-card:nth-child(2) { animation-delay: 0.2s; }
+    .highlight-card:nth-child(3) { animation-delay: 0.3s; }
+    .highlight-card:nth-child(4) { animation-delay: 0.4s; }
+
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .highlight-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 32px rgba(96, 165, 244, 0.25);
+      border-color: rgba(96, 165, 244, 0.6);
+    }
+
+    .highlight-emoji {
+      font-size: 4rem;
+      margin-bottom: 16px;
+      display: block;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .highlight-card:hover .highlight-emoji {
+      animation: bounce 0.6s ease-out;
+    }
+
+    .highlight-card h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #1a3a52;
+      margin-bottom: 12px;
+      font-family: 'Kosugi Maru', sans-serif;
+    }
+
+    .highlight-card p {
+      font-size: 0.95rem;
+      color: #555555;
+      margin-bottom: 16px;
+      line-height: 1.7;
+      font-family: 'Kosugi Maru', sans-serif;
+    }
+
+    .highlight-arrow {
+      display: inline-block;
+      color: #2563eb;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      font-family: 'Kosugi Maru', sans-serif;
+    }
+
+    .highlight-card:hover .highlight-arrow {
+      color: #7c3aed;
+      transform: translateX(4px);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
     }
 
     /* === Schedule Section === */
@@ -640,6 +774,35 @@
       .map-wrapper {
         grid-template-columns: 1fr;
         gap: 24px;
+      }
+
+      .highlights-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .event-highlights-section {
+        padding: 60px 24px;
+      }
+
+      .event-highlights-section .section-title {
+        margin-bottom: 40px;
+      }
+
+      .highlight-card {
+        padding: 24px 16px;
+      }
+
+      .highlight-emoji {
+        font-size: 3rem;
+      }
+
+      .highlight-card h3 {
+        font-size: 1.2rem;
+      }
+
+      .highlight-card p {
+        font-size: 0.9rem;
       }
     }
 
@@ -1551,15 +1714,50 @@
     <div class="particles" id="particles"></div>
     <div class="hero-content">
       <h1>青春、更新中</h1>
-      <p class="subtitle">N高等学校 博多駅南キャンパス<br>キャンパスフェスティバル</p>
-      <p class="date-info">9月19日（金）| 10:30～15:30</p>
+      <p class="hero-subtitle">N高等学校 博多駅南キャンパス キャンパスフェスティバル</p>
+      <p class="hero-description">食べて、遊んで、見て、参加する。<br>生徒が全力で作った最高のイベント</p>
+      <p class="date-info">9月19日（金）| 11:00～15:30（開場 10:30）</p>
       <div class="countdown" id="countdown"></div>
-      <button class="cta-button" onclick="document.querySelector('.schedule-section').scrollIntoView({ behavior: 'smooth' });">
-        🌟 イベントの1日を見る
+      <button class="cta-button" onclick="document.querySelector('.event-highlights-section').scrollIntoView({ behavior: 'smooth' });">
+        🌟 イベントを探索する
       </button>
     </div>
     <div class="scroll-indicator">
       <div>↓</div>
+    </div>
+  </section>
+
+  <!-- Event Highlights Section (New) -->
+  <section class="event-highlights-section" id="event-highlights">
+    <h2 class="section-title">✨ キャンパスフェスティバルでできること</h2>
+    <div class="highlights-grid">
+      <div class="highlight-card" onclick="document.querySelector('.vendor-section').scrollIntoView({ behavior: 'smooth' });" style="cursor: pointer;">
+        <div class="highlight-emoji">🍴</div>
+        <h3>食べる</h3>
+        <p>ロシアンシュークリーム、たまころ大作戦、スムージー、かき氷など、生徒が手作りした美味しいグルメ</p>
+        <span class="highlight-arrow">詳しく見る →</span>
+      </div>
+
+      <div class="highlight-card" onclick="document.querySelector('.stage-section').scrollIntoView({ behavior: 'smooth' });" style="cursor: pointer;">
+        <div class="highlight-emoji">🎮</div>
+        <h3>遊ぶ</h3>
+        <p>ゲーム企画、イラストくじ、ビンゴなど、みんなで楽しめる参加型企画</p>
+        <span class="highlight-arrow">詳しく見る →</span>
+      </div>
+
+      <div class="highlight-card" onclick="document.querySelector('.stage-section').scrollIntoView({ behavior: 'smooth' });" style="cursor: pointer;">
+        <div class="highlight-emoji">🎵</div>
+        <h3>見る</h3>
+        <p>バンド演奏、クイズ、音楽企画など、ステージを彩るライブパフォーマンス</p>
+        <span class="highlight-arrow">詳しく見る →</span>
+      </div>
+
+      <div class="highlight-card" onclick="document.querySelector('.stage-section').scrollIntoView({ behavior: 'smooth' });" style="cursor: pointer;">
+        <div class="highlight-emoji">👥</div>
+        <h3>参加する</h3>
+        <p>メンター・TA企画など、生徒との交流や参加型のアクティビティ</p>
+        <span class="highlight-arrow">詳しく見る →</span>
+      </div>
     </div>
   </section>
 
