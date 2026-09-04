@@ -184,6 +184,7 @@
       font-family: 'Kosugi Maru', sans-serif;
       font-weight: 700;
       animation: slideIn 1s ease-out 0.4s both;
+      line-height: 1.8;
     }
 
     .hero .cta-button {
@@ -771,6 +772,10 @@
 
     /* モバイル対応 */
     @media (max-width: 768px) {
+      .hero .date-info {
+        font-size: 0.9rem;
+      }
+
       .map-wrapper {
         grid-template-columns: 1fr;
         gap: 24px;
@@ -1567,6 +1572,11 @@
         font-size: 4.5rem !important;
       }
 
+      .hero .date-info {
+        font-size: 0.95rem;
+        letter-spacing: 0.5px;
+      }
+
       body {
         font-size: 16px;
       }
@@ -1716,7 +1726,7 @@
       <h1>青春、更新中</h1>
       <p class="hero-subtitle">N高等学校 博多駅南キャンパス キャンパスフェスティバル</p>
       <p class="hero-description">食べて、遊んで、見て、参加する。<br>生徒が全力で作った最高のイベント</p>
-      <p class="date-info">9月19日（金）| 11:00～15:30（開場 10:30）</p>
+      <p class="date-info">9月19日（金）<br>11:00～15:30（開場 10:30）</p>
       <div class="countdown" id="countdown"></div>
       <button class="cta-button" onclick="document.querySelector('.event-highlights-section').scrollIntoView({ behavior: 'smooth' });">
         🌟 イベントを探索する
