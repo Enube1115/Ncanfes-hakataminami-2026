@@ -1,271 +1,2887 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#2f9bd6">
-<title>夏、削ってます。 | N高キャンパスフェスティバル 2026</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --ice:#eaf6ff;
-    --ice-deep:#cfe9fb;
-    --frost:#ffffff;
-    --ink:#123b57;
-    --ink-soft:#4a7391;
-    --syrup-red:#ff4d6d;
-    --syrup-blue:#2f9bd6;
-    --syrup-green:#4fc48a;
-    --shadow:rgba(18,59,87,.12);
-  }
-  *{box-sizing:border-box;margin:0;padding:0;}
-  body{
-    font-family:'Zen Maru Gothic',-apple-system,'Hiragino Kaku Gothic ProN',sans-serif;
-    color:var(--ink);
-    background:
-      radial-gradient(circle at 15% 10%, #ffffff 0%, transparent 45%),
-      radial-gradient(circle at 85% 0%, #dff0ff 0%, transparent 40%),
-      linear-gradient(180deg,var(--ice) 0%, var(--ice-deep) 100%);
-    background-attachment:fixed;
-    line-height:1.9;
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
-    text-size-adjust:100%;
-    -webkit-text-size-adjust:100%;
-  }
-  .wrap{max-width:720px;margin:0 auto;padding:0 20px 60px;}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>N高キャンパスフェスティバル 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=Fredoka:wght@400;600;700&family=Comfortaa:wght@400;700&family=Nunito:wght@400;600;700&family=Noto+Sans+JP:wght@400;600;700;900&family=Poppins:wght@600;700&family=Baloo+2:wght@600;700&family=Yomogi&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  /* ===== ヘッダー ===== */
-  header{
-    text-align:center;
-    padding:64px 20px 48px;
-    position:relative;
-    overflow:hidden;
-  }
-  .cup{
-    font-size:5rem;
-    line-height:1;
-    margin-bottom:16px;
-    filter:drop-shadow(0 8px 14px var(--shadow));
-    animation:float 4s ease-in-out infinite;
-  }
-  @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
-  h1{
-    font-family:'Zen Maru Gothic',sans-serif;
-    font-weight:700;
-    font-size:2.4rem;
-    letter-spacing:.04em;
-    color:var(--syrup-blue);
-    line-height:1.35;
-  }
-  h1 .jp{
-    display:block;
-    font-family:'Zen Maru Gothic',sans-serif;
-    font-size:1.15rem;
-    font-weight:700;
-    letter-spacing:.35em;
-    color:var(--ink);
-    margin-top:10px;
-  }
-  .lead{margin-top:16px;color:var(--ink-soft);font-size:.95rem;}
+    html {
+      scroll-behavior: smooth;
+    }
 
-  /* ===== 見出し ===== */
-  .section-title{
-    font-size:1.4rem;font-weight:700;
-    text-align:center;
-    margin:48px 0 24px;
-    letter-spacing:.12em;
-  }
-  .section-title::after{
-    content:"";display:block;
-    width:56px;height:4px;border-radius:4px;
-    margin:12px auto 0;
-    background:linear-gradient(90deg,var(--syrup-red),var(--syrup-blue),var(--syrup-green));
-  }
+    body {
+      font-family: 'Kosugi Maru', sans-serif;
+      background: #e0f7ff;
+      color: #1a1a1a;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-  /* ===== メニュー ===== */
-  .menu-card{
-    background:var(--frost);
-    border-radius:18px;
-    padding:24px 26px;
-    margin-bottom:18px;
-    box-shadow:0 8px 24px var(--shadow);
-    border-top:5px solid var(--syrup-blue);
-    transition:transform .25s ease, box-shadow .25s ease;
-  }
-  .menu-card.c-blue{border-top-color:#2f9bd6;}
-  .menu-card.c-red{border-top-color:#ff4d6d;}
-  .menu-card.c-white{border-top-color:#9ec6dd;}
-  .menu-card.c-green{border-top-color:#4fc48a;}
-  .menu-card.c-brown{border-top-color:#8a5a3b;}
-  .menu-card.c-purple{border-top-color:#8e6ec8;}
-  .menu-emoji{font-size:1.5rem;line-height:1;}
-  .allergy-note{
-    font-size:.85rem;
-    color:var(--ink-soft);
-    background:rgba(255,255,255,.7);
-    border-left:4px solid var(--syrup-red);
-    border-radius:10px;
-    padding:14px 16px;
-    margin-top:6px;
-    line-height:1.8;
-  }
-  .menu-card:hover{transform:translateY(-4px);box-shadow:0 14px 30px var(--shadow);}
-  .menu-name{
-    font-size:1.2rem;font-weight:700;
-    display:flex;align-items:center;gap:8px;
-  }
-  .menu-rule{
-    border:0;height:2px;
-    background:repeating-linear-gradient(90deg,var(--ice-deep) 0 8px,transparent 8px 14px);
-    margin:10px 0 14px;
-  }
-  .row{display:flex;gap:10px;font-size:.95rem;padding:4px 0;}
-  .row dt{
-    flex:0 0 5.5em;
-    font-weight:700;color:var(--ink-soft);
-  }
-  .row dd{flex:1;}
+    /* === Hero Section === */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #b0e0e6 0%, #c0f0fc 25%, #b0e0e6 50%, #a8e6e0 75%, #b0e0e6 100%);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+      position: relative;
+      overflow: visible;
+      text-align: center;
+      margin-top: 0;
+    }
 
-  /* ===== リーダーからの一言 ===== */
-  .leader{
-    background:linear-gradient(135deg,#ffffff 0%,#f2faff 100%);
-    border-radius:18px;
-    padding:28px 26px;
-    box-shadow:0 8px 24px var(--shadow);
-    text-align:center;
-  }
-  .leader p{
-    font-size:1.35rem;
-    font-weight:700;
-    letter-spacing:.04em;
-    color:var(--syrup-blue);
-  }
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
 
-  /* ===== 戻るリンク・フッター ===== */
-  .back{
-    display:block;
-    width:100%;max-width:320px;
-    margin:32px auto 0;
-    padding:15px 20px;
-    text-align:center;
-    text-decoration:none;
-    font-weight:700;
-    color:#fff;
-    background:linear-gradient(135deg,var(--syrup-blue),#1d7fb4);
-    border-radius:999px;
-    box-shadow:0 8px 20px rgba(47,155,214,.35);
-    transition:transform .2s ease, box-shadow .2s ease;
-  }
-  .back:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(47,155,214,.45);}
-  .back:focus-visible{outline:3px solid var(--syrup-red);outline-offset:3px;}
-  footer{
-    text-align:center;
-    margin-top:44px;
-    padding-top:22px;
-    border-top:1px dashed var(--ink-soft);
-    color:var(--ink-soft);
-    font-size:.9rem;
-    letter-spacing:.08em;
-  }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 40% 20%, rgba(96, 165, 244, 0.1) 0%, transparent 50%);
+      pointer-events: none;
+      animation: glowPulse 4s ease-in-out infinite;
+    }
 
-  @media (max-width:768px){
-    .wrap{padding:0 16px 48px;}
-    header{padding:52px 16px 36px;}
-    .cup{font-size:4.4rem;}
-    h1{font-size:2.1rem;letter-spacing:.03em;}
-    h1 .jp{font-size:1.05rem;letter-spacing:.3em;}
-    .lead{font-size:.9rem;}
-    .section-title{font-size:1.25rem;margin:40px 0 20px;}
-    .menu-card{padding:20px 20px;border-radius:16px;}
-    .leader{padding:24px 20px;border-radius:16px;}
-  }
+    @keyframes glowPulse {
+      0%, 100% { opacity: 0.8; }
+      50% { opacity: 1.2; }
+    }
 
-  @media (max-width:480px){
-    body{line-height:1.8;}
-    .wrap{padding:0 14px 44px;}
-    header{padding:40px 14px 28px;}
-    .cup{font-size:3.6rem;}
-    h1{font-size:1.7rem;word-break:break-word;}
-    h1 .jp{font-size:.95rem;letter-spacing:.22em;}
-    .section-title{font-size:1.15rem;letter-spacing:.08em;}
-    .menu-card,.leader{padding:18px 16px;}
-    .menu-name{font-size:1.05rem;}
-    .row{flex-direction:column;gap:2px;padding:6px 0;font-size:.9rem;}
-    .row dt{flex:none;font-size:.8rem;letter-spacing:.05em;}
-    .leader p{font-size:1.15rem;}
-    .back{max-width:100%;padding:16px 18px;font-size:.95rem;}
-    footer{font-size:.82rem;margin-top:36px;}
-  }
+    .particles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
 
-  @media (hover:none){
-    .menu-card:hover{transform:none;box-shadow:0 8px 24px var(--shadow);}
-    .back:hover{transform:none;}
-    .menu-card:active{transform:scale(.99);}
-    .back:active{transform:scale(.98);}
-  }
-  @media (prefers-reduced-motion:reduce){
-    *{animation:none !important;transition:none !important;}
-  }
-</style>
+    .particle {
+      position: fixed;
+      width: 4px;
+      height: 4px;
+      background: rgba(96, 165, 244, 0.7);
+      border-radius: 50%;
+      pointer-events: none;
+      box-shadow: 0 0 12px rgba(96, 165, 244, 0.5);
+    }
+
+
+
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      animation: fadeInUp 1s ease-out;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 9vw, 6.5rem);
+      font-weight: 900;
+      font-family: 'Yomogi', sans-serif;
+      background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+      animation: glitch 3s ease-in-out infinite;
+      text-transform: uppercase;
+      font-style: italic;
+    }
+
+    @keyframes glitch {
+      0%, 100% {
+        text-shadow: 0 0 30px rgba(96, 165, 244, 0.3);
+      }
+      50% {
+        text-shadow: 0 0 50px rgba(167, 139, 246, 0.5);
+      }
+    }
+
+    .hero .subtitle {
+      font-size: clamp(1rem, 3vw, 1.3rem);
+      color: #333333;
+      font-weight: 600;
+      font-family: 'Kosugi Maru', sans-serif;
+      margin-bottom: 40px;
+      max-width: 600px;
+      animation: slideIn 1s ease-out 0.2s both;
+      line-height: 1.8;
+    }
+
+    .hero .hero-subtitle {
+      font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+      color: #444444;
+      font-weight: 600;
+      font-family: 'Kosugi Maru', sans-serif;
+      margin-bottom: 20px;
+      animation: slideIn 1s ease-out 0.2s both;
+      letter-spacing: 0.5px;
+    }
+
+    .hero .hero-description {
+      font-size: clamp(1rem, 3vw, 1.3rem);
+      color: #2563eb;
+      font-weight: 700;
+      font-family: 'Kosugi Maru', sans-serif;
+      margin-bottom: 40px;
+      max-width: 600px;
+      animation: slideIn 1s ease-out 0.3s both;
+      line-height: 1.8;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .hero .date-info {
+
+      font-size: 1rem;
+      color: #60a5fa;
+      letter-spacing: 1px;
+      margin-bottom: 30px;
+      font-family: 'Kosugi Maru', sans-serif;
+      font-weight: 700;
+      animation: slideIn 1s ease-out 0.4s both;
+      line-height: 1.8;
+    }
+
+    .hero .cta-button {
+      display: block;
+      margin: 30px auto 0;
+      padding: 16px 48px;
+      background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 700;
+      font-family: 'Kosugi Maru', sans-serif;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      box-shadow: 0 8px 24px rgba(59, 130, 246, 0.4);
+      animation: slideIn 1s ease-out 0.6s both;
+    }
+
+    .hero .cta-button:hover {
+      transform: translateY(-2px) scale(1.08);
+      box-shadow: 0 12px 32px rgba(59, 130, 246, 0.6);
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #4a5f7f;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(10px); }
+    }
+
+    /* === Section Common === */
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      font-family: 'Kosugi Maru', sans-serif;
+      color: #f1f5f9;
+      margin-bottom: 50px;
+      text-align: center;
+      background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* === Announcement Section === */
+    .announcement-section {
+      padding: 20px 40px;
+      background: linear-gradient(135deg, #fef3c7 0%, #fef08a 100%);
+      max-width: 1200px;
+      margin: 0 auto;
+      border-bottom: 4px solid #f59e0b;
+    }
+
+    .announcement-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .announcement-item {
+      background: white;
+      padding: 20px 24px;
+      border-radius: 12px;
+      border-left: 5px solid #dc2626;
+      box-shadow: 0 4px 12px rgba(220, 38, 38, 0.15);
+    }
+
+    .announcement-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 12px;
+      font-family: 'Kosugi Maru', sans-serif;
+    }
+
+    .announcement-item p {
+      color: #333;
+      font-size: 1rem;
+      margin: 0;
+      font-family: 'Kosugi Maru', sans-serif;
+      line-height: 1.6;
+    }
+
+    /* === Event Day Mode Section === */
+    .event-day-mode {
+      padding: 40px;
+      background: linear-gradient(135deg, #1a3a52 0%, #2a5a7f 100%);
+      max-width: 1200px;
+      margin: 0 auto;
+      border-bottom: 4px solid #3b82f6;
+    }
+
+    .mode-container {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .mode-container h2 {
+      color: white;
+      font-size: 2.5rem;
+      font-weight: 900;
+      letter-spacing: 3px;
+      margin-bottom: 30px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      font-family: 'Kosugi Maru', sans-serif;
+    }
+
+    .current-time {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
+    .time-label {
+      color: #fbbf24;
+      font-size: 1.1rem;
+      font-weight: 700;
+      font-family: 'Kosugi Maru', sans-serif;
+    }
+
+    .time-display {
+      color: white;
+      font-size: 2rem;
+      font-weight: 900;
+      font-family: 'Monaco', 'Courier New', monospace;
+      letter-spacing: 2px;
+    }
+
+    .now-next-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .now-card, .next-card {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 24px 20px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .now-card {
+      border-top: 5px solid #10b981;
+    }
+
+    .now-card:hover, .next-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+    }
+
+    .next-card {
+      border-top: 5px solid #3b82f6;
+    }
+
+    .card-label {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      display: inline-block;
+      margin-bottom: 12px;
+      font-family: 'Kosugi Maru', sans-serif;
+    }
+
+    .next-card .card-label {
+      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    }
+
+    .event-name {
+      color: #1a3a52;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      font-family: 'Kosugi Maru', sans-serif;
+    }
+
+    .event-time {
+      color: #666;
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      font-family: 'Kosugi Maru', sans-serif;
+    }
+
+    .time-until {
+      color: #f59e0b;
+      font-size: 1.2rem;
+      font-weight: 700;
+      font-family: 'Kosugi Maru', sans-serif;
+    }
+
+    @media (max-width: 768px) {
+      .event-day-mode {
+        padding: 24px;
+      }
+
+      .mode-container h2 {
+        font-size: 1.8rem;
+        letter-spacing: 2px;
+      }
+
+      .time-display {
+        font-size: 1.5rem;
+      }
+
+      .now-next-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .announcement-section {
+        padding: 16px 24px;
+      }
+    }
+
+    /* === Ticket Info Day Mode Section === */
+    .ticket-info-day-mode {
+      padding: 30px 40px;
+      background: linear-gradient(135deg, #1e2d4a 0%, #2a3f5f 100%);
+      max-width: 1200px;
+      margin: 0 auto;
+      border-top: 2px solid #3b82f6;
+    }
+
+    .ticket-info-container {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .ticket-info-day-mode h3 {
+      color: white;
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      font-family: 'Kosugi Maru', sans-serif;
+      letter-spacing: 1px;
+    }
+
+    .ticket-sale-status {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      border-left: 5px solid #10b981;
+    }
+
+    #ticket-sale-status-text {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #10b981;
+      margin-bottom: 8px;
+      font-family: 'Kosugi Maru', sans-serif;
+    }
+
+    .ticket-time {
+      color: #666;
+      font-size: 0.95rem;
+      font-family: 'Kosugi Maru', sans-serif;
+      font-weight: 600;
+    }
+
+    .ticket-details {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 16px;
+      border-radius: 8px;
+      color: white;
+    }
+
+    .ticket-details p {
+      margin: 8px 0;
+      font-size: 1rem;
+      font-family: 'Kosugi Maru', sans-serif;
+      line-height: 1.6;
+    }
+
+    .ticket-details strong {
+      font-weight: 700;
+      color: #fbbf24;
+    }
+
+    @media (max-width: 768px) {
+      .ticket-info-day-mode {
+        padding: 20px 24px;
+      }
+
+      .ticket-info-day-mode h3 {
+        font-size: 1.3rem;
+      }
+
+      .ticket-sale-status {
+        padding: 16px;
+      }
+
+      #ticket-sale-status-text {
+        font-size: 1.1rem;
+      }
+
+      .ticket-details p {
+        font-size: 0.95rem;
+      }
+    }
+
+    /* === Event Highlights Section === */
+    .event-highlights-section {
+      padding: 80px 40px;
+      background: linear-gradient(to bottom, #e0f7ff, #f0fafb);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .event-highlights-section .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+      font-size: clamp(1.8rem, 5vw, 2.5rem);
+      font-weight: 900;
+      background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: slideIn 0.8s ease-out;
+    }
+
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .highlight-card {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 250, 251, 0.95) 100%);
+      padding: 32px 24px;
+      border-radius: 16px;
+      border: 2px solid rgba(96, 165, 244, 0.3);
+      box-shadow: 0 4px 16px rgba(96, 165, 244, 0.1);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      text-align: center;
+      animation: slideInUp 0.8s ease-out forwards;
+      opacity: 0;
+    }
+
+    .highlight-card:nth-child(1) { animation-delay: 0.1s; }
+    .highlight-card:nth-child(2) { animation-delay: 0.2s; }
+    .highlight-card:nth-child(3) { animation-delay: 0.3s; }
+    .highlight-card:nth-child(4) { animation-delay: 0.4s; }
+
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .highlight-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 32px rgba(96, 165, 244, 0.25);
+      border-color: rgba(96, 165, 244, 0.6);
+    }
+
+    .highlight-emoji {
+      font-size: 4rem;
+      margin-bottom: 16px;
+      display: block;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .highlight-card:hover .highlight-emoji {
+      animation: bounce 0.6s ease-out;
+    }
+
+    .highlight-card h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #1a3a52;
+      margin-bottom: 12px;
+      font-family: 'Kosugi Maru', sans-serif;
+    }
+
+    .highlight-card p {
+      font-size: 0.95rem;
+      color: #555555;
+      margin-bottom: 16px;
+      line-height: 1.7;
+      font-family: 'Kosugi Maru', sans-serif;
+    }
+
+    .highlight-arrow {
+      display: inline-block;
+      color: #2563eb;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      font-family: 'Kosugi Maru', sans-serif;
+    }
+
+    .highlight-card:hover .highlight-arrow {
+      color: #7c3aed;
+      transform: translateX(4px);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    /* === Schedule Section === */
+    .schedule-section {
+      padding: 80px 40px;
+      background: linear-gradient(to bottom, #f0fafb, #e0f7ff);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .schedule-quick {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 60px;
+      flex-wrap: wrap;
+    }
+
+    .schedule-item {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      font-size: 0.95rem;
+      color: #333333;
+      background: rgba(59, 130, 246, 0.1);
+      padding: 12px 20px;
+      border-radius: 50px;
+      border: 2px solid rgba(96, 165, 244, 0.3);
+      font-family: 'Kosugi Maru', sans-serif;
+      font-weight: 700;
+    }
+
+    .schedule-item span:first-child {
+      color: #60a5fa;
+      font-weight: 700;
+    }
+
+    .part-description {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(139, 92, 246, 0.1) 100%);
+      border-radius: 16px;
+      border: 2px solid rgba(96, 165, 244, 0.3);
+      padding: 24px;
+      margin-bottom: 40px;
+      text-align: center;
+      font-family: 'Kosugi Maru', sans-serif;
+      font-weight: 600;
+      font-size: 1.05rem;
+    }
+
+    .part-description span {
+      color: #60a5fa;
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .schedule-container {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(245, 252, 253, 0.98) 100%);
+      border-radius: 20px;
+      border: 2px solid rgba(96, 165, 244, 0.4);
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px rgba(96, 165, 244, 0.15);
+    }
+
+    .schedule-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+    }
+
+    .schedule-table thead {
+      background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    }
+
+    .schedule-table th {
+      padding: 18px;
+      text-align: left;
+      font-weight: 700;
+      color: white;
+      font-size: 0.95rem;
+      letter-spacing: 1px;
+      font-family: 'Kosugi Maru', sans-serif;
+    }
+
+    .schedule-table td {
+      padding: 16px 18px;
+      border-bottom: 1px solid rgba(96, 165, 244, 0.15);
+      color: #1a1a1a;
+      font-size: 1rem;
+      font-family: 'Kosugi Maru', sans-serif;
+    }
+
+    .schedule-table tbody tr {
+      transition: all 0.2s ease;
+    }
+
+    .schedule-table tbody tr:nth-child(odd) {
+      background: rgba(96, 165, 244, 0.08);
+    }
+
+    .schedule-table tbody tr:nth-child(even) {
+      background: rgba(240, 250, 251, 0.8);
+    }
+
+    .schedule-table tbody tr:hover {
+      background: rgba(96, 165, 244, 0.2);
+    }
+
+    .schedule-table tbody tr.part-label {
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.4) 0%, rgba(124, 58, 237, 0.3) 100%);
+      font-weight: 800;
+      color: #1a1a1a;
+      font-size: 1.1rem;
+      padding: 20px 18px;
+    }
+
+    .schedule-table tbody tr.part-label td {
+      color: #1a1a1a;
+      border: none;
+    }
+
+    .time {
+      color: #2563eb;
+      font-weight: 800;
+      white-space: nowrap;
+      font-size: 1.05rem;
+      font-family: 'Kosugi Maru', sans-serif;
+      min-width: 120px;
+      display: inline-block;
+    }
+
+    .event {
+      color: #1a1a1a;
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
+
+    /* === Ticket Section === */
+    .ticket-section {
+      padding: 60px 40px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 250, 251, 0.95) 100%);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .ticket-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .ticket-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .ticket-item {
+      background: linear-gradient(135deg, rgba(96, 165, 244, 0.1) 0%, rgba(124, 58, 237, 0.08) 100%);
+      border: 2px solid rgba(96, 165, 244, 0.3);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .ticket-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(96, 165, 244, 0.2);
+      border-color: rgba(96, 165, 244, 0.5);
+    }
+
+    .ticket-label {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 12px;
+      font-family: 'Kosugi Maru', sans-serif;
+    }
+
+    .ticket-detail {
+      font-size: 1.15rem;
+      color: #2563eb;
+      font-weight: 700;
+      font-family: 'Kosugi Maru', sans-serif;
+    }
+
+    /* === Committee Section === */
+    .committee-section {
+      padding: 80px 40px;
+      background: linear-gradient(to bottom, #f0fafb, #e0f7ff);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .committee-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .committee-card {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(240, 250, 251, 0.9) 100%);
+      padding: 32px;
+      border-radius: 16px;
+      border: 2px solid rgba(96, 165, 244, 0.2);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    .committee-card:hover {
+      border-color: rgba(96, 165, 244, 0.5);
+      transform: translateY(-8px) scale(1.05);
+      box-shadow: 0 15px 40px rgba(96, 165, 244, 0.3);
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(139, 92, 246, 0.1) 100%);
+    }
+
+    .committee-name {
+      font-size: 1.35rem;
+      font-weight: 700;
+      font-family: 'Kosugi Maru', sans-serif;
+      color: #1a1a1a;
+      margin-bottom: 8px;
+    }
+
+    .committee-role {
+
+    .committee-message {
+      font-size: 0.9rem;
+      color: #a78bfa;
+      font-family: 'Kosugi Maru', sans-serif;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(167, 139, 246, 0.3);
+      font-weight: 600;
+    }
+      font-size: 0.95rem;
+
+    .committee-message {
+      font-size: 0.9rem;
+      color: #a78bfa;
+      font-family: 'Kosugi Maru', sans-serif;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(167, 139, 246, 0.3);
+      font-weight: 600;
+    }
+      color: #60a5fa;
+
+    .committee-message {
+      font-size: 0.9rem;
+      color: #a78bfa;
+      font-family: 'Kosugi Maru', sans-serif;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(167, 139, 246, 0.3);
+      font-weight: 600;
+    }
+      font-weight: 700;
+
+    .committee-message {
+      font-size: 0.9rem;
+      color: #a78bfa;
+      font-family: 'Kosugi Maru', sans-serif;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(167, 139, 246, 0.3);
+      font-weight: 600;
+    }
+      font-family: 'Kosugi Maru', sans-serif;
+
+    .committee-message {
+      font-size: 0.9rem;
+      color: #a78bfa;
+      font-family: 'Kosugi Maru', sans-serif;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(167, 139, 246, 0.3);
+      font-weight: 600;
+    }
+      letter-spacing: 0.5px;
+
+    .committee-message {
+      font-size: 0.9rem;
+      color: #a78bfa;
+      font-family: 'Kosugi Maru', sans-serif;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(167, 139, 246, 0.3);
+      font-weight: 600;
+    }
+    }
+
+    .committee-message {
+      font-size: 0.9rem;
+      color: #a78bfa;
+      font-family: 'Kosugi Maru', sans-serif;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(167, 139, 246, 0.3);
+      font-weight: 600;
+    }
+
+    /* === Campus Detail Section === */
+    .campus-detail-section {
+      padding: 40px 20px;
+      background: linear-gradient(135deg, rgba(96, 165, 244, 0.15) 0%, rgba(124, 58, 237, 0.1) 100%);
+      text-align: center;
+    }
+
+    .campus-detail-button {
+      display: inline-block;
+      padding: 16px 48px;
+      background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+      color: white;
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3);
+      font-family: 'Kosugi Maru', sans-serif;
+      cursor: pointer;
+    }
+
+    .campus-detail-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.4);
+      background: linear-gradient(135deg, #1d4ed8 0%, #6d28d9 100%);
+    }
+
+    .campus-detail-button:active {
+      transform: translateY(0);
+    }
+
+    .campus-detail-container {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 40px;
+      border-top: 2px solid rgba(96, 165, 244, 0.2);
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .survey-button {
+      background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+    }
+
+    .survey-button:hover {
+      background: linear-gradient(135deg, #6d28d9 0%, #9333ea 100%);
+    }
+
+    /* === Map Section === */
+    .map-section {
+      padding: 60px 40px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 250, 251, 0.95) 100%);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .map-section .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .map-container {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(96, 165, 244, 0.2);
+      border: 2px solid rgba(96, 165, 244, 0.3);
+    }
+
+    .map-container iframe {
+      display: block;
+      border: none;
+    }
+
+    .map-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .map-info {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .campus-address,
+    .campus-name {
+      background: linear-gradient(135deg, rgba(96, 165, 244, 0.1) 0%, rgba(167, 139, 246, 0.08) 100%);
+      padding: 24px;
+      border-radius: 12px;
+      border-left: 4px solid rgba(37, 99, 235, 0.6);
+    }
+
+    .address-label,
+    .name-label {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #2563eb;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+      font-family: 'Kosugi Maru', sans-serif;
+    }
+
+    .address-text,
+    .name-text {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #1a3a52;
+      font-family: 'Kosugi Maru', sans-serif;
+      line-height: 1.8;
+    }
+
+    /* モバイル対応 */
+    @media (max-width: 768px) {
+      .hero .date-info {
+        font-size: 0.9rem;
+      }
+
+      .map-wrapper {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .highlights-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .event-highlights-section {
+        padding: 60px 24px;
+      }
+
+      .event-highlights-section .section-title {
+        margin-bottom: 40px;
+      }
+
+      .highlight-card {
+        padding: 24px 16px;
+      }
+
+      .highlight-emoji {
+        font-size: 3rem;
+      }
+
+      .highlight-card h3 {
+        font-size: 1.2rem;
+      }
+
+      .highlight-card p {
+        font-size: 0.9rem;
+      }
+    }
+
+    /* === Footer === */
+    footer {
+
+    /* === Final Message Section === */
+    .final-message-section {
+      padding: 120px 40px;
+      background: linear-gradient(135deg, #b0e0e6 0%, #c0f0fc 50%, #a8e6e0 100%);
+      max-width: 100%;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .final-message-content {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .final-message-title {
+      font-size: 3.5rem;
+      font-weight: 900;
+      font-family: 'Yomogi', sans-serif;
+      background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 20px;
+      letter-spacing: 0.05em;
+    }
+
+    .final-message-subtitle {
+      font-size: 1.3rem;
+      font-weight: 600;
+      font-family: 'Kosugi Maru', sans-serif;
+      color: #1a1a1a;
+      letter-spacing: 0.03em;
+    }
+
+      padding: 40px;
+      text-align: center;
+      background: linear-gradient(to bottom, #f0fafb, #e0f7ff);
+      border-top: 1px solid rgba(96, 165, 244, 0.2);
+      color: #4a5f7f;
+      font-family: 'Kosugi Maru', sans-serif;
+    }
+
+    footer p {
+      margin: 8px 0;
+      font-weight: 600;
+    }
+
+    /* === Vendor Section === */
+    .vendor-section {
+      padding: 80px 40px;
+      background: linear-gradient(to bottom, #e0f7ff, #f0fafb);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .vendor-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .vendor-card {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 250, 251, 0.95) 100%);
+      padding: 40px 32px;
+      border-radius: 20px;
+      border: 3px solid rgba(96, 165, 244, 0.3);
+      backdrop-filter: blur(10px);
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(96, 165, 244, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .vendor-card:hover {
+      border-color: rgba(96, 165, 244, 0.8);
+      transform: translateY(-12px) scale(1.08);
+      box-shadow: 0 20px 50px rgba(96, 165, 244, 0.4);
+      background: linear-gradient(135deg, rgba(96, 165, 244, 0.1) 0%, rgba(165, 96, 244, 0.08) 100%);
+    }
+
+    .vendor-emoji {
+      font-size: 4.5rem;
+      display: block;
+      margin-bottom: 16px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .vendor-card:hover .vendor-emoji {
+      animation: bounce 0.6s ease-out;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+
+    .vendor-name {
+      font-size: 1.5rem;
+      font-weight: 800;
+      font-family: 'Kosugi Maru', sans-serif;
+      color: #1a1a1a;
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    .vendor-description {
+      font-size: 0.95rem;
+      color: #333333;
+      font-family: 'Kosugi Maru', sans-serif;
+      line-height: 1.8;
+      font-weight: 500;
+    }
+
+    /* === Venue Map Section === */
+    .venue-map-section {
+      padding: 80px 40px;
+      background: linear-gradient(to bottom, #f0fafb, #e0f7ff);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .venue-map-container {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(96, 165, 244, 0.2);
+      border: 2px solid rgba(96, 165, 244, 0.3);
+      padding: 24px;
+    }
+
+    .venue-map-image {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+      transition: opacity 0.3s ease;
+    }
+
+    .venue-map-image:hover {
+      opacity: 0.8;
+    }
+
+    /* === Venue Map Modal === */
+    .venue-map-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      backdrop-filter: blur(5px);
+    }
+
+    .venue-map-modal.active {
+      display: flex;
+    }
+
+    .venue-map-modal-content {
+      position: relative;
+      max-width: 90vw;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .venue-map-modal-image-wrapper {
+      position: relative;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .venue-map-modal-image {
+      max-width: 100%;
+      max-height: 75vh;
+      width: auto;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    }
+
+    .venue-map-mobile-actions {
+      display: none;
+      gap: 12px;
+      margin-top: 12px;
+      justify-content: center;
+    }
+
+    .venue-map-mobile-recommendation {
+      display: none;
+      text-align: center;
+      margin-top: 12px;
+      padding: 12px 16px;
+      background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+      border-left: 4px solid #1e40af;
+      border-radius: 8px;
+      font-size: 1rem;
+      color: #ffffff;
+      font-weight: 700;
+      font-family: 'Kosugi Maru', sans-serif;
+      line-height: 1.6;
+    }
+
+    .venue-map-action-btn {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: 'Kosugi Maru', sans-serif;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    }
+
+    .venue-map-action-btn:active {
+      transform: scale(0.95);
+    }
+
+    .venue-map-action-btn:hover {
+      box-shadow: 0 6px 16px rgba(16, 185, 129, 0.4);
+    }
+
+    .venue-map-save-notification {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: white;
+      padding: 16px 32px;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      font-family: 'Kosugi Maru', sans-serif;
+      box-shadow: 0 8px 32px rgba(16, 185, 129, 0.4);
+      z-index: 3000;
+      animation: saveNotificationFadeIn 0.3s ease-out;
+    }
+
+    .venue-map-save-notification.show {
+      display: block;
+    }
+
+    @keyframes saveNotificationFadeIn {
+      from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+      }
+      to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+
+    /* スマートフォン向け */
+    @media (max-width: 768px) {
+      .venue-map-mobile-actions {
+        display: flex;
+      }
+
+      .venue-map-mobile-recommendation {
+        display: block;
+      }
+    }
+
+    .venue-map-modal-close {
+      background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+      color: white;
+      border: none;
+      padding: 12px 32px;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: 'Kosugi Maru', sans-serif;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+    }
+
+    .venue-map-modal-close:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+    }
+
+    /* === Countdown === */
+    .countdown {
+      font-size: 1.2rem;
+      color: #60a5fa;
+      font-family: 'Kosugi Maru', sans-serif;
+      font-weight: 700;
+      margin: 30px auto 0;
+      letter-spacing: 2px;
+      animation: pulse 2s ease-in-out infinite;
+      background: linear-gradient(135deg, rgba(96, 165, 244, 0.15) 0%, rgba(165, 96, 244, 0.1) 100%);
+      border: 2px solid rgba(96, 165, 244, 0.3);
+      border-radius: 20px;
+      padding: 25px 40px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px rgba(96, 165, 244, 0.2);
+      display: inline-block;
+    }
+
+    .countdown-item {
+      display: inline-block;
+      margin: 0 15px;
+      text-align: center;
+    }
+
+    .countdown-number {
+      font-size: 3.5rem;
+      background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 900;
+      display: block;
+      line-height: 1;
+      text-shadow: 0 0 20px rgba(96, 165, 244, 0.3);
+    }
+
+    .countdown-label {
+      font-size: 0.95rem;
+      color: #333333;
+      margin-top: 8px;
+      font-weight: 600;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+
+    /* === スクロール演出 === */
+    .fade-in {
+      opacity: 0;
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    .fade-in-left {
+      opacity: 0;
+      animation: fadeInLeft 0.8s ease-out forwards;
+    }
+
+    .fade-in-right {
+      opacity: 0;
+      animation: fadeInRight 0.8s ease-out forwards;
+    }
+
+    .slide-in-up {
+      opacity: 0;
+      animation: slideInUp 0.8s ease-out forwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* === マイクロインタラクション === */
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      font-family: 'Kosugi Maru', sans-serif;
+      color: #f1f5f9;
+      margin-bottom: 50px;
+      text-align: center;
+      background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      transition: transform 0.3s ease;
+    }
+
+    .section-title:hover {
+      transform: scale(1.05);
+    }
+
+    .schedule-item {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      font-size: 0.95rem;
+      color: #333333;
+      background: rgba(59, 130, 246, 0.1);
+      padding: 12px 20px;
+      border-radius: 50px;
+      border: 2px solid rgba(96, 165, 244, 0.3);
+      font-family: 'Kosugi Maru', sans-serif;
+      font-weight: 700;
+      transition: all 0.3s ease;
+    }
+
+    .schedule-item:hover {
+      background: rgba(59, 130, 246, 0.2);
+      border-color: rgba(96, 165, 244, 0.6);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(96, 165, 244, 0.2);
+    }
+
+    .vendor-card,
+    .stage-card,
+    .committee-card {
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .vendor-card:hover,
+    .stage-card:hover,
+    .committee-card:hover {
+      box-shadow: 0 20px 50px rgba(96, 165, 244, 0.4);
+    }
+    .stage-section {
+
+      padding: 80px 40px;
+      background: linear-gradient(to bottom, #e0f7ff, #f0fafb);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .stage-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .stage-period {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, rgba(96, 165, 244, 0.25) 0%, rgba(167, 139, 246, 0.2) 100%);
+      padding: 28px 32px;
+      border-radius: 16px;
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: #1a3a52;
+      text-align: center;
+      border: 3px solid rgba(96, 165, 244, 0.4);
+      margin-top: 20px;
+      margin-bottom: 10px;
+      font-family: 'Kosugi Maru', sans-serif;
+      letter-spacing: 0.05em;
+      box-shadow: 0 4px 16px rgba(96, 165, 244, 0.15);
+      backdrop-filter: blur(10px);
+    }
+
+    .stage-card {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(240, 250, 251, 0.9) 100%);
+      padding: 32px;
+      border-radius: 16px;
+      border: 2px solid rgba(167, 139, 246, 0.3);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    .stage-card:hover {
+      border-color: rgba(167, 139, 246, 0.6);
+      transform: translateY(-8px) scale(1.05);
+      box-shadow: 0 15px 40px rgba(167, 139, 246, 0.3);
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, rgba(59, 130, 246, 0.1) 100%);
+    }
+
+    .stage-time {
+      font-size: 0.95rem;
+      color: #a78bfa;
+      font-weight: 700;
+      font-family: 'Kosugi Maru', sans-serif;
+      margin-bottom: 8px;
+    }
+
+    .stage-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      font-family: 'Kosugi Maru', sans-serif;
+      color: #1a1a1a;
+      margin-bottom: 12px;
+    }
+
+    .stage-description {
+      font-size: 0.9rem;
+      color: #333333;
+      font-family: 'Kosugi Maru', sans-serif;
+      line-height: 1.6;
+    }
+
+    /* === Header === */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 70px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 250, 251, 0.95) 100%);
+      backdrop-filter: blur(10px);
+      border-bottom: 2px solid rgba(96, 165, 244, 0.3);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 40px;
+      z-index: 999;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .header-logo {
+      font-size: 1.3rem;
+      font-weight: 700;
+      font-family: 'Kosugi Maru', sans-serif;
+      background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      user-select: none;
+    }
+
+    .header-logo:hover {
+      opacity: 0.8;
+      transform: scale(1.05);
+    }
+
+    .header-nav {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .header-nav a {
+      text-decoration: none;
+      color: #333333;
+      font-weight: 600;
+      font-family: 'Kosugi Maru', sans-serif;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      position: relative;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+    }
+
+    .header-nav a:hover {
+      color: #60a5fa;
+    }
+
+    .header-nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+      transition: width 0.3s ease;
+    }
+
+    .header-nav a:hover::after {
+      width: 100%;
+    }
+
+    /* ハンバーガーメニュー */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 6px;
+      z-index: 1000;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: #2563eb;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 6px rgba(37, 99, 235, 0.6);
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(8px, 8px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    /* モバイル用ナビゲーション */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 70px;
+      left: 0;
+      right: 0;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.98) 0%, rgba(30, 41, 59, 0.98) 100%);
+      backdrop-filter: blur(10px);
+      flex-direction: column;
+      padding: 20px 0;
+      border-bottom: 2px solid rgba(96, 165, 244, 0.3);
+      z-index: 999;
+    }
+
+    .mobile-nav.active {
+      display: flex;
+    }
+
+    .mobile-nav a {
+      color: #ffffff;
+      text-decoration: none;
+      padding: 15px 40px;
+      font-weight: 600;
+      font-family: 'Kosugi Maru', sans-serif;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      letter-spacing: 0.5px;
+    }
+
+    .mobile-nav a:hover {
+      color: #60a5fa;
+      background: rgba(96, 165, 244, 0.2);
+      padding-left: 50px;
+    }
+
+    /* Hero セクション上部に margin を追加 */
+    .hero {
+      margin-top: 70px;
+    }
+
+    /* === Responsive === */
+    @media (max-width: 768px) {
+      header {
+        padding: 0 20px;
+        height: 60px;
+      }
+
+      .header-logo {
+        font-size: 1rem;
+        flex: 1;
+      }
+
+      .header-nav {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero .subtitle {
+        font-size: 1rem;
+      }
+
+      .section-title {
+        font-size: 1.75rem;
+      }
+
+      .schedule-section,
+      .committee-section,
+      .vendor-section,
+      .venue-map-section,
+      .stage-section {
+        padding: 40px 20px;
+      }
+
+      .schedule-quick {
+        gap: 12px;
+      }
+
+      .schedule-item {
+        padding: 10px 16px;
+        font-size: 0.85rem;
+      }
+
+      .schedule-table th,
+      .schedule-table td {
+        padding: 12px;
+        font-size: 0.9rem;
+      }
+
+      .time {
+        font-size: 0.95rem;
+      }
+
+      .event {
+        font-size: 0.95rem;
+      }
+
+      .committee-grid,
+      .vendor-grid,
+      .stage-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* === スマートフォン最適化（480px以下） === */
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 4.5rem !important;
+      }
+
+      .hero .date-info {
+        font-size: 0.95rem;
+        letter-spacing: 0.5px;
+      }
+
+      body {
+        font-size: 16px;
+      }
+
+      .section-title {
+        font-size: 1.6rem;
+        margin-bottom: 24px;
+      }
+
+      .schedule-section,
+      .vendor-section,
+      .stage-section,
+      .ticket-section,
+      .committee-section,
+      .map-section {
+        padding: 40px 20px;
+      }
+
+      .schedule-table td,
+      .schedule-table th {
+        padding: 12px 10px;
+        font-size: 0.9rem;
+      }
+
+      .time {
+        font-size: 0.9rem;
+      }
+
+      .event {
+        font-size: 0.95rem;
+      }
+
+      .vendor-card {
+        padding: 16px;
+      }
+
+      .vendor-emoji {
+        font-size: 3rem;
+      }
+
+      .vendor-name {
+        font-size: 1rem;
+      }
+
+      .stage-card {
+        padding: 20px;
+      }
+
+      .stage-period {
+        font-size: 1.1rem;
+        padding: 16px;
+      }
+
+      .committee-card {
+        padding: 16px;
+      }
+
+      .committee-message {
+        font-size: 0.9rem;
+      }
+
+      .campus-detail-button,
+      .survey-button {
+        padding: 14px 32px;
+        font-size: 1rem;
+      }
+
+      .campus-detail-container {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .campus-detail-button,
+      .survey-button {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .map-wrapper {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .map-info {
+        gap: 16px;
+      }
+
+      .address-text,
+      .name-text {
+        font-size: 0.95rem;
+      }
+
+      .map-container {
+        border-radius: 12px;
+      }
+
+      .countdown {
+        font-size: 0.9rem;
+        padding: 16px 24px;
+        margin: 20px auto 0;
+        border-radius: 16px;
+      }
+
+      .countdown-item {
+        margin: 0 8px;
+      }
+    }
+  </style>
 </head>
 <body>
+  <!-- Header -->
+  <header>
+    <div class="header-logo" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">博多駅南キャンパスフェスティバル</div>
+    <nav>
+      <ul class="header-nav">
+        <li><a data-target="schedule">タイムテーブル</a></li>
+        <li><a data-target="vendor">出店一覧</a></li>
+        <li><a data-target="venue-map">会場図</a></li>
+        <li><a data-target="stage">ステージ企画</a></li>
+        <li><a data-target="ticket">食券の買い方</a></li>
+        <li><a data-target="committee">実行委員</a></li>
+        <li><a data-target="campus-detail">キャンパス詳細</a></li>
+      </ul>
+    </nav>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </header>
 
-<header>
-  <div class="cup" aria-hidden="true">🍧</div>
-  <h1>夏、削ってます。<span class="jp">かき氷</span></h1>
-  <p class="lead">ふわふわの氷で、暑さをひと休み。</p>
-</header>
+  <!-- モバイルナビゲーション -->
+  <nav class="mobile-nav" id="mobile-nav">
+    <a data-target="schedule">タイムテーブル</a>
+    <a data-target="vendor">出店一覧</a>
+    <a data-target="venue-map">会場図</a>
+    <a data-target="stage">ステージ企画</a>
+    <a data-target="ticket">食券の買い方</a>
+    <a data-target="committee">実行委員</a>
+    <a data-target="campus-detail">キャンパス詳細</a>
+  </nav>
 
-<div class="wrap">
-
-  <h2 class="section-title">メニュー</h2>
-
-  <section class="menu-card c-red">
-    <div class="menu-name"><span class="menu-emoji" aria-hidden="true">🍓</span>いちご</div>
-    <hr class="menu-rule">
-    <dl>
-      <div class="row"><dt>材料</dt><dd>氷、シロップ</dd></div>
-      <div class="row"><dt>アレルギー</dt><dd>特定原材料等28品目 該当なし</dd></div>
-      <div class="row"><dt>チケット</dt><dd>4枚（200円）</dd></div>
-    </dl>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="particles" id="particles"></div>
+    <div class="hero-content">
+      <h1>青春、更新中</h1>
+      <p class="hero-subtitle">N高等学校 博多駅南キャンパス キャンパスフェスティバル</p>
+      <p class="hero-description">食べて、遊んで、見て、参加する。<br>生徒が全力で作った最高のイベント</p>
+      <p class="date-info">9月19日（土）<br>11:00～15:30（開場 10:30）</p>
+      <div class="countdown" id="countdown"></div>
+      <button class="cta-button" onclick="document.querySelector('.event-highlights-section').scrollIntoView({ behavior: 'smooth' });">
+        🌟 イベントを探索する
+      </button>
+    </div>
+    <div class="scroll-indicator">
+      <div>↓</div>
+    </div>
   </section>
-  <section class="menu-card c-green">
-    <div class="menu-name"><span class="menu-emoji" aria-hidden="true">🍈</span>メロン</div>
-    <hr class="menu-rule">
-    <dl>
-      <div class="row"><dt>材料</dt><dd>氷、シロップ</dd></div>
-      <div class="row"><dt>アレルギー</dt><dd>特定原材料等28品目 該当なし</dd></div>
-      <div class="row"><dt>チケット</dt><dd>4枚（200円）</dd></div>
-    </dl>
-  </section>
-  <section class="menu-card c-blue">
-    <div class="menu-name"><span class="menu-emoji" aria-hidden="true">🌊</span>ブルーハワイ</div>
-    <hr class="menu-rule">
-    <dl>
-      <div class="row"><dt>材料</dt><dd>氷、シロップ</dd></div>
-      <div class="row"><dt>アレルギー</dt><dd>特定原材料等28品目 該当なし</dd></div>
-      <div class="row"><dt>チケット</dt><dd>4枚（200円）</dd></div>
-    </dl>
+
+  <!-- Announcement Section (New) -->
+  <section class="announcement-section" id="announcements">
+    <div class="announcement-content">
+      <div class="announcement-item" id="announcement-main" style="display: none;">
+        <span class="announcement-badge">🔴 重要なお知らせ</span>
+        <p id="announcement-text"></p>
+      </div>
+      <div id="announcement-empty" style="text-align: center; color: #999;">
+        <p>現在、特別なお知らせはありません</p>
+      </div>
+    </div>
   </section>
 
-
-
-
-
-  <p class="allergy-note">※シロップは仕入れる商品によって原材料が異なります。当日は実際の商品パッケージの表示をご確認ください。アレルギーが心配な方は、遠慮なくスタッフにお声がけください。</p>
-
-  <h2 class="section-title">リーダーからの一言</h2>
-  <section class="leader">
-    <p>頭を冷やそう！</p>
+  <!-- Event Day Mode Section (New) -->
+  <section class="event-day-mode" id="event-day-mode" style="display: none;">
+    <div class="mode-container">
+      <h2>CAMPUS FESTIVAL 2026</h2>
+      <div class="current-time">
+        <span class="time-label">🕐 現在</span>
+        <span class="time-display" id="current-time">--:--</span>
+      </div>
+      
+      <div class="now-next-grid">
+        <div class="now-card">
+          <div class="card-label">NOW</div>
+          <div class="event-name" id="now-event">ロード中...</div>
+          <div class="event-time" id="now-time">--:--～--:--</div>
+        </div>
+        
+        <div class="next-card">
+          <div class="card-label">NEXT</div>
+          <div class="event-name" id="next-event">ロード中...</div>
+          <div class="event-time" id="next-time">--:--～--:--</div>
+          <div class="time-until" id="time-until">あと -- 分</div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <a class="back" href="https://enube1115.github.io/Ncanfes-hakataminami-2026/">← 本サイトに戻る</a>
+  <!-- Ticket Sales Info Section (Day Mode) -->
+  <section class="ticket-info-day-mode" id="ticket-info-day-mode" style="display: none;">
+    <div class="ticket-info-container">
+      <h3>🎫 食券販売情報</h3>
+      <div class="ticket-sale-status">
+        <div id="ticket-sale-status-text">現在販売中</div>
+        <div class="ticket-time" id="ticket-sale-time">受付終了時間: 準備中</div>
+      </div>
+      <div class="ticket-details">
+        <p>💰 <strong>1枚 50円</strong></p>
+        <p>📍 <strong>買う場所：受付</strong></p>
+        <p>⚠️ <strong>お釣りが出ないようにしてください</strong></p>
+      </div>
+    </div>
+  </section>
 
-  <footer>N高キャンパスフェスティバル 2026</footer>
-</div>
+  <!-- Event Highlights Section (New) -->
+  <section class="event-highlights-section" id="event-highlights">
+    <h2 class="section-title">✨ キャンパスフェスティバルでできること</h2>
+    <div class="highlights-grid">
+      <div class="highlight-card" onclick="document.querySelector('.vendor-section').scrollIntoView({ behavior: 'smooth' });" style="cursor: pointer;">
+        <div class="highlight-emoji">🍴</div>
+        <h3>食べる</h3>
+        <p>ロシアンシュークリーム、たまころ大作戦、スムージー、かき氷など、生徒が手作りした美味しいグルメ</p>
+        <span class="highlight-arrow">詳しく見る →</span>
+      </div>
 
+      <div class="highlight-card" onclick="document.querySelector('.stage-section').scrollIntoView({ behavior: 'smooth' });" style="cursor: pointer;">
+        <div class="highlight-emoji">🎮</div>
+        <h3>遊ぶ</h3>
+        <p>ゲーム企画、イラストくじ、ビンゴなど、みんなで楽しめる参加型企画</p>
+        <span class="highlight-arrow">詳しく見る →</span>
+      </div>
+
+      <div class="highlight-card" onclick="document.querySelector('.stage-section').scrollIntoView({ behavior: 'smooth' });" style="cursor: pointer;">
+        <div class="highlight-emoji">🎵</div>
+        <h3>見る</h3>
+        <p>バンド演奏、クイズ、音楽企画など、ステージを彩るライブパフォーマンス</p>
+        <span class="highlight-arrow">詳しく見る →</span>
+      </div>
+
+      <div class="highlight-card" onclick="document.querySelector('.stage-section').scrollIntoView({ behavior: 'smooth' });" style="cursor: pointer;">
+        <div class="highlight-emoji">👥</div>
+        <h3>参加する</h3>
+        <p>メンター・TA企画など、生徒との交流や参加型のアクティビティ</p>
+        <span class="highlight-arrow">詳しく見る →</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Schedule Section -->
+  <section class="schedule-section" id="schedule">
+    <h2 class="section-title">🎉 タイムテーブル</h2>
+    
+    <div class="schedule-quick">
+      <div class="schedule-item">
+        <span>📍 受付開始</span>
+        <span>10:30</span>
+      </div>
+      <div class="schedule-item">
+        <span>🎬 開始</span>
+        <span>11:00</span>
+      </div>
+      <div class="schedule-item">
+        <span>🎉 閉場</span>
+        <span>15:30</span>
+      </div>
+    </div>
+
+    </div>
+
+    <div class="schedule-container">
+      <table class="schedule-table">
+        <thead>
+          <tr>
+            <th style="width: 20%;">⏰ 時間</th>
+            <th style="width: 80%;">🎪 イベント</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="time">10:30</td>
+            <td class="event">受付開始</td>
+          </tr>
+          <tr class="part-label">
+            <td colspan="2">☀️ FIRST PART 11:00 – 13:00</td>
+          </tr>
+          <tr>
+            <td class="time">11:00～11:10</td>
+            <td class="event">スタート 🔔</td>
+          </tr>
+          <tr>
+            <td class="time">11:15～11:30</td>
+            <td class="event">🎸 バンド</td>
+          </tr>
+          <tr>
+            <td class="time">11:40～12:10</td>
+            <td class="event">🎮 ゲーム（w3w5）</td>
+          </tr>
+          <tr>
+            <td class="time">12:15～12:30</td>
+            <td class="event">🎤 イントロクイズ（w1）</td>
+          </tr>
+          <tr>
+            <td class="time">12:35～13:00</td>
+            <td class="event">🎵 歌詞当てクイズ（w1）</td>
+          </tr>
+
+          <tr class="part-label">
+            <td colspan="2">🌙 SECOND PART 13:30 – 15:30</td>
+          </tr>
+          <tr>
+            <td class="time">13:30～13:35</td>
+            <td class="event">スタート 🔔</td>
+          </tr>
+          <tr>
+            <td class="time">13:35～14:05</td>
+            <td class="event">👨‍💼 メンター/TA企画</td>
+          </tr>
+          <tr>
+            <td class="time">14:10～14:30</td>
+            <td class="event">🎶 音楽年代あてクイズ（w3）</td>
+          </tr>
+          <tr>
+            <td class="time">14:35～15:00</td>
+            <td class="event">🎰 ビンゴ（w1）</td>
+          </tr>
+          <tr>
+            <td class="time">15:00～15:30</td>
+            <td class="event">🎊 エンディング</td>
+          </tr>
+          <tr>
+            <td class="time">15:30</td>
+            <td class="event">閉場 👋</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    </div>
+  </section>
+
+  <!-- Vendor Section -->
+  <section class="vendor-section" id="vendor">
+    <h2 class="section-title">🍔 出店一覧</h2>
+    <div class="vendor-grid">
+      <div class="vendor-card" onclick="window.open('https://enube1115.github.io/Ncanfes-hakataminami-2026-Russian-cream-puffs-/', '_blank');" style="cursor: pointer;">
+        <div class="vendor-emoji">🍰</div>
+        <div class="vendor-name">ロシアンシュークリーム</div>
+        <div class="vendor-description">濃厚でクリーミー。至福のスイーツ</div>
+      </div>
+      <div class="vendor-card" onclick="window.open('https://Enube1115.github.io/Ncanfes-hakataminami-2026-protein-ball-/', '_blank');" style="cursor: pointer;">
+        <div class="vendor-emoji">💪</div>
+        <div class="vendor-name">たまころ大作戦</div>
+        <div class="vendor-description">ころころ、食べちゃう。</div>
+      </div>
+      <div class="vendor-card" onclick="window.open('https://enube1115.github.io/Ncanfes-hakataminami-2026-smoothie/', '_blank');" style="cursor: pointer;">
+        <div class="vendor-emoji">🥤</div>
+        <div class="vendor-name">スムージー</div>
+        <div class="vendor-description">フレッシュで爽やか。夏にぴったり</div>
+      </div>
+      <div class="vendor-card" onclick="window.open('https://enube1115.github.io/Ncanfes-hakataminami-2026-shaved-ice-/', '_blank');" style="cursor: pointer;">
+        <div class="vendor-emoji">🍧</div>
+        <div class="vendor-name">夏、削ってます。</div>
+        <div class="vendor-description">涼しさ満点。</div>
+      </div>
+      <div class="vendor-card" onclick="window.open('https://enube1115.github.io/Ncanfes-hakataminami-2026-illustration-lottery-/', '_blank');" style="cursor: pointer;">
+        <div class="vendor-emoji">🎨</div>
+        <div class="vendor-name">イラストくじ</div>
+        <div class="vendor-description">素敵なイラストが当たる！</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Venue Map Section -->
+  <section class="venue-map-section" id="venue-map">
+    <h2 class="section-title">🗺️ 会場図</h2>
+    <div class="venue-map-container">
+      <img src="kaizyou.png" alt="会場図" class="venue-map-image" id="venue-map-image" style="cursor: pointer;">
+    </div>
+  </section>
+
+  <!-- Venue Map Modal -->
+  <div class="venue-map-modal" id="venue-map-modal">
+    <div class="venue-map-modal-content">
+      <div class="venue-map-modal-image-wrapper">
+        <img src="kaizyou.png" alt="会場図" class="venue-map-modal-image" id="venue-map-modal-image">
+        <div class="venue-map-mobile-recommendation">スマートフォンは保存して写真アプリで見ることをお勧めします</div>
+        <div class="venue-map-mobile-actions" id="venue-map-mobile-actions">
+          <button class="venue-map-action-btn" id="venue-map-save-btn" title="保存">💾 保存</button>
+        </div>
+        <div class="venue-map-save-notification" id="venue-map-save-notification">✅ 保存できました</div>
+      </div>
+      <button class="venue-map-modal-close" id="venue-map-modal-close">← 戻る</button>
+    </div>
+  </div>
+
+  <!-- Stage Section -->
+  <section class="stage-section" id="stage">
+    <h2 class="section-title">🎭 ステージ企画詳細</h2>
+    <div class="stage-grid">
+      <div class="stage-period">☀️ FIRST PART 11:00 – 13:00</div>
+      <div class="stage-card">
+        <div class="stage-time">11:15 ～ 11:30</div>
+        <div class="stage-title">🎸 バンド</div>
+        <div class="stage-description">アツいバンド演奏でオープニングを飾る！</div>
+      </div>
+      <div class="stage-card">
+        <div class="stage-time">11:40 ～ 12:10</div>
+        <div class="stage-title">🎮 ゲーム（w3w5）</div>
+        <div class="stage-description">みんなで参加できるゲーム企画</div>
+      </div>
+      <div class="stage-card">
+        <div class="stage-time">12:15 ～ 12:30</div>
+        <div class="stage-title">🎤 イントロクイズ（w1）</div>
+        <div class="stage-description">曲のイントロだけで何の曲か当てられる？</div>
+      </div>
+      <div class="stage-card">
+        <div class="stage-time">12:35 ～ 13:00</div>
+        <div class="stage-title">🎵 歌詞当てクイズ（w1）</div>
+        <div class="stage-description">懐かしい曲から最新曲まで。歌詞でわかる？</div>
+      </div>
+      <div class="stage-period">🌙 SECOND PART 13:30 – 15:30</div>
+      <div class="stage-card">
+        <div class="stage-time">13:35 ～ 14:05</div>
+        <div class="stage-title">👨‍💼 メンター/TA企画</div>
+        <div class="stage-description">メンターとTAによる楽しい企画</div>
+      </div>
+      <div class="stage-card">
+        <div class="stage-time">14:10 ～ 14:30</div>
+        <div class="stage-title">🎶 音楽年代あてクイズ（w3）</div>
+        <div class="stage-description">W3による音楽年代あてクイズ</div>
+      </div>
+      <div class="stage-card">
+        <div class="stage-time">14:35 ～ 15:00</div>
+        <div class="stage-title">🎰 ビンゴ（w1）</div>
+        <div class="stage-description">賞品が当たるビンゴゲーム！</div>
+      </div>
+      <div class="stage-card">
+        <div class="stage-time">15:00 ～ 15:30</div>
+        <div class="stage-title">🎊 エンディング</div>
+        <div class="stage-description">楽しかったイベントをしめくくる</div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ticket Section -->
+  <section class="ticket-section" id="ticket">
+    <div class="ticket-container">
+      <h2 class="section-title">🎫 食券の買い方</h2>
+      <div class="ticket-info">
+        <div class="ticket-item">
+          <div class="ticket-label">💰 価格</div>
+          <div class="ticket-detail">一枚 50円</div>
+        </div>
+        <div class="ticket-item">
+          <div class="ticket-label">📍 買う場所</div>
+          <div class="ticket-detail">受付</div>
+        </div>
+        <div class="ticket-item">
+          <div class="ticket-label">⚠️ ご注意</div>
+          <div class="ticket-detail">お釣りが出ないようにしてください</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Committee Section -->
+  <section class="committee-section" id="committee">
+    <h2 class="section-title">⭐ 実行委員から一言</h2>
+    <div class="committee-grid">
+      <div class="committee-card">
+        <div class="committee-name">坂本真彩</div>
+        <div class="committee-role">実行委員長</div>
+        <div class="committee-message">生徒一同、心を込めて準備してきました。<br>暑い中ではありますが、ぜひお越しください。</div>
+      </div>
+      <div class="committee-card">
+        <div class="committee-name">小林祐太朗</div>
+        <div class="committee-role">副実行委員長</div>
+        <div class="committee-message">会場一体となって、最高の思い出を一緒に作りましょう！</div>
+      </div>
+      <div class="committee-card">
+        <div class="committee-name">島原大宙</div>
+        <div class="committee-role">司会進行</div>
+        <div class="committee-message">私の作品があります、短い時間ですけど楽しんでください。</div>
+      </div>
+      <div class="committee-card">
+        <div class="committee-name">王野奏太</div>
+        <div class="committee-role">司会進行</div>
+        <div class="committee-message">最近暑いので塩分チャージしながら、楽しんで！</div>
+      </div>
+      <div class="committee-card">
+        <div class="committee-name">西孝仁</div>
+        <div class="committee-role">書記</div>
+        <div class="committee-message">出店も企画も、全て生徒が作り上げました！<br>ぜひ、キャンパスの雰囲気を味わっていってください！</div>
+      </div>
+      <div class="committee-card">
+        <div class="committee-name">小山奏</div>
+        <div class="committee-role">書記</div>
+        <div class="committee-message">楽しもう！</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Campus Detail Button -->
+<section class="map-section" id="campus-detail">
+    <h2 class="section-title">📍 キャンパスの場所</h2>
+    <div class="map-wrapper">
+      <div class="map-info">
+        <div class="campus-address">
+          <div class="address-label">住所</div>
+          <div class="address-text">福岡県福岡市博多区博多駅南２丁目１４−８</div>
+          <div class="address-text">博多駅サウスビル 3階</div>
+        </div>
+        <div class="campus-name">
+          <div class="name-label">施設名</div>
+          <div class="name-text">N高等学校博多駅南キャンパス</div>
+        </div>
+      </div>
+      <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d352.9119762745176!2d130.4215152325803!3d33.58166299047778!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x354191007445744f%3A0xf5a65487a2108137!2zTumrmOetieWtpuagoSDljZrlpJrpp4XljZfjgq3jg6Pjg7Pjg5HjgrnvvZzpgJrkv6HliLbpq5jmoKHjga7liLbluqbjgpLmtLvnlKjjgZfjgZ_mlrDjgZfjgYTjg43jg4Pjg4jjga7pq5jmoKE!5e0!3m2!1sja!2sjp!4v1784860527680!5m2!1sja!2sjp" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+    </div>
+    <div class="campus-detail-container">
+      <a href="https://nnn.ed.jp/campus/hakataekiminami/" target="_blank" class="campus-detail-button">
+        キャンパス詳細
+      </a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSexMfgFWq5VjgADd47aB2M-tBrSViEbXButEWOKFADYXKk8Ow/viewform?usp=publish-editor" target="_blank" class="campus-detail-button survey-button">
+        事後アンケート
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <!-- Final Message Section -->
+  <section class="final-message-section">
+    <div class="final-message-content">
+      <h2 class="final-message-title"><!-- ここに最後のメッセージが入ります --></h2>
+      <p class="final-message-subtitle"><!-- ここに副題が入ります --></p>
+    </div>
+  </section>
+
+  <footer>
+    <p>N高等学校 博多駅南キャンパス キャンパスフェスティバル 2026</p>
+    <p style="font-size: 0.875rem; margin-top: 16px;">楽しい時間をお過ごしください</p>
+    <p style="font-size: 0.75rem; margin-top: 20px; color: #64748b;">© 2026 N High School Hakataeki minami Campus</p>
+  </footer>
+
+  <script>
+    // === カウントダウンタイマー ===
+    function initCountdown() {
+      const countdownEl = document.getElementById('countdown');
+      
+      function updateCountdown() {
+        const today = new Date();
+        const eventStartDate = new Date(2026, 8, 19, 0, 0, 0); // 9月19日 00:00
+        const eventEndDate = new Date(2026, 8, 19, 16, 0, 0); // 9月19日 16:00
+        
+        // イベント終了後（16:00以降）
+        if (today.getTime() >= eventEndDate.getTime()) {
+          countdownEl.innerHTML = '<div style="font-size: 1.5rem; font-weight: 700; color: #ef4444;">終了しました</div>';
+          
+          // 役職と一言を非表示
+          const committeeRoles = document.querySelectorAll('.committee-role');
+          const committeeMessages = document.querySelectorAll('.committee-message');
+          committeeRoles.forEach(el => el.style.display = 'none');
+          committeeMessages.forEach(el => el.style.display = 'none');
+          
+          // 出店カードのクリック機能を無効化
+          const vendorCards = document.querySelectorAll('.vendor-card');
+          vendorCards.forEach(card => {
+            card.onclick = null;
+            card.style.cursor = 'default';
+          });
+          
+          return;
+        }
+        
+        // イベント開始後（00:00以降16:00未満）
+        if (today.getTime() >= eventStartDate.getTime()) {
+          countdownEl.innerHTML = '<div style="font-size: 1.5rem; font-weight: 700; color: #10b981;">開催中です！</div>';
+          return;
+        }
+        
+        // イベント開始前
+        const diff = eventStartDate.getTime() - today.getTime();
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+        
+        countdownEl.innerHTML = `
+          <div class="countdown-item">
+            <span class="countdown-number">${days}</span>
+            <span class="countdown-label">日</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-number">${String(hours).padStart(2, '0')}</span>
+            <span class="countdown-label">時間</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-number">${String(minutes).padStart(2, '0')}</span>
+            <span class="countdown-label">分</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-number">${String(seconds).padStart(2, '0')}</span>
+            <span class="countdown-label">秒</span>
+          </div>
+        `;
+      }
+      
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    }
+
+    // === スクロール時のアニメーション ===
+    function initScrollAnimations() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            entry.target.style.animationDelay = `${index * 0.1}s`;
+            entry.target.classList.remove('fade-in', 'fade-in-left', 'fade-in-right', 'slide-in-up');
+            
+            // セクションタイプでアニメーション変更
+            const section = entry.target.closest('section');
+            if (section?.classList.contains('vendor-section')) {
+              entry.target.classList.add('fade-in-left');
+            } else if (section?.classList.contains('stage-section')) {
+              entry.target.classList.add('fade-in-right');
+            } else {
+              entry.target.classList.add('fade-in');
+            }
+            
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      // アニメーション対象要素
+      document.querySelectorAll('.vendor-card, .stage-card, .committee-card, .schedule-item').forEach(el => {
+        el.classList.add('fade-in');
+        observer.observe(el);
+      });
+    }
+
+    // === ハンバーガーメニュー機能 ===
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobile-nav');
+    
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      mobileNav.classList.toggle('active');
+    });
+
+    // モバイルナビリンククリック時にメニューを閉じる
+    document.querySelectorAll('.mobile-nav a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('data-target');
+        const targetSection = document.getElementById(targetId);
+        
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        
+        // メニューを閉じる
+        hamburger.classList.remove('active');
+        mobileNav.classList.remove('active');
+      });
+    });
+
+    // デスクトップナビリンク機能
+    document.querySelectorAll('.header-nav a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('data-target');
+        const targetSection = document.getElementById(targetId);
+        
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // === パーティクル生成 ===
+    function createParticles() {
+      const container = document.getElementById('particles');
+      
+      function spawnParticles() {
+        for (let i = 0; i < 10; i++) {
+          const particle = document.createElement('div');
+          particle.className = 'particle';
+          
+          const startX = Math.random() * window.innerWidth;
+          const duration = 6 + Math.random() * 8; // 6～14秒
+          const delay = Math.random() * 2;
+          
+          particle.style.left = startX + 'px';
+          particle.style.top = window.innerHeight + 'px';
+          particle.style.opacity = Math.random() * 0.5 + 0.5;
+          
+          container.appendChild(particle);
+          
+          // トランジションを開始
+          setTimeout(() => {
+            particle.style.transition = `top ${duration}s linear, opacity ${duration}s linear`;
+            particle.style.top = (window.innerHeight - window.innerHeight * 1.2) + 'px';
+            particle.style.opacity = '0';
+          }, delay * 100);
+          
+          // 終了後に削除
+          setTimeout(() => {
+            particle.remove();
+          }, (duration + delay * 0.1) * 1000 + 200);
+        }
+      }
+      
+      // 最初のスポーン
+      spawnParticles();
+      
+      // 継続的にスポーン
+      setInterval(spawnParticles, 1500);
+    }
+
+    // === 会場図モーダル機能 ===
+    function initVenueMapModal() {
+      const venueMapImage = document.getElementById('venue-map-image');
+      const modal = document.getElementById('venue-map-modal');
+      const closeBtn = document.getElementById('venue-map-modal-close');
+      const saveBtn = document.getElementById('venue-map-save-btn');
+      const modalImage = document.getElementById('venue-map-modal-image');
+
+      // 画像をクリックしてモーダルを開く
+      venueMapImage.addEventListener('click', () => {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+
+      // 閉じるボタン
+      closeBtn.addEventListener('click', () => {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      });
+
+      // モーダル背景をクリックしても閉じる
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.classList.remove('active');
+          document.body.style.overflow = 'auto';
+        }
+      });
+
+      // ESCキーで閉じる
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+          modal.classList.remove('active');
+          document.body.style.overflow = 'auto';
+        }
+      });
+
+      // 保存ボタン
+      saveBtn.addEventListener('click', () => {
+        const img = new Image();
+        img.crossOrigin = 'anonymous';
+        img.onload = () => {
+          const canvas = document.createElement('canvas');
+          canvas.width = img.width;
+          canvas.height = img.height;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0);
+          
+          canvas.toBlob((blob) => {
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'N高博多駅南キャンパスフェスティバル_会場図.png';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+            
+            // 保存完了通知を表示
+            const notification = document.getElementById('venue-map-save-notification');
+            notification.classList.add('show');
+            
+            // 1.5秒後に非表示
+            setTimeout(() => {
+              notification.classList.remove('show');
+            }, 1500);
+          }, 'image/png');
+        };
+        img.src = 'kaizyou.png';
+      });
+    }
+
+    // 初期化
+    createParticles();
+    initCountdown();
+    initVenueMapModal();
+    
+    // === タイムテーブルデータ ===
+    const scheduleData = [
+      { time: '10:30', endTime: '11:00', name: '受付開始', display: '受付開始', type: 'reception' },
+      { time: '11:00', endTime: '11:10', name: 'スタート', display: 'スタート', type: 'stage' },
+      { time: '11:15', endTime: '11:30', name: 'バンド', display: '🎸 バンド', type: 'stage' },
+      { time: '11:40', endTime: '12:10', name: 'ゲーム（w3w5）', display: '🎮 ゲーム', type: 'stage' },
+      { time: '12:15', endTime: '12:30', name: 'イントロクイズ', display: '🎤 イントロクイズ', type: 'stage' },
+      { time: '12:35', endTime: '13:00', name: '歌詞当てクイズ', display: '🎵 歌詞当てクイズ', type: 'stage' },
+      { time: '13:30', endTime: '13:35', name: 'スタート', display: 'スタート', type: 'stage' },
+      { time: '13:35', endTime: '14:05', name: 'メンター/TA企画', display: '👥 メンター/TA企画', type: 'stage' },
+      { time: '14:10', endTime: '14:30', name: '音楽年代あてクイズ', display: '🎶 音楽年代あてクイズ', type: 'stage' },
+      { time: '14:35', endTime: '15:00', name: 'ビンゴ', display: '🎰 ビンゴ', type: 'stage' },
+      { time: '15:00', endTime: '15:30', name: 'エンディング', display: '🎊 エンディング', type: 'stage' },
+      { time: '15:30', endTime: '15:30', name: '閉場', display: '閉場', type: 'end' }
+    ];
+
+    // 時刻文字列をMinutesに変換（"11:30" → 690）
+    function timeToMinutes(timeStr) {
+      const [hours, minutes] = timeStr.split(':').map(Number);
+      return hours * 60 + minutes;
+    }
+
+    // 当日モード初期化
+    function initEventDayMode() {
+      // 9月19日かどうか確認
+      const today = new Date();
+      const isEventDay = today.getMonth() === 8 && today.getDate() === 19;
+
+      if (isEventDay || new Date().getHours() >= 10) { // テスト用：10時以降
+        const eventDayMode = document.getElementById('event-day-mode');
+        eventDayMode.style.display = 'block';
+
+        // 時刻表示を更新
+        setInterval(updateEventDayMode, 1000);
+        updateEventDayMode(); // 初回表示
+      }
+    }
+
+    function updateEventDayMode() {
+      const now = new Date();
+      const currentMinutes = now.getHours() * 60 + now.getMinutes();
+      const timeDisplay = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+
+      document.getElementById('current-time').textContent = timeDisplay;
+
+      // 現在と次の企画を探す
+      let currentEvent = null;
+      let nextEvent = null;
+
+      for (let i = 0; i < scheduleData.length; i++) {
+        const event = scheduleData[i];
+        const startMin = timeToMinutes(event.time);
+        const endMin = timeToMinutes(event.endTime);
+
+        if (currentMinutes >= startMin && currentMinutes < endMin) {
+          currentEvent = event;
+          nextEvent = scheduleData[i + 1] || null;
+          break;
+        }
+      }
+
+      // NOWイベント表示
+      if (currentEvent) {
+        document.getElementById('now-event').textContent = currentEvent.display;
+        document.getElementById('now-time').textContent = `${currentEvent.time}～${currentEvent.endTime}`;
+      }
+
+      // NEXTイベント表示
+      if (nextEvent) {
+        document.getElementById('next-event').textContent = nextEvent.display;
+        document.getElementById('next-time').textContent = `${nextEvent.time}～${nextEvent.endTime}`;
+
+        // 残り時間計算
+        const nextStartMin = timeToMinutes(nextEvent.time);
+        const minutesUntil = nextStartMin - currentMinutes;
+
+        if (minutesUntil > 0) {
+          document.getElementById('time-until').textContent = `あと ${minutesUntil} 分`;
+        } else {
+          document.getElementById('time-until').textContent = 'もうすぐ開始';
+        }
+      }
+
+      // 食券販売時間帯の判定
+      updateTicketSalesInfo(currentMinutes);
+    }
+
+    // 食券販売情報の表示制御
+    function updateTicketSalesInfo(currentMinutes) {
+      const ticketInfoSection = document.getElementById('ticket-info-day-mode');
+      const ticketSaleStatusText = document.getElementById('ticket-sale-status-text');
+      const ticketSaleTime = document.getElementById('ticket-sale-time');
+
+      // 時間帯定義
+      const firstSaleStart = timeToMinutes('10:30'); // 開場
+      const firstSaleEnd = timeToMinutes('11:05');   // 最初の販売終了
+      const secondSaleStart = timeToMinutes('13:00'); // 二部目販売開始
+      const secondSaleEnd = timeToMinutes('13:35');   // 二部目販売終了
+
+      // 現在販売中かどうかを判定
+      let isSelling = false;
+      let saleEndTime = '';
+
+      if (currentMinutes >= firstSaleStart && currentMinutes < firstSaleEnd) {
+        isSelling = true;
+        saleEndTime = '11:05';
+      } else if (currentMinutes >= secondSaleStart && currentMinutes < secondSaleEnd) {
+        isSelling = true;
+        saleEndTime = '13:35';
+      }
+
+      // 販売時間帯にのみ表示
+      if (isSelling) {
+        ticketInfoSection.style.display = 'block';
+        ticketSaleStatusText.textContent = '現在販売中';
+        ticketSaleStatusText.style.color = '#10b981';
+        ticketSaleTime.textContent = `受付終了時間: ${saleEndTime}`;
+      } else {
+        ticketInfoSection.style.display = 'none';
+      }
+    }
+
+    // タイムテーブルハイライト初期化
+    function initTimeTableHighlight() {
+      setInterval(updateTimeTableHighlight, 30000); // 30秒ごと更新
+      updateTimeTableHighlight(); // 初回表示
+    }
+
+    function updateTimeTableHighlight() {
+      const now = new Date();
+      const currentMinutes = now.getHours() * 60 + now.getMinutes();
+
+      // タイムテーブル行を取得
+      const rows = document.querySelectorAll('.schedule-table tbody tr');
+
+      // 常に濃く表示する企画（重要な情報）
+      const importantEvents = ['受付開始', 'エンディング', '閉場'];
+
+      rows.forEach((row) => {
+        const timeCell = row.querySelector('.time');
+        const eventCell = row.querySelector('.event');
+        if (!timeCell || !eventCell) return;
+
+        const timeText = timeCell.textContent.trim();
+        const eventText = eventCell.textContent.trim();
+        const timeMin = timeToMinutes(timeText);
+
+        // 重要な企画かどうかを判定
+        const isImportant = importantEvents.some(event => eventText.includes(event));
+
+        // 次の行の時刻を取得（企画の終了時刻）
+        const nextRow = row.nextElementSibling;
+        let endTimeMin = timeMin + 30; // デフォルト30分
+
+        if (nextRow) {
+          const nextTimeCell = nextRow.querySelector('.time');
+          if (nextTimeCell) {
+            const nextTime = nextTimeCell.textContent.trim();
+            endTimeMin = timeToMinutes(nextTime);
+          }
+        }
+
+        // 現在進行中の企画
+        if (currentMinutes >= timeMin && currentMinutes < endTimeMin) {
+          row.classList.add('now-event');
+          row.classList.remove('past-event');
+        }
+        // 終了した企画（重要な企画は除く）
+        else if (currentMinutes >= endTimeMin && !isImportant) {
+          row.classList.remove('now-event');
+          row.classList.add('past-event');
+        }
+        // まだ始まっていない企画
+        else {
+          row.classList.remove('now-event', 'past-event');
+        }
+      });
+    }
+
+    // タイムテーブル行のスタイル
+    const style = document.createElement('style');
+    style.textContent = `
+      .schedule-table tbody tr.now-event {
+        background: linear-gradient(90deg, rgba(16, 185, 129, 0.15) 0%, transparent 100%);
+        border-left: 5px solid #10b981;
+        font-weight: 700;
+      }
+
+      .schedule-table tbody tr.now-event::after {
+        content: ' ← NOW';
+        color: #10b981;
+        font-weight: 700;
+        font-size: 0.85rem;
+      }
+
+      .schedule-table tbody tr.past-event {
+        opacity: 0.5;
+        color: #999;
+      }
+
+      .schedule-table tbody tr.past-event .time,
+      .schedule-table tbody tr.past-event .event {
+        color: #aaa;
+      }
+    `;
+    document.head.appendChild(style);
+
+    // === アナウンスメント管理 ===
+    // 実行委員が編集可能：以下の announcements 配列にお知らせを追加・編集してください
+    const announcements = [
+      // 例：{ title: '重要なお知らせ', message: 'ステージ企画の開始時間が変更されました。13:00 → 13:15' },
+      // 現在のお知らせをここに追加してください
+    ];
+
+    function initAnnouncements() {
+      const announcementMain = document.getElementById('announcement-main');
+      const announcementEmpty = document.getElementById('announcement-empty');
+      const announcementText = document.getElementById('announcement-text');
+
+      if (announcements.length > 0) {
+        // 最新のお知らせを表示
+        const latest = announcements[announcements.length - 1];
+        announcementText.textContent = latest.message;
+        announcementMain.style.display = 'block';
+        announcementEmpty.style.display = 'none';
+      } else {
+        announcementMain.style.display = 'none';
+        announcementEmpty.style.display = 'block';
+      }
+    }
+
+    // 関数初期化
+    initEventDayMode();
+    initTimeTableHighlight();
+    initAnnouncements();
+    setTimeout(initScrollAnimations, 100);
+  </script>
 </body>
 </html>
