@@ -2701,9 +2701,15 @@
         const endMin = timeToMinutes(event.endTime);
 
         if (currentMinutes >= startMin && currentMinutes < endMin) {
+          // 現在進行中の企画を見つけた
           currentEvent = event;
           nextEvent = scheduleData[i + 1] || null;
           break;
+        } else if (currentMinutes < startMin) {
+          // まだ始まっていない企画を見つけた（最初の次の企画）
+          if (!nextEvent) {
+            nextEvent = event;
+          }
         }
       }
 
@@ -2711,6 +2717,10 @@
       if (currentEvent) {
         document.getElementById('now-event').textContent = currentEvent.display;
         document.getElementById('now-time').textContent = `${currentEvent.time}～${currentEvent.endTime}`;
+      } else {
+        // 現在進行中の企画がない場合（休憩時間など）
+        document.getElementById('now-event').textContent = '準備中...';
+        document.getElementById('now-time').textContent = '--:--～--:--';
       }
 
       // NEXTイベント表示
